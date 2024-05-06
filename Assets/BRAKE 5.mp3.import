@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dq7dhn8m7433b"
+path="res://.godot/imported/BRAKE 5.mp3-fba39a8f1bd40d973f85bd4053919074.mp3str"
+
+[deps]
+
+source_file="res://Assets/BRAKE 5.mp3"
+dest_files=["res://.godot/imported/BRAKE 5.mp3-fba39a8f1bd40d973f85bd4053919074.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

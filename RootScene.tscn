@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://l582445io5ko"]
+
+[ext_resource type="Script" path="res://Menu.cs" id="1_28tcq"]
+
+[node name="RootScene" type="Node2D"]
+
+[node name="Menu" type="Node" parent="."]
+script = ExtResource("1_28tcq")
+
+[node name="BtnKeyboard" type="Button" parent="Menu"]
+offset_left = 513.0
+offset_top = 183.0
+offset_right = 669.0
+offset_bottom = 241.0
+text = "Usar Teclado"
+
+[node name="BtnMouse" type="Button" parent="Menu"]
+offset_left = 510.0
+offset_top = 254.0
+offset_right = 670.0
+offset_bottom = 312.0
+text = "Usar Mouse"
+
+[connection signal="pressed" from="Menu/BtnKeyboard" to="Menu" method="_on_btn_keyboard_pressed"]
+[connection signal="pressed" from="Menu/BtnMouse" to="Menu" method="_on_btn_mouse_pressed"]

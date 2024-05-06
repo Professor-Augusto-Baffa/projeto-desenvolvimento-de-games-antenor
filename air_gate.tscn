@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://11kddowwvog0"]
+
+[ext_resource type="Script" path="res://AirGate.cs" id="1_xhdgg"]
+[ext_resource type="Texture2D" uid="uid://du6g11nhchhqb" path="res://Assets/Arrow.svg" id="2_hqdfv"]
+[ext_resource type="Texture2D" uid="uid://b26v0jssoqhv1" path="res://Assets/cone.png" id="3_imddv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56da2"]
+size = Vector2(120, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nr5bx"]
+size = Vector2(120, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6uj7"]
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_76uu3"]
+height = 60.0
+
+[node name="AirGate" type="Node2D"]
+script = ExtResource("1_xhdgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.211765)
+position = Vector2(61.5, 17)
+scale = Vector2(0.167989, 0.262566)
+texture = ExtResource("2_hqdfv")
+
+[node name="Front" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Front"]
+position = Vector2(60, 22)
+shape = SubResource("RectangleShape2D_56da2")
+
+[node name="Back" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
+position = Vector2(60, 8)
+shape = SubResource("RectangleShape2D_nr5bx")
+debug_color = Color(0.67451, 0.454902, 0.603922, 0.419608)
+
+[node name="Gate" type="Area2D" parent="."]
+
+[node name="Left" type="CollisionShape2D" parent="Gate"]
+position = Vector2(-14, 14)
+shape = SubResource("CapsuleShape2D_w6uj7")
+debug_color = Color(0.619608, 0.529412, 0.262745, 0.419608)
+
+[node name="Right" type="CollisionShape2D" parent="Gate"]
+position = Vector2(136, 15)
+shape = SubResource("CapsuleShape2D_76uu3")
+debug_color = Color(0.619608, 0.529412, 0.262745, 0.419608)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gate"]
+texture_filter = 4
+position = Vector2(136, 15)
+scale = Vector2(0.063, 0.116)
+texture = ExtResource("3_imddv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Gate"]
+texture_filter = 4
+position = Vector2(-14, 15)
+scale = Vector2(0.063, 0.116)
+texture = ExtResource("3_imddv")
+
+[connection signal="area_entered" from="Front" to="." method="_on_front_area_entered"]
+[connection signal="area_entered" from="Back" to="." method="_on_back_area_entered"]
+[connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered"]
