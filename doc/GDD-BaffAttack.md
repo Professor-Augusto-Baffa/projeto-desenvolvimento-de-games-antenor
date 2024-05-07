@@ -4,7 +4,7 @@
 
 - Plataforma: PC
 - Engine: Godot
-- Público alvo: Casual, entusiata de aviação. Jogo de precisão.
+- Público alvo: Casual, entusiata de aviação. Amantes de jogos de precisão.
 - Controles: mouse ou teclado
 </div>
 
