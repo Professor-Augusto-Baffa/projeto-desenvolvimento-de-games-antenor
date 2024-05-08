@@ -121,7 +121,6 @@ Speed = 200.0
 MinSpeed = 80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Plane"]
-visible = false
 texture_filter = 4
 position = Vector2(8.375, 47.375)
 scale = Vector2(0.06, 0.06)
@@ -686,7 +685,6 @@ texture = ExtResource("14_x6sm8")
 stream = ExtResource("15_oynnh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 modulate = Color(0.647059, 0.635294, 0.643137, 1)
 show_behind_parent = true
 z_index = -5

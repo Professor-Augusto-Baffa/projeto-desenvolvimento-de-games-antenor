@@ -85,7 +85,7 @@ public partial class AirGate : Node2D
 	{
 		if (area is Plane)
 		{
-			GetNode<Game>("/root/Game").Score -= 500;
+			GetNode<Game>("/root/Game").Score -= 100;
 		}
 	}
 }
