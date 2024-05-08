@@ -17,7 +17,7 @@ public partial class TimePowerDown : Area2D
 	{
 		if (area is Plane)
 		{
-			GetNode<Game>("/root/Game").RemainingTime -= 60;
+			GetNode<Game>("/root/Game").RemainingTime -= 30;
 			QueueFree();
 		}
 	}
