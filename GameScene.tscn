@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://eycu6miqkgtx" path="res://StartCountdown.tscn" id="9_6hw4q"]
 [ext_resource type="PackedScene" uid="uid://ci3arvatohe4i" path="res://air_gate_narrow.tscn" id="9_7cdqp"]
 [ext_resource type="PackedScene" uid="uid://brxngtoiwapbj" path="res://time_power_down.tscn" id="10_j4i32"]
+[ext_resource type="Texture2D" uid="uid://cvkxfoqwbq5ck" path="res://Assets/arrowPath.png" id="13_31qsm"]
 [ext_resource type="Script" path="res://AirPath.cs" id="13_e62vy"]
-[ext_resource type="Texture2D" uid="uid://du6g11nhchhqb" path="res://Assets/Arrow.svg" id="14_x6sm8"]
 [ext_resource type="Texture2D" uid="uid://bnfjm3veptarb" path="res://Assets/tile-texture.png" id="15_ldid5"]
 [ext_resource type="AudioStream" uid="uid://b5b2jmshjwmg8" path="res://Assets/BGM LOOP.mp3" id="15_oynnh"]
 
@@ -523,166 +523,13 @@ position = Vector2(-11.0786, 0)
 scale = Vector2(1.00542, 1)
 curve = SubResource("Curve2D_xibw1")
 script = ExtResource("13_e62vy")
-
-[node name="Hints" type="Node2D" parent="."]
-
-[node name="Arrow" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(562, 255)
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow2" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(960, -127)
-rotation = 1.96175
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow16" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(859, -155)
-rotation = 2.30907
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow9" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(652, -707)
-rotation = 0.710349
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow10" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(722, -758)
-rotation = 1.11003
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow11" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(799, -791)
-rotation = 1.11003
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow12" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(880, -809)
-rotation = 1.45211
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow13" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(955, -809)
-rotation = 1.56731
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow14" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1022, -780)
-rotation = 2.08218
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow15" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1070, -729)
-rotation = 2.53945
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow8" type="Sprite2D" parent="Hints"]
-self_modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1913, -383)
-rotation = 1.19904
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow3" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1541, -181)
-rotation = 1.19904
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow4" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(2033, -401)
-rotation = 1.84481
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow17" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(2122, -375)
-rotation = 2.02807
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow18" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(2195, -301)
-rotation = 2.71399
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow5" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1746, 131)
-rotation = 3.68439
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow19" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1532, 1001)
-rotation = 3.05607
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow23" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1629, 1128)
-rotation = 2.02807
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow24" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1707, 1135)
-rotation = 1.79943
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow26" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1776, 1128)
-rotation = 1.39975
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow6" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(2068, -70.0001)
-rotation = 3.79784
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
-
-[node name="Arrow7" type="Sprite2D" parent="Hints"]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1883, 65)
-rotation = 3.96888
-scale = Vector2(0.0833333, 0.256614)
-texture = ExtResource("14_x6sm8")
+ArrowTexture = ExtResource("13_31qsm")
 
 [node name="Audio" type="Node" parent="."]
 
 [node name="MainBGM" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("15_oynnh")
+autoplay = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.647059, 0.635294, 0.643137, 1)
