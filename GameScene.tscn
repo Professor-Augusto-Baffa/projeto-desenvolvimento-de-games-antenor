@@ -52,6 +52,7 @@ _data = {
 point_count = 135
 
 [node name="GameScene" type="Node2D"]
+process_mode = 1
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("1_e3g2t")
@@ -61,6 +62,22 @@ position = Vector2(574, 47)
 scale = Vector2(0.25, 0.240439)
 texture = ExtResource("2_oqp1s")
 metadata/_edit_group_ = true
+
+[node name="PausedLabel" type="Label" parent="HUD"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.422
+anchor_top = 0.08
+anchor_right = 0.59
+anchor_bottom = 0.284
+offset_left = -0.144012
+offset_top = 0.159996
+offset_right = 0.319946
+offset_bottom = -0.0320129
+text = "[ Pausado ]"
+label_settings = SubResource("LabelSettings_kwoyk")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="HUD"]
 offset_left = 78.0
