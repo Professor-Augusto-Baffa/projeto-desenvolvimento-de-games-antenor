@@ -23,6 +23,9 @@ public partial class Game : Node
 		if (Score < 0) {
 			GetNode<Node>("/root/").GetTree().Paused = true;
 			GetNode<Label>("/root/RootScene/GameScene/HUD/BannerLabel").Text = "PERDEU, MANÉ";
+			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Stop();	
+			var randomBreakSound = GD.Randi() % 4 + 1;
+			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/LOSE").Stream = new AudioStream(AudioStreamMP3){};
             var timer = new Timer
             {
                 Autostart = true,

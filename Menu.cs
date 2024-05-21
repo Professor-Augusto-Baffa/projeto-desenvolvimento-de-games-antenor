@@ -20,6 +20,7 @@ public partial class Menu : Node
 		GetNode<Node>("/root/RootScene/").AddChild(scene.Instantiate());
 		GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused = true;
 		GetNode<Plane>("/root/RootScene/GameScene/Plane").IsControledByMouse = IsControledByMouse;
+		GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play();
 	}
 	
 	private void _on_btn_mouse_pressed()
