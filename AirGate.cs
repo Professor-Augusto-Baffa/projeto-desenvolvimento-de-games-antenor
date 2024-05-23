@@ -88,6 +88,7 @@ public partial class AirGate : Node2D
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Visible = true;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();
 			GetNode<Godot.Timer>("Gate" + leftOrRight + "/ExplosionTimer").Start();
+			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/FireSFX").Play();
 		}
 	}
 	private void _on_right_area_entered(Area2D area)

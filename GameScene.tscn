@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=25 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bnfjm3veptarb" path="res://Assets/tile-texture.png" id="15_ldid5"]
 [ext_resource type="AudioStream" uid="uid://b5b2jmshjwmg8" path="res://Assets/BGM LOOP.mp3" id="15_oynnh"]
 [ext_resource type="AudioStream" uid="uid://bvi8negocy1xe" path="res://Assets/BRAKE 2.mp3" id="15_vafty"]
+[ext_resource type="AudioStream" uid="uid://ktfa4uoahrl3" path="res://Assets/SFX Fire.mp3" id="16_lanvm"]
 
 [sub_resource type="SystemFont" id="SystemFont_1isun"]
 subpixel_positioning = 0
@@ -551,6 +552,9 @@ stream = ExtResource("15_oynnh")
 
 [node name="LOSE" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("15_vafty")
+
+[node name="FireSFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("16_lanvm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.647059, 0.635294, 0.643137, 1)
