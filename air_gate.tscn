@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://11kddowwvog0"]
+[gd_scene load_steps=27 format=3 uid="uid://11kddowwvog0"]
 
 [ext_resource type="Script" path="res://AirGate.cs" id="1_xhdgg"]
 [ext_resource type="Texture2D" uid="uid://du6g11nhchhqb" path="res://Assets/Arrow.svg" id="2_hqdfv"]
 [ext_resource type="Texture2D" uid="uid://b26v0jssoqhv1" path="res://Assets/cone.png" id="3_imddv"]
+[ext_resource type="Texture2D" uid="uid://dt0venkoop1rh" path="res://boom.png" id="4_eipu5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56da2"]
 size = Vector2(120, 12)
@@ -12,6 +13,133 @@ size = Vector2(120, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w6uj7"]
 height = 60.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4l8m"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(0, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipisd"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(200, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_571l0"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(400, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjmrt"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(600, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0tu7"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(800, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thp55"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(1000, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeonc"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(1200, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tli3f"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(1400, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnqj1"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(1600, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3lsr"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(1800, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lefjr"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(2000, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0akgm"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(2200, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndjed"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(2400, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2x3j"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(2600, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrlf8"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(2800, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_petkf"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(3000, 0, 200, 277)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxx6e"]
+atlas = ExtResource("4_eipu5")
+region = Rect2(3200, 0, 200, 277)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hyjtw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4l8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipisd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_571l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjmrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0tu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thp55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeonc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tli3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnqj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3lsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lefjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0akgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndjed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2x3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrlf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_petkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxx6e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 17.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_76uu3"]
 height = 60.0
@@ -39,30 +167,58 @@ position = Vector2(60, 8)
 shape = SubResource("RectangleShape2D_nr5bx")
 debug_color = Color(0.67451, 0.454902, 0.603922, 0.419608)
 
-[node name="Gate" type="Area2D" parent="."]
+[node name="GateLeft" type="Area2D" parent="."]
 
-[node name="Left" type="CollisionShape2D" parent="Gate"]
+[node name="Left" type="CollisionShape2D" parent="GateLeft"]
 position = Vector2(-14, 14)
 shape = SubResource("CapsuleShape2D_w6uj7")
 debug_color = Color(0.619608, 0.529412, 0.262745, 0.419608)
 
-[node name="Right" type="CollisionShape2D" parent="Gate"]
-position = Vector2(136, 15)
-shape = SubResource("CapsuleShape2D_76uu3")
-debug_color = Color(0.619608, 0.529412, 0.262745, 0.419608)
-
-[node name="Sprite2D2" type="Sprite2D" parent="Gate"]
-texture_filter = 4
-position = Vector2(136, 15)
-scale = Vector2(0.063, 0.116)
-texture = ExtResource("3_imddv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Gate"]
+[node name="Sprite2D" type="Sprite2D" parent="GateLeft"]
 texture_filter = 4
 position = Vector2(-14, 15)
 scale = Vector2(0.063, 0.116)
 texture = ExtResource("3_imddv")
 
+[node name="ExplosionTimer" type="Timer" parent="GateLeft"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Explosion" type="AnimatedSprite2D" parent="GateLeft"]
+visible = false
+position = Vector2(-14, 22)
+scale = Vector2(0.255, 0.232852)
+sprite_frames = SubResource("SpriteFrames_hyjtw")
+frame = 2
+frame_progress = 0.241874
+
+[node name="GateRight" type="Area2D" parent="."]
+
+[node name="Right" type="CollisionShape2D" parent="GateRight"]
+position = Vector2(136, 15)
+shape = SubResource("CapsuleShape2D_76uu3")
+debug_color = Color(0.619608, 0.529412, 0.262745, 0.419608)
+
+[node name="Sprite2D2" type="Sprite2D" parent="GateRight"]
+texture_filter = 4
+position = Vector2(136, 15)
+scale = Vector2(0.063, 0.116)
+texture = ExtResource("3_imddv")
+
+[node name="ExplosionTimer" type="Timer" parent="GateRight"]
+wait_time = 0.4
+one_shot = true
+
+[node name="Explosion" type="AnimatedSprite2D" parent="GateRight"]
+visible = false
+position = Vector2(138, 24)
+scale = Vector2(0.252681, 0.21911)
+sprite_frames = SubResource("SpriteFrames_hyjtw")
+frame_progress = 0.835723
+
 [connection signal="area_entered" from="Front" to="." method="_on_front_area_entered"]
 [connection signal="area_entered" from="Back" to="." method="_on_back_area_entered"]
-[connection signal="area_entered" from="Gate" to="." method="_on_gate_area_entered"]
+[connection signal="area_entered" from="GateLeft" to="." method="_on_left_gate_area_entered"]
+[connection signal="timeout" from="GateLeft/ExplosionTimer" to="." method="_on_explosion_left_timer_timeout"]
+[connection signal="area_entered" from="GateRight" to="." method="_on_right_area_entered"]
+[connection signal="timeout" from="GateRight/ExplosionTimer" to="." method="_on_explosion_right_timer_timeout"]

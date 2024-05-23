@@ -81,14 +81,32 @@ public partial class AirGate : Node2D
 		}
 	}
 
-	private void _on_gate_area_entered(Area2D area)
-	{
+	private void Explode(Area2D area, String leftOrRight) {
 		if (area is Plane)
 		{
 			GetNode<Game>("/root/Game").Score -= 100;
+			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Visible = true;
+			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();
+			GetNode<Godot.Timer>("Gate" + leftOrRight + "/ExplosionTimer").Start();
 		}
 	}
-}
+	private void _on_right_area_entered(Area2D area)
+	{
+		Explode(area, "Right");
+	}
+	private void _on_left_gate_area_entered(Area2D area)
+	{
+		Explode(area, "Left");
+	}
+	private void _on_explosion_left_timer_timeout()
+	{
+		GetNode<AnimatedSprite2D>("GateLeft/Explosion").Visible = false;
+	}
 
+	private void _on_explosion_right_timer_timeout()
+	{
+		GetNode<AnimatedSprite2D>("GateRight/Explosion").Visible = false;
+	}
+}
 
 
