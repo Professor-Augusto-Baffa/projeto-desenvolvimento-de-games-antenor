@@ -163,8 +163,9 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 [node name="Camera2D" type="Camera2D" parent="Plane"]
 position = Vector2(8, -109)
 ignore_rotation = false
+position_smoothing_enabled = true
 rotation_smoothing_enabled = true
-rotation_smoothing_speed = 20.0
+rotation_smoothing_speed = 40.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
