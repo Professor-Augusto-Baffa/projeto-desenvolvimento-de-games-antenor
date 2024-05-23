@@ -25,11 +25,15 @@ public partial class Menu : Node
 	
 	private void _on_btn_mouse_pressed()
 	{
+		int sel = GetNode<OptionButton>("/root/RootScene/Menu/OptionButton").Selected;
+		Levels.SelectedLevel = (Levels.Lvl)sel;
 		StartGame(IsControledByMouse: true);
 	}
 
 	private void _on_btn_keyboard_pressed()
 	{
+		int sel = GetNode<OptionButton>("/root/RootScene/Menu/OptionButton").Selected;
+		Levels.SelectedLevel = (Levels.Lvl)sel;
 		StartGame(IsControledByMouse: false);
 	}
 

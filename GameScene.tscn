@@ -136,8 +136,6 @@ metadata/_edit_use_anchors_ = true
 z_index = 10
 position = Vector2(568, 270)
 script = ExtResource("1_jtgnp")
-Speed = 200.0
-MinSpeed = 80.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Plane"]
 texture_filter = 4

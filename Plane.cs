@@ -5,17 +5,13 @@ using System.Globalization;
 
 public partial class Plane : Area2D
 {
-	[Export]
-	public float Speed = 300.0f; // The current speed of plane
+	public float Speed = Levels.getLevelInfo(Levels.Info.Speed);
 
-	[Export]
-	public float MaxSpeed = 900.0f;
-	[Export]
-	public float MinSpeed = 100.0f;
+	public float MaxSpeed = Levels.getLevelInfo(Levels.Info.MaxSpeed);
+	public float MinSpeed = Levels.getLevelInfo(Levels.Info.MinSpeed);
 
 	public float HeadingSpeed = 0; // What rate the currentHeading can change
 	
-	[Export]
 	private float Heading = 0; // Where the nose is pointing now
 
 	[Export]
