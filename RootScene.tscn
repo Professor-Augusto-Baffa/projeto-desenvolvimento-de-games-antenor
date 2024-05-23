@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://l582445io5ko"]
+[gd_scene load_steps=4 format=3 uid="uid://l582445io5ko"]
 
 [ext_resource type="Script" path="res://RootScene.cs" id="1_0xxxs"]
 [ext_resource type="Script" path="res://Menu.cs" id="1_28tcq"]
+[ext_resource type="Texture2D" uid="uid://cb8o0kbd8tnof" path="res://Assets/logo.png" id="3_8fo1f"]
 
 [node name="RootScene" type="Node2D"]
 process_mode = 3
@@ -11,17 +12,17 @@ script = ExtResource("1_0xxxs")
 script = ExtResource("1_28tcq")
 
 [node name="BtnKeyboard" type="Button" parent="Menu"]
-offset_left = 513.0
-offset_top = 183.0
-offset_right = 669.0
-offset_bottom = 241.0
+offset_left = 435.0
+offset_top = 319.0
+offset_right = 591.0
+offset_bottom = 377.0
 text = "Usar Teclado"
 
 [node name="BtnMouse" type="Button" parent="Menu"]
-offset_left = 510.0
-offset_top = 254.0
-offset_right = 670.0
-offset_bottom = 312.0
+offset_left = 622.0
+offset_top = 319.0
+offset_right = 782.0
+offset_bottom = 377.0
 text = "Usar Mouse"
 
 [node name="Label" type="Label" parent="Menu"]
@@ -30,6 +31,24 @@ offset_top = 581.0
 offset_right = 748.0
 offset_bottom = 604.0
 text = "Durante o jogo aperte <ESC> para pausar."
+
+[node name="OptionButton" type="OptionButton" parent="Menu"]
+offset_left = 514.0
+offset_top = 423.0
+offset_right = 691.0
+offset_bottom = 454.0
+item_count = 3
+selected = 0
+popup/item_0/text = "Fácil"
+popup/item_0/id = 0
+popup/item_1/text = "Médio"
+popup/item_1/id = 1
+popup/item_2/text = "Difícil"
+popup/item_2/id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Menu"]
+position = Vector2(608, 181)
+texture = ExtResource("3_8fo1f")
 
 [connection signal="pressed" from="Menu/BtnKeyboard" to="Menu" method="_on_btn_keyboard_pressed"]
 [connection signal="pressed" from="Menu/BtnMouse" to="Menu" method="_on_btn_mouse_pressed"]
