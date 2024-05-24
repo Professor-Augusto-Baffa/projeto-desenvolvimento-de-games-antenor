@@ -7,13 +7,14 @@ public partial class RootScene : Node2D
 	public override void _Ready()
 	{
 	}
-
+	private bool firstTime = true;
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		if (Input.IsActionJustPressed("esc")) {
 			GetNode<Label>("/root/RootScene/GameScene/HUD/PausedLabel").Visible = !GetNode<Label>("/root/RootScene/GameScene/HUD/PausedLabel").Visible;
 			GetNode<Label>("/root/RootScene/GameScene/HUD/PausedLabel2").Visible = !GetNode<Label>("/root/RootScene/GameScene/HUD/PausedLabel2").Visible;
+			GetNode<Sprite2D>("/root/RootScene/GameScene/HUD/BG").Visible = !GetNode<Sprite2D>("/root/RootScene/GameScene/HUD/BG").Visible;
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused = !GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused;
 			GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused = !GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused;
 		}
@@ -30,10 +31,14 @@ public partial class RootScene : Node2D
 		bool isWithinHorizontalThreshold = Math.Abs(mousePosY - centerY) <= threshold;
 
 		if (GetNode<Node>("/root/").GetTree().Paused) {
-			if (isWithinVerticalThreshold && isWithinHorizontalThreshold)
+			bool IsControledByMouse = GetNode<Plane>("/root/RootScene/GameScene/Plane").IsControledByMouse;
+			if ((isWithinVerticalThreshold && isWithinHorizontalThreshold) || !IsControledByMouse)
 			{
-				GetNode<Node>("/root/").GetTree().Paused = false;
-				GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
+				if (firstTime) {
+					firstTime = false;
+					GetNode<Node>("/root/").GetTree().Paused = false;
+					GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
+				}
 			}
 		}
 	}

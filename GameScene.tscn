@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=30 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -18,6 +18,12 @@
 [ext_resource type="AudioStream" uid="uid://b5b2jmshjwmg8" path="res://Assets/BGM LOOP.mp3" id="15_oynnh"]
 [ext_resource type="AudioStream" uid="uid://bvi8negocy1xe" path="res://Assets/BRAKE 2.mp3" id="15_vafty"]
 [ext_resource type="AudioStream" uid="uid://ktfa4uoahrl3" path="res://Assets/SFX Fire.mp3" id="16_lanvm"]
+
+[sub_resource type="Gradient" id="Gradient_2e5uw"]
+colors = PackedColorArray(0, 0, 0, 0.709804, 0, 0, 0, 0.709804)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hly8f"]
+gradient = SubResource("Gradient_2e5uw")
 
 [sub_resource type="SystemFont" id="SystemFont_1isun"]
 subpixel_positioning = 0
@@ -66,6 +72,13 @@ process_mode = 1
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("1_e3g2t")
 
+[node name="BG" type="Sprite2D" parent="HUD"]
+visible = false
+z_index = 2
+position = Vector2(577, 326.5)
+scale = Vector2(18.0938, 10.2969)
+texture = SubResource("GradientTexture2D_hly8f")
+
 [node name="Compass" type="Sprite2D" parent="HUD"]
 position = Vector2(574, 47)
 scale = Vector2(0.25, 0.240439)
@@ -74,15 +87,16 @@ metadata/_edit_group_ = true
 
 [node name="PausedLabel" type="Label" parent="HUD"]
 visible = false
+z_index = 3
 anchors_preset = -1
 anchor_left = 0.422
 anchor_top = 0.08
 anchor_right = 0.59
 anchor_bottom = 0.284
 offset_left = -0.144012
-offset_top = 0.159996
+offset_top = 85.16
 offset_right = 0.319946
-offset_bottom = -0.0320129
+offset_bottom = 84.968
 text = "[ Pausado ]"
 label_settings = SubResource("LabelSettings_kwoyk")
 vertical_alignment = 1
@@ -143,15 +157,16 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PausedLabel2" type="Label" parent="HUD"]
 visible = false
+z_index = 3
 anchors_preset = -1
 anchor_left = 0.422
 anchor_top = 0.08
 anchor_right = 0.59
 anchor_bottom = 0.284
 offset_left = -69.42
-offset_top = 52.88
-offset_right = 52.0439
-offset_bottom = 52.688
+offset_top = 128.88
+offset_right = 52.044
+offset_bottom = 128.688
 text = "Aperte <esc> novamente para continuar."
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -159,6 +174,11 @@ metadata/_edit_use_anchors_ = true
 [node name="CenterSquare" type="Area2D" parent="HUD"]
 process_mode = 2
 position = Vector2(578, 306)
+
+[node name="BG" type="Sprite2D" parent="HUD/CenterSquare"]
+position = Vector2(2, -126)
+scale = Vector2(7.84375, 1.46875)
+texture = SubResource("GradientTexture2D_hly8f")
 
 [node name="Sprite2D" type="Sprite2D" parent="HUD/CenterSquare"]
 texture = ExtResource("4_onbjb")
@@ -168,15 +188,16 @@ shape = SubResource("RectangleShape2D_kr6mt")
 
 [node name="Instruction" type="Label" parent="HUD/CenterSquare"]
 offset_left = -237.0
-offset_top = 54.0
+offset_top = -158.0
 offset_right = 239.0
-offset_bottom = 126.0
-text = "Coloque o cursor no centro do quadrado acima.
+offset_bottom = -86.0
+text = "Coloque o cursor no centro do quadrado abaixo.
                     O mouse controla o avião.
 "
 label_settings = SubResource("LabelSettings_0noc7")
 
 [node name="Plane" type="Area2D" parent="."]
+process_mode = 1
 z_index = 10
 position = Vector2(568, 270)
 script = ExtResource("1_jtgnp")
@@ -524,17 +545,14 @@ rotation = 2.87981
 [node name="TimePowerDown6" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(2111.36, 2197.51)
 rotation = -0.34905
-scale = Vector2(1, 1)
 
 [node name="TimePowerDown7" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(35, 1160)
 rotation = 3.05433
-scale = Vector2(1, 1)
 
 [node name="TimePowerDown8" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(-1285, -26.0001)
 rotation = 3.05433
-scale = Vector2(1, 1)
 
 [node name="TimePowerDown9" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(745, 972)
