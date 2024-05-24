@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=28 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
 [ext_resource type="Texture2D" uid="uid://dbreex071vw0b" path="res://Assets/Heading_indicator.svg" id="2_oqp1s"]
 [ext_resource type="LabelSettings" uid="uid://dty7oqcj3de5g" path="res://LabelStyle.tres" id="2_wpnwk"]
+[ext_resource type="Texture2D" uid="uid://bjds71wk5x27i" path="res://Assets/CenterSquare.png" id="4_onbjb"]
 [ext_resource type="PackedScene" uid="uid://11kddowwvog0" path="res://air_gate.tscn" id="4_x0phn"]
 [ext_resource type="Texture2D" uid="uid://c7xcx08midlcv" path="res://Assets/AircraftConv/56.png" id="5_dcyqr"]
 [ext_resource type="Script" path="res://Timer.cs" id="7_vsorg"]
@@ -35,6 +36,13 @@ outline_color = Color(0.741176, 0, 0.0901961, 1)
 shadow_size = 15
 shadow_color = Color(0.741176, 0, 0.0901961, 1)
 shadow_offset = Vector2(5, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr6mt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0noc7"]
+line_spacing = 5.0
+font_size = 21
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h53ot"]
 radius = 4.625
@@ -147,6 +155,26 @@ offset_bottom = 52.688
 text = "Aperte <esc> novamente para continuar."
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="CenterSquare" type="Area2D" parent="HUD"]
+process_mode = 2
+position = Vector2(578, 306)
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/CenterSquare"]
+texture = ExtResource("4_onbjb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HUD/CenterSquare"]
+shape = SubResource("RectangleShape2D_kr6mt")
+
+[node name="Instruction" type="Label" parent="HUD/CenterSquare"]
+offset_left = -237.0
+offset_top = 54.0
+offset_right = 239.0
+offset_bottom = 126.0
+text = "Coloque o cursor no centro do quadrado acima.
+                    O mouse controla o avião.
+"
+label_settings = SubResource("LabelSettings_0noc7")
 
 [node name="Plane" type="Area2D" parent="."]
 z_index = 10
@@ -582,6 +610,7 @@ offset_bottom = 4543.0
 texture = ExtResource("15_ldid5")
 stretch_mode = 1
 
+[connection signal="area_entered" from="HUD/CenterSquare" to="HUD/CenterSquare" method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
 [connection signal="area_entered" from="PwrUps/TimePowerUp" to="PwrUps/TimePowerUp" method="_on_area_entered"]
 [connection signal="area_entered" from="PwrUps/TimePowerUp2" to="PwrUps/TimePowerUp2" method="_on_area_entered"]

@@ -20,17 +20,17 @@ public partial class StartCountdown : Node2D
 		
 	private void _on_timer_timeout()
 	{
-		var StartTimerLabel = GetNode<Label>("/root/RootScene/GameScene/StartCountdown/StartTimerLabel");
-		if (currentTime > 1) 
-		{
-			currentTime--;
-		}
-		else 
-		{
-			GetNode<Node2D>("/root/RootScene/GameScene/StartCountdown").QueueFree();
-			GetNode<Node>("/root/").GetTree().Paused = false;
-		}
-		StartTimerLabel.Text = currentTime.ToString();
+		// var StartTimerLabel = GetNode<Label>("/root/RootScene/GameScene/StartCountdown/StartTimerLabel");
+		// if (currentTime > 1) 
+		// {
+		// 	currentTime--;
+		// }
+		// else 
+		// {
+		// 	GetNode<Node2D>("/root/RootScene/GameScene/StartCountdown").QueueFree();
+		// 	GetNode<Node>("/root/").GetTree().Paused = false;
+		// }
+		// StartTimerLabel.Text = currentTime.ToString();
 	}	
 }
 

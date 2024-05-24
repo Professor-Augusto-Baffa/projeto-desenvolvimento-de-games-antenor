@@ -17,5 +17,22 @@ public partial class RootScene : Node2D
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused = !GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused;
 			GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused = !GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused;
 		}
+
+		float mousePosX = GetViewport().GetMousePosition().X;
+		float mousePosY = GetViewport().GetMousePosition().Y;
+
+		float centerX = 579;
+		float centerY = 307;
+
+		float threshold = 20.0f;
+
+		bool isWithinVerticalThreshold = Math.Abs(mousePosX - centerX) <= threshold;
+		bool isWithinHorizontalThreshold = Math.Abs(mousePosY - centerY) <= threshold;
+
+		if (isWithinVerticalThreshold && isWithinHorizontalThreshold)
+		{
+			GetNode<Node>("/root/").GetTree().Paused = false;
+			GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
+		}
 	}
 }
