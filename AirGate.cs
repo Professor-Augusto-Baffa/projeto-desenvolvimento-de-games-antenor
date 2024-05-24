@@ -13,6 +13,11 @@ public partial class AirGate : Node2D
 	private float startX, startY;
 	private int moveRange;
 	private int moveSpeed;
+	/*
+	 * If the plane touches the pylon any apparent valid pass
+	 * should not be counted.
+	 */
+	private bool hasExplodedJustBefore = false;
 
 	public override void _Ready()
 	{
@@ -50,6 +55,10 @@ public partial class AirGate : Node2D
 	
 	private void _on_front_area_entered(Area2D area)
 	{
+		if (hasExplodedJustBefore) {
+			hasExplodedJustBefore = false;
+			return;
+		}
 		if (area is Plane)
 		{
 			if (lastEnteredFrom == F.Back) 
@@ -67,6 +76,10 @@ public partial class AirGate : Node2D
 
 	private void _on_back_area_entered(Area2D area)
 	{
+		if (hasExplodedJustBefore) {
+			hasExplodedJustBefore = false;
+			return;
+		}
 		if (area is Plane)
 		{
 			if (lastEnteredFrom == F.Front) 
@@ -84,6 +97,7 @@ public partial class AirGate : Node2D
 	private void Explode(Area2D area, String leftOrRight) {
 		if (area is Plane)
 		{
+			hasExplodedJustBefore = true;
 			GetNode<Game>("/root/Game").Score -= 100;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Visible = true;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();
@@ -93,10 +107,16 @@ public partial class AirGate : Node2D
 	}
 	private void _on_right_area_entered(Area2D area)
 	{
+		if (hasExplodedJustBefore) {
+			return;
+		}
 		Explode(area, "Right");
 	}
 	private void _on_left_gate_area_entered(Area2D area)
 	{
+		if (hasExplodedJustBefore) {
+			return;
+		}
 		Explode(area, "Left");
 	}
 	private void _on_explosion_left_timer_timeout()

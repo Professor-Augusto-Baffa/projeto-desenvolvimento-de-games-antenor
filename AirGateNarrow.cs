@@ -5,6 +5,11 @@ public partial class AirGateNarrow : Node2D
 {
 	enum F {Front, Back, None};
 	F lastEnteredFrom = F.None;
+	/*
+	 * If the plane touches the pylon any apparent valid pass
+	 * should not be counted.
+	 */
+	private bool hasExplodedJustBefore = false;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -18,6 +23,10 @@ public partial class AirGateNarrow : Node2D
 
 	private void _on_front_area_entered(Area2D area)
 	{
+		if (hasExplodedJustBefore) {
+			hasExplodedJustBefore = false;
+			return;
+		}
 		if (area is Plane)
 		{
 			Plane plane = (Plane)area;
@@ -43,6 +52,10 @@ public partial class AirGateNarrow : Node2D
 
 	private void _on_back_area_entered(Area2D area)
 	{
+		if (hasExplodedJustBefore) {
+			hasExplodedJustBefore = false;
+			return;
+		}
 		if (area is Plane)
 		{
 			Plane plane = (Plane)area;
@@ -86,10 +99,16 @@ public partial class AirGateNarrow : Node2D
 	}
 	private void _on_right_area_entered(Area2D area)
 	{
+		if (hasExplodedJustBefore) {
+			return;
+		}
 		Explode(area, "Right");
 	}
 	private void _on_left_gate_area_entered(Area2D area)
 	{
+		if (hasExplodedJustBefore) {
+			return;
+		}
 		Explode(area, "Left");
 	}
 	private void _on_explosion_left_timer_timeout()
