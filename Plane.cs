@@ -40,11 +40,11 @@ public partial class Plane : Area2D
 		if (distance < 10000) {
 			
 		}
-		else if (distance < 50000) {
+		else if (distance < 50000 / Levels.getLevelInfo(Levels.Info.OutOfPathFactor)) {
 			GetNode<Game>("/root/Game").Score -= 1;
 		}
-		else if (distance < 100000) {
-			GetNode<Game>("/root/Game").Score -= 8;
+		else if (distance < 100000 / Levels.getLevelInfo(Levels.Info.OutOfPathFactor)) {
+			GetNode<Game>("/root/Game").Score -= 10;
 		}
 		else {
 			GetNode<Game>("/root/Game").Score -= 50;

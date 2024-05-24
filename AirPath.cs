@@ -6,7 +6,7 @@ public partial class AirPath : Path2D
 	[Export]
     public Texture2D ArrowTexture;
 	[Export]
-    public int ArrowInterval = 20;
+    public int ArrowInterval = Levels.getLevelInfo(Levels.Info.ArrowInterval);
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
