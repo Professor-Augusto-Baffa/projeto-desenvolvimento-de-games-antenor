@@ -21,11 +21,9 @@ public partial class AirPath : Path2D
 		var length = Curve.GetBakedLength();
         for (int i = 0; i < points.Length; i += ArrowInterval)
         {
-            Sprite2D arrow = new Sprite2D
-            {
-                Texture = ArrowTexture,
-                Position = points[i] + Position,
-            };
+            var newArrow = GD.Load<PackedScene>("res://Arrow.tscn");
+            var arrow = (Node2D)newArrow.Instantiate();
+            arrow.Position = points[i] + Position;
 
             // Calculate the rotation angle for the arrow sprite
             Vector2 direction;

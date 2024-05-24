@@ -103,9 +103,9 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="HUD"]
-offset_left = 78.0
+offset_left = 48.0
 offset_top = 2.0
-offset_right = 340.0
+offset_right = 310.0
 offset_bottom = 87.0
 text = "00000000"
 label_settings = SubResource("LabelSettings_kwoyk")
