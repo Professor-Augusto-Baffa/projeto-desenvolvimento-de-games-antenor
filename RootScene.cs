@@ -29,10 +29,12 @@ public partial class RootScene : Node2D
 		bool isWithinVerticalThreshold = Math.Abs(mousePosX - centerX) <= threshold;
 		bool isWithinHorizontalThreshold = Math.Abs(mousePosY - centerY) <= threshold;
 
-		if (isWithinVerticalThreshold && isWithinHorizontalThreshold)
-		{
-			GetNode<Node>("/root/").GetTree().Paused = false;
-			GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
+		if (GetNode<Node>("/root/").GetTree().Paused) {
+			if (isWithinVerticalThreshold && isWithinHorizontalThreshold)
+			{
+				GetNode<Node>("/root/").GetTree().Paused = false;
+				GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
+			}
 		}
 	}
 }
