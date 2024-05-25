@@ -24,8 +24,8 @@ public partial class AirGate : Node2D
 		if (isMovable) {
 			startX = Position.X;
 			startY = Position.Y;
-			moveRange = GD.RandRange(20, 50);
-			moveSpeed = 80 - moveRange;
+			moveRange = Levels.getLevelInfo(Levels.Info.ArrowInterval);
+			moveSpeed = 50;
 		}
 	}
 
@@ -44,11 +44,15 @@ public partial class AirGate : Node2D
 
 			if (currentDirection == D.Left)
 			{
-				Position = new Vector2((float)(Position.X + (moveSpeed * delta)), Position.Y);
+				Vector2 v = new Vector2((float)(moveSpeed * delta), 0);
+				v = v.Rotated(this.Rotation);
+				Position += v;
 			}
 			else if (currentDirection == D.Right)
 			{
-				Position = new Vector2((float)(Position.X + (-moveSpeed * delta)), Position.Y);
+				Vector2 v = new Vector2((float)(-moveSpeed * delta), 0);
+				v = v.Rotated(this.Rotation);
+				Position += v;
 			}
 		}
 	}
