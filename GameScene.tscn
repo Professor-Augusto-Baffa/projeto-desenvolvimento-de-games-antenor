@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=32 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://bvi8negocy1xe" path="res://Assets/BRAKE 2.mp3" id="15_vafty"]
 [ext_resource type="AudioStream" uid="uid://ktfa4uoahrl3" path="res://Assets/SFX Fire.mp3" id="16_lanvm"]
 [ext_resource type="AudioStream" uid="uid://xojukdt1t37a" path="res://Assets/tone.mp3" id="18_1eoyq"]
+[ext_resource type="AudioStream" uid="uid://cys8pg2p3mas1" path="res://Assets/AirGatePassSFX.mp3" id="19_2yrdc"]
 
 [sub_resource type="Gradient" id="Gradient_2e5uw"]
 colors = PackedColorArray(0, 0, 0, 0.709804, 0, 0, 0, 0.709804)
@@ -593,7 +594,11 @@ stream = ExtResource("16_lanvm")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("18_1eoyq")
 
+[node name="AirGatePassSFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("19_2yrdc")
+
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.647059, 0.635294, 0.643137, 1)
 show_behind_parent = true
 z_index = -5

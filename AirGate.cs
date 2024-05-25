@@ -65,6 +65,7 @@ public partial class AirGate : Node2D
 			{
 				lastEnteredFrom = F.None;
 				GetNode<Game>("/root/Game").Score -= 100;
+				Modulate = new Color(100, 255, 255);
 			}
 			else 
 			{
@@ -86,6 +87,7 @@ public partial class AirGate : Node2D
 			{
 				lastEnteredFrom = F.None;
 				GetNode<Game>("/root/Game").Score += 100;
+				GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AirGatePassSFX").Play();
 			}
 			else 
 			{
