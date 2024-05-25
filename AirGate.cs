@@ -86,8 +86,15 @@ public partial class AirGate : Node2D
 			if (lastEnteredFrom == F.Front) 
 			{
 				lastEnteredFrom = F.None;
-				GetNode<Game>("/root/Game").Score += 100;
+				float distanceF = Math.Abs(area.Position.DistanceSquaredTo(this.Position) - 3500) / 100;
+				int distance = (int)Math.Round(distanceF);
+				int speed = GetNode<Game>("/root/Game").Speed;
+				int points = ((int)distance + speed);
+				GetNode<Game>("/root/Game").Score += points;
 				GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AirGatePassSFX").Play();
+				GetNode<Label>("/root/RootScene/GameScene/HUD/AquiredPoints").Text = $"Dist:{distance}+Veloc:{speed} = {points} pontos";
+				GetNode<Label>("/root/RootScene/GameScene/HUD/AquiredPoints").Visible = true;
+				GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/AquiredPoints/AnimationPlayer").Play("AppearAndDisappear");
 			}
 			else 
 			{

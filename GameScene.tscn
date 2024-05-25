@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=37 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -52,6 +52,73 @@ shadow_offset = Vector2(5, 2)
 line_spacing = 5.0
 font_size = 21
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6w650"]
+font_size = 61
+font_color = Color(0, 1, 0.52549, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_kxnj6"]
+resource_name = "AppearAndDisappear"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.6, 0.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_luwcv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0inm2"]
+_data = {
+"AppearAndDisappear": SubResource("Animation_kxnj6"),
+"RESET": SubResource("Animation_luwcv")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h53ot"]
 radius = 4.625
@@ -176,6 +243,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CenterSquare" type="Area2D" parent="HUD"]
 process_mode = 2
+visible = false
 position = Vector2(578, 306)
 
 [node name="BG" type="Sprite2D" parent="HUD/CenterSquare"]
@@ -198,6 +266,29 @@ text = "Coloque o cursor no centro do quadrado abaixo.
                     O mouse controla o avião.
 "
 label_settings = SubResource("LabelSettings_0noc7")
+
+[node name="AquiredPoints" type="Label" parent="HUD"]
+visible = false
+anchors_preset = -1
+anchor_left = 1.41985
+anchor_top = 3.98824
+anchor_right = 1.41464
+anchor_bottom = 3.98824
+offset_left = -1441.21
+offset_top = -2032.38
+offset_right = -662.209
+offset_bottom = -1947.38
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(386.33, 40.625)
+text = "Dist:5+Veloc:23=27 pontos"
+label_settings = SubResource("LabelSettings_6w650")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/AquiredPoints"]
+libraries = {
+"": SubResource("AnimationLibrary_0inm2")
+}
 
 [node name="Plane" type="Area2D" parent="."]
 process_mode = 1
@@ -602,8 +693,8 @@ pitch_scale = 1.83
 
 [node name="AirGatePassSFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("20_oxjnd")
-volume_db = 3.682
-pitch_scale = 0.86
+volume_db = 5.983
+pitch_scale = 0.5
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
