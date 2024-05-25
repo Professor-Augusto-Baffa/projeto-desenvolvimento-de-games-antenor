@@ -86,8 +86,8 @@ public partial class AirGate : Node2D
 			if (lastEnteredFrom == F.Front) 
 			{
 				lastEnteredFrom = F.None;
-				float distanceF = Math.Abs(area.Position.DistanceSquaredTo(this.Position) - 3500) / 100;
-				int distance = (int)Math.Round(distanceF);
+				float distanceF = GetNode<Path2D>("/root/RootScene/GameScene/AirPath").Curve.GetClosestPoint(Position).DistanceSquaredTo(Position);
+				int distance = (int)Math.Round(distanceF) / 100;
 				int speed = GetNode<Game>("/root/Game").Speed;
 				int points = ((int)distance + speed);
 				GetNode<Game>("/root/Game").Score += points;

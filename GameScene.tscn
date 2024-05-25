@@ -265,9 +265,9 @@ size = Vector2(22, 8)
 
 [sub_resource type="Curve2D" id="Curve2D_xibw1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 568, 232, 0, 0, 0, 0, 572, 159, 0, 0, 0, 0, 560.043, 1, 0, 0, 0, 0, 532.194, -98, 0, 0, 0, 0, 457.598, -249, 0, 0, 0, 0, 421.793, -366, 0, 0, 0, 0, 409.857, -468, 0, 0, 0, 0, 338.245, -516, 0, 0, 0, 0, 298.461, -602, 0, 0, 0, 0, 292.493, -704, 0, 0, 0, 0, 314.375, -768, 0, 0, 0, 0, 401.9, -832, 0, 0, 0, 0, 535.178, -840, 0, 0, 0, 0, 634.639, -844, 0, 0, 0, 0, 740.067, -850, 0, 0, 0, 0, 841.518, -838, 0, 0, 0, 0, 955.898, -813, 0, 0, 0, 0, 1057.35, -763, 0, 0, 0, 0, 1106.08, -657, 0, 0, 0, 0, 1106.08, -567, 0, 0, 0, 0, 1063.32, -486, 0, 0, 0, 0, 964.849, -426, 0, 0, 0, 0, 891.248, -346, 0, 0, 0, 0, 832.566, -261, 0, 0, 0, 0, 856.437, -152, 0, 0, 0, 0, 942.968, -129, 0, 0, 0, 0, 1034.47, -117, 0, 0, 0, 0, 1105.09, -120, 0, 0, 0, 0, 1226, -121, 0, 0, 0, 0, 1386, -135, 0, 0, 0, 0, 1477.07, -163, 0, 0, 0, 0, 1573, -193, 0, 0, 0, 0, 1659.09, -254, 0, 0, 0, 0, 1708.82, -288, 0, 0, 0, 0, 1757, -302, 0, 0, 0, 0, 1882.87, -372, 0, 0, 0, 0, 2001.23, -410, 0, 0, 0, 0, 2112.63, -384, 0, 0, 0, 0, 2179.27, -339, 0, 0, 0, 0, 2198.16, -293, 0, 0, 0, 0, 2202.14, -229, 0, 0, 0, 0, 2158.38, -182, 0, 0, 0, 0, 2114.62, -149, 0, 0, 0, 0, 2070.85, -70, 0, 0, 0, 0, 2006.21, 4, 0, 0, 0, 0, 1873.92, 72, 0, 0, 0, 0, 1781.42, 108, 0, 0, 0, 0, 1727.71, 148, 0, 0, 0, 0, 1677.98, 254, 0, 0, 0, 0, 1688, 327, 0, 0, 0, 0, 1636, 401, 0, 0, 0, 0, 1559, 467, 0, 0, 0, 0, 1553, 577, 0, 0, 0, 0, 1602, 644, 0, 0, 0, 0, 1685, 691, 0, 0, 0, 0, 1691, 757, 0, 0, 0, 0, 1667, 825, 0, 0, 0, 0, 1614, 854, 0, 0, 0, 0, 1574, 870, 0, 0, 0, 0, 1534, 912, 0, 0, 0, 0, 1532.77, 1041, 0, 0, 0, 0, 1576.53, 1092, 0, 0, 0, 0, 1638.2, 1132, 0, 0, 0, 0, 1760.54, 1130, 0, 0, 0, 0, 2050.96, 1101, 0, 0, 0, 0, 2329.45, 1072, 0, 0, 0, 0, 2644.74, 1034, 0, 0, 0, 0, 2778.02, 1028, 0, 0, 0, 0, 2892.4, 1060, 0, 0, 0, 0, 2968.99, 1096, 0, 0, 0, 0, 3004.79, 1212, 0, 0, 0, 0, 2988.88, 1291, 0, 0, 0, 0, 3026.67, 1643, 0, 0, 0, 0, 3014.74, 1773, 0, 0, 0, 0, 2960.04, 1885, 0, 0, 0, 0, 2865.55, 1983, 0, 0, 0, 0, 2714.37, 2087, 0, 0, 0, 0, 2343.38, 2102, 0, 0, 0, 0, 2256.85, 2246, 0, 0, 0, 0, 2185.23, 2318, 0, 0, 0, 0, 2103.68, 2252, 0, 0, 0, 0, 2031.07, 1809, 0, 0, 0, 0, 1973.38, 1765, 0, 0, 0, 0, 1898.79, 1851, 0, 0, 0, 0, 1848.06, 2778, 0, 0, 0, 0, 1803.3, 2919, 0, 0, 0, 0, 1542.72, 2979, 0, 0, 0, 0, 1320.92, 2905, 0, 0, 0, 0, 1245.33, 2771, 0, 0, 0, 0, 1169.74, 2041, 0, 0, 0, 0, 1125.98, 1945, 0, 0, 0, 0, 1026.51, 1949, 0, 0, 0, 0, 980.763, 2005, 0, 0, 0, 0, 935.011, 2101, 0, 0, 0, 0, 903.183, 2225, 0, 0, 0, 0, 855.442, 2425, 0, 0, 0, 0, 777.863, 2665, 0, 0, 0, 0, 724.154, 2715, 0, 0, 0, 0, 594.854, 2763, 0, 0, 0, 0, 507.329, 2661, 0, 0, 0, 0, 449.642, 2447, 0, 0, 0, 0, 361.121, 2251, 0, 0, 0, 0, 300.45, 2185, 0, 0, 0, 0, 224.86, 2254, 0, 0, 0, 0, 174.135, 2422, 0, 0, 0, 0, 123.41, 2506, 0, 0, 0, 0, 28.9218, 2438, 0, 0, 0, 0, -5.88948, 2270, 0, 0, 0, 0, -82.4744, 2192, 0, 0, 0, 0, -160.054, 2260, 0, 0, 0, 0, -232.66, 2413, 0, 0, 0, 0, -295.321, 2470, 0, 0, 0, 0, -390.803, 2371, 0, 0, 0, 0, -513.14, 2164, 0, 0, 0, 0, -802.571, 2149, 0, 0, 0, 0, -1086.04, 2035, 0, 0, 0, 0, -1799.17, 1973, 0, 0, 0, 0, -1950.35, 1733, 0, 0, 0, 0, -1958.31, 1509, 0, 0, 0, 0, -1520.68, 1301, 0, 0, 0, 0, -908, 1405, 0, 0, 0, 0, -901.038, 1133, 0, 0, 0, 0, -1091.01, 781, 0, 0, 0, 0, -1347.62, 521, 0, 0, 0, 0, -1548.53, 297, 0, 0, 0, 0, -1645.01, 51, 0, 0, 0, 0, -1219.31, -173, 0, 0, 0, 0, -816.496, -34, 0, 0, 0, 0, -661.337, 565, 0, 0, 0, 0, -348.035, 1094, 0, 0, 0, 0, 54.7817, 1398, 0, 0, 0, 0, 281.553, 1080, 0, 0, 0, 0, 451.631, 1158, 0, 0, 0, 0, 711.224, 1173, 0, 0, 0, 0, 866.383, 1045, 0, 0, 0, 0, 945.952, 892, 0, 0, 0, 0, 877.323, 802, 0, 0, 0, 0, 567.005, 329)
+"points": PackedVector2Array(0, 0, 0, 0, 570.984, 268, 0, 0, 0, 0, 570.984, 154, 0, 0, 0, 0, 568.995, 105, 0, 0, 0, 0, 550.097, 31, 0, 0, 0, 0, 548.108, -113, 0, 0, 0, 0, 493.404, -186, 0, 0, 0, 0, 421.793, -261, 0, 0, 0, 0, 422.787, -404, 0, 0, 0, 0, 390.96, -487, 0, 0, 0, 0, 323.326, -546, 0, 0, 0, 0, 298.461, -619, 0, 0, 0, 0, 292.493, -704, 0, 0, 0, 0, 314.375, -768, 0, 0, 0, 0, 399.911, -842, 0, 0, 0, 0, 537.167, -881, 0, 0, 0, 0, 659.504, -889, 0, 0, 0, 0, 763.938, -877, 0, 0, 0, 0, 861.41, -854, 0, 0, 0, 0, 961.865, -826, 0, 0, 0, 0, 1057.35, -763, 0, 0, 0, 0, 1106.08, -669, 0, 0, 0, 0, 1103.1, -555, 0, 0, 0, 0, 1045.41, -485, 0, 0, 0, 0, 964.849, -426, 0, 0, 0, 0, 882.297, -353, 0, 0, 0, 0, 827.593, -297, 0, 0, 0, 0, 832.566, -214, 0, 0, 0, 0, 852.458, -162, 0, 0, 0, 0, 935.011, -119, 0, 0, 0, 0, 1034.47, -117, 0, 0, 0, 0, 1105.09, -120, 0, 0, 0, 0, 1226, -121, 0, 0, 0, 0, 1386, -135, 0, 0, 0, 0, 1477.07, -163, 0, 0, 0, 0, 1573, -193, 0, 0, 0, 0, 1659.09, -254, 0, 0, 0, 0, 1751.59, -317, 0, 0, 0, 0, 1882.87, -372, 0, 0, 0, 0, 2001.23, -410, 0, 0, 0, 0, 2112.63, -384, 0, 0, 0, 0, 2179.27, -339, 0, 0, 0, 0, 2198.16, -293, 0, 0, 0, 0, 2202.14, -229, 0, 0, 0, 0, 2158.38, -182, 0, 0, 0, 0, 2114.62, -149, 0, 0, 0, 0, 2070.85, -70, 0, 0, 0, 0, 2006.21, 4, 0, 0, 0, 0, 1873.92, 72, 0, 0, 0, 0, 1781.42, 108, 0, 0, 0, 0, 1727.71, 148, 0, 0, 0, 0, 1677.98, 254, 0, 0, 0, 0, 1685.94, 305, 0, 0, 0, 0, 1617.31, 355, 0, 0, 0, 0, 1557.64, 428, 0, 0, 0, 0, 1559.63, 573, 0, 0, 0, 0, 1604.38, 630, 0, 0, 0, 0, 1659.09, 646, 0, 0, 0, 0, 1685, 691, 0, 0, 0, 0, 1691, 757, 0, 0, 0, 0, 1667, 825, 0, 0, 0, 0, 1614, 854, 0, 0, 0, 0, 1574, 870, 0, 0, 0, 0, 1534, 912, 0, 0, 0, 0, 1514.87, 972, 0, 0, 0, 0, 1532.77, 1041, 0, 0, 0, 0, 1576.53, 1092, 0, 0, 0, 0, 1638.2, 1132, 0, 0, 0, 0, 1760.54, 1130, 0, 0, 0, 0, 2050.96, 1101, 0, 0, 0, 0, 2329.45, 1072, 0, 0, 0, 0, 2644.74, 1034, 0, 0, 0, 0, 2778.02, 1028, 0, 0, 0, 0, 2885.44, 1040, 0, 0, 0, 0, 2968.99, 1096, 0, 0, 0, 0, 2987.88, 1204, 0, 0, 0, 0, 2988.88, 1291, 0, 0, 0, 0, 3002.8, 1458, 0, 0, 0, 0, 3020.71, 1642, 0, 0, 0, 0, 2998.82, 1768, 0, 0, 0, 0, 2934.18, 1891, 0, 0, 0, 0, 2865.55, 1983, 0, 0, 0, 0, 2706.41, 2068, 0, 0, 0, 0, 2575.12, 2092, 0, 0, 0, 0, 2441.84, 2077, 0, 0, 0, 0, 2326.47, 2136, 0, 0, 0, 0, 2261.82, 2226, 0, 0, 0, 0, 2234.97, 2286, 0, 0, 0, 0, 2185.23, 2318, 0, 0, 0, 0, 2131.53, 2299, 0, 0, 0, 0, 2103.68, 2252, 0, 0, 0, 0, 2031.07, 1809, 0, 0, 0, 0, 1973.38, 1765, 0, 0, 0, 0, 1918.68, 1792, 0, 0, 0, 0, 1898.79, 1851, 0, 0, 0, 0, 1864.97, 2481, 0, 0, 0, 0, 1941.56, 2519, 0, 0, 0, 0, 2069.86, 2557, 0, 0, 0, 0, 2075.83, 2624, 0, 0, 0, 0, 2062.9, 2676, 0, 0, 0, 0, 1902.77, 2704, 0, 0, 0, 0, 1837.12, 2782, 0, 0, 0, 0, 1764.52, 2870, 0, 0, 0, 0, 1536.75, 2948, 0, 0, 0, 0, 1320.92, 2905, 0, 0, 0, 0, 1245.33, 2771, 0, 0, 0, 0, 1169.74, 2041, 0, 0, 0, 0, 1125.98, 1945, 0, 0, 0, 0, 1026.51, 1949, 0, 0, 0, 0, 980.763, 2005, 0, 0, 0, 0, 935.011, 2101, 0, 0, 0, 0, 903.183, 2225, 0, 0, 0, 0, 855.442, 2425, 0, 0, 0, 0, 777.863, 2665, 0, 0, 0, 0, 724.154, 2715, 0, 0, 0, 0, 599.828, 2723, 0, 0, 0, 0, 507.329, 2661, 0, 0, 0, 0, 449.642, 2447, 0, 0, 0, 0, 361.121, 2251, 0, 0, 0, 0, 300.45, 2185, 0, 0, 0, 0, 224.86, 2254, 0, 0, 0, 0, 174.135, 2422, 0, 0, 0, 0, 123.41, 2506, 0, 0, 0, 0, 28.9218, 2438, 0, 0, 0, 0, 11.0189, 2306, 0, 0, 0, 0, 39.8625, 2240, 0, 0, 0, 0, 27.9272, 2183, 0, 0, 0, 0, -15.8356, 2159, 0, 0, 0, 0, -82.4744, 2192, 0, 0, 0, 0, -160.054, 2260, 0, 0, 0, 0, -232.66, 2413, 0, 0, 0, 0, -295.321, 2470, 0, 0, 0, 0, -373.895, 2486, 0, 0, 0, 0, -445.507, 2406, 0, 0, 0, 0, -465.399, 2188, 0, 0, 0, 0, -537.011, 2147, 0, 0, 0, 0, -674.267, 2158, 0, 0, 0, 0, -1086.04, 2035, 0, 0, 0, 0, -1799.17, 1973, 0, 0, 0, 0, -1950.35, 1733, 0, 0, 0, 0, -1958.31, 1509, 0, 0, 0, 0, -1520.68, 1301, 0, 0, 0, 0, -1030.34, 1418, 0, 0, 0, 0, -845.34, 1282, 0, 0, 0, 0, -901.038, 1133, 0, 0, 0, 0, -1091.01, 781, 0, 0, 0, 0, -1347.62, 521, 0, 0, 0, 0, -1548.53, 297, 0, 0, 0, 0, -1645.01, 51, 0, 0, 0, 0, -1219.31, -173, 0, 0, 0, 0, -816.496, -34, 0, 0, 0, 0, -661.337, 565, 0, 0, 0, 0, -348.035, 1094, 0, 0, 0, 0, 54.7817, 1398, 0, 0, 0, 0, 281.553, 1080, 0, 0, 0, 0, 451.631, 1158, 0, 0, 0, 0, 711.224, 1173, 0, 0, 0, 0, 866.383, 1045, 0, 0, 0, 0, 945.952, 892, 0, 0, 0, 0, 877.323, 802, 0, 0, 0, 0, 567.005, 329)
 }
-point_count = 138
+point_count = 160
 
 [node name="GameScene" type="Node2D"]
 process_mode = 1
@@ -480,19 +480,17 @@ position = Vector2(357, -369)
 
 [node name="AirGate12" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(236, -697)
-isMovable = true
 
 [node name="AirGate13" parent="Gates" instance=ExtResource("4_x0phn")]
-position = Vector2(1133, -508)
-rotation = 3.5116
+position = Vector2(1159, -607)
+rotation = 3.16952
 
 [node name="AirGate15" parent="Gates" instance=ExtResource("4_x0phn")]
-position = Vector2(971, -360)
+position = Vector2(1006, -381)
 rotation = 3.91128
-isMovable = true
 
 [node name="AirGate14" parent="Gates" instance=ExtResource("4_x0phn")]
-position = Vector2(892, -227)
+position = Vector2(894, -220)
 rotation = 3.16952
 
 [node name="AirGate3" parent="Gates" instance=ExtResource("4_x0phn")]
@@ -500,8 +498,8 @@ position = Vector2(1104, -180)
 rotation = 1.48353
 
 [node name="AirGate4" parent="Gates" instance=ExtResource("4_x0phn")]
-position = Vector2(1313, -190)
-rotation = 1.48353
+position = Vector2(1387, -202)
+rotation = 1.31249
 
 [node name="AirGate5" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(2015, 63.9999)
@@ -510,7 +508,6 @@ rotation = -2.28813
 [node name="AirGate6" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(1845, 1064)
 rotation = 1.54287
-isMovable = true
 
 [node name="AirGate7" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(2180, -135)
@@ -519,49 +516,74 @@ rotation = 3.71232
 [node name="AirGate8" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(2118, 1034)
 rotation = 1.48528
-isMovable = true
 
 [node name="AirGate9" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(2408, 1004)
 rotation = 1.42768
-isMovable = true
 
 [node name="AirGate10" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(2728, 974)
 rotation = 1.42768
+
+[node name="AirGate55" parent="Gates" instance=ExtResource("4_x0phn")]
+position = Vector2(-1371, 2074)
+rotation = 4.85376
 isMovable = true
 
 [node name="AirGate37" parent="Gates" instance=ExtResource("4_x0phn")]
-position = Vector2(-593, 2216)
-rotation = -1.71391
+position = Vector2(-1072, 2111)
+rotation = -1.42768
+isMovable = true
 
 [node name="AirGate38" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(-1227, 2087)
 rotation = -1.42768
+isMovable = true
+
+[node name="AirGate58" parent="Gates" instance=ExtResource("4_x0phn")]
+position = Vector2(-808, 2176)
+rotation = -1.42768
+isMovable = true
 
 [node name="AirGate39" parent="Gates" instance=ExtResource("4_x0phn")]
-position = Vector2(-1811, 2024)
-rotation = -1.42768
+position = Vector2(-1766, 2020)
+rotation = -1.14145
+isMovable = true
 
 [node name="AirGate40" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(-2035, 1677)
 rotation = -0.342085
+isMovable = true
 
 [node name="AirGate41" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(-1821, 1339)
 rotation = 0.914553
+isMovable = true
 
 [node name="AirGate42" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(-1169, 1325)
 rotation = 1.82911
+isMovable = true
 
 [node name="AirGate47" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(-1235, 728)
 rotation = -0.797615
 
+[node name="AirGate56" parent="Gates" instance=ExtResource("4_x0phn")]
+position = Vector2(-1019, 1069)
+rotation = -0.680678
+scale = Vector2(1, 1)
+isMovable = true
+
 [node name="AirGate48" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(-1668, 183)
 rotation = -0.797615
+
+[node name="AirGate57" parent="Gates" instance=ExtResource("4_x0phn")]
+position = Vector2(-1458, 491)
+rotation = -0.675442
+scale = Vector2(1, 1)
+isMovable = true
 
 [node name="AirGate49" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(-706, 256)
@@ -590,17 +612,14 @@ rotation = -0.397935
 [node name="AirGate26" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(3068, 1437)
 rotation = -3.25853
-isMovable = true
 
 [node name="AirGate51" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(3080, 1651)
 rotation = -3.25853
-isMovable = true
 
 [node name="AirGate52" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(2991, 1927)
 rotation = -2.74366
-isMovable = true
 
 [node name="AirGate27" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(2737, 2122)
@@ -619,7 +638,7 @@ position = Vector2(1929, 2452)
 rotation = -3.14334
 
 [node name="AirGate54" parent="Gates" instance=ExtResource("4_x0phn")]
-position = Vector2(1919, 2614)
+position = Vector2(2139, 2622)
 rotation = -3.14334
 
 [node name="AirGate35" parent="Gates" instance=ExtResource("4_x0phn")]
@@ -673,12 +692,12 @@ position = Vector2(1605, 500)
 rotation = 3.14159
 
 [node name="AirGateNarrow4" parent="GatesNarrow" instance=ExtResource("9_7cdqp")]
-position = Vector2(1730, 772)
+position = Vector2(1726, 737)
 rotation = 3.14159
 
 [node name="AirGateNarrow5" parent="GatesNarrow" instance=ExtResource("9_7cdqp")]
-position = Vector2(1579, 940)
-rotation = 3.14159
+position = Vector2(1575, 929)
+rotation = 3.76991
 
 [node name="AirGateNarrow6" parent="GatesNarrow" instance=ExtResource("9_7cdqp")]
 position = Vector2(1620, 1071)
@@ -701,8 +720,8 @@ position = Vector2(1997, 1824)
 rotation = -0.0855211
 
 [node name="AirGateNarrow19" parent="GatesNarrow" instance=ExtResource("9_7cdqp")]
-position = Vector2(1886, 2808)
-rotation = -3.16952
+position = Vector2(1875, 2804)
+rotation = -2.65639
 
 [node name="AirGateNarrow24" parent="GatesNarrow" instance=ExtResource("9_7cdqp")]
 position = Vector2(1944, 1941)
@@ -713,7 +732,7 @@ position = Vector2(974, 2156)
 rotation = -3.16952
 
 [node name="AirGateNarrow20" parent="GatesNarrow" instance=ExtResource("9_7cdqp")]
-position = Vector2(1269, 2911)
+position = Vector2(1289, 2924)
 rotation = -0.942478
 
 [node name="AirGateNarrow21" parent="GatesNarrow" instance=ExtResource("9_7cdqp")]
@@ -732,6 +751,10 @@ rotation = -0.708604
 position = Vector2(183, 2487)
 rotation = -2.70701
 
+[node name="AirGateNarrow22" parent="GatesNarrow" instance=ExtResource("9_7cdqp")]
+position = Vector2(-1588, 2022)
+rotation = -1.01578
+
 [node name="AirGateNarrow18" parent="GatesNarrow" instance=ExtResource("9_7cdqp")]
 position = Vector2(-90, 2270)
 rotation = -2.70701
@@ -743,11 +766,11 @@ position = Vector2(1013, -120)
 rotation = 1.52716
 
 [node name="TimePowerUp2" parent="PwrUps" instance=ExtResource("8_uyq1q")]
-position = Vector2(1814, 168)
-rotation = -1.6441
+position = Vector2(1472, 341)
+rotation = -3.11192
 
 [node name="TimePowerUp3" parent="PwrUps" instance=ExtResource("8_uyq1q")]
-position = Vector2(1756, -306)
+position = Vector2(2003, -482)
 rotation = 1.05767
 
 [node name="StartCountdown" parent="." instance=ExtResource("9_6hw4q")]
@@ -757,11 +780,17 @@ CountDownStart = 1
 [node name="PwrDowns" type="Node" parent="."]
 
 [node name="TimePowerDown" parent="PwrDowns" instance=ExtResource("10_j4i32")]
-position = Vector2(1095, -684)
+position = Vector2(810, -796)
+rotation = -4.32318
 
 [node name="TimePowerDown2" parent="PwrDowns" instance=ExtResource("10_j4i32")]
-position = Vector2(2200, -421)
-rotation = 0.82205
+position = Vector2(1692, -9)
+rotation = 3.93397
+
+[node name="TimePowerDown14" parent="PwrDowns" instance=ExtResource("10_j4i32")]
+position = Vector2(1864, 2594)
+rotation = 3.09796
+scale = Vector2(1, 1)
 
 [node name="TimePowerDown3" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(1497, 732)
@@ -776,8 +805,8 @@ position = Vector2(85.9999, 2190)
 rotation = 2.87981
 
 [node name="TimePowerDown6" parent="PwrDowns" instance=ExtResource("10_j4i32")]
-position = Vector2(2111.36, 2197.51)
-rotation = -0.34905
+position = Vector2(1802, 892)
+rotation = -3.7542
 
 [node name="TimePowerDown7" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(35, 1160)
@@ -792,8 +821,8 @@ position = Vector2(745, 972)
 rotation = -0.174525
 
 [node name="TimePowerDown10" parent="PwrDowns" instance=ExtResource("10_j4i32")]
-position = Vector2(-410.69, 2278.52)
-rotation = 2.87981
+position = Vector2(-562, 2316)
+rotation = 4.49422
 
 [node name="TimePowerDown11" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(637, 2151)
@@ -802,6 +831,11 @@ rotation = 2.87981
 [node name="TimePowerDown12" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(-1115, 1215)
 rotation = 2.87981
+
+[node name="TimePowerDown13" parent="PwrDowns" instance=ExtResource("10_j4i32")]
+position = Vector2(4586.28, 4346.77)
+rotation = -0.34905
+scale = Vector2(1, 1)
 
 [node name="AirPath" type="Path2D" parent="."]
 position = Vector2(-11.0786, 0)
