@@ -1,10 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://l582445io5ko"]
+[gd_scene load_steps=10 format=3 uid="uid://l582445io5ko"]
 
 [ext_resource type="Script" path="res://RootScene.cs" id="1_0xxxs"]
 [ext_resource type="Script" path="res://Menu.cs" id="1_28tcq"]
 [ext_resource type="Texture2D" uid="uid://cb8o0kbd8tnof" path="res://Assets/logo.png" id="3_8fo1f"]
 [ext_resource type="Texture2D" uid="uid://dwxjev7y8botb" path="res://Assets/MenuBG.png" id="3_l5opc"]
 [ext_resource type="AudioStream" uid="uid://cif50o300nd4g" path="res://Assets/Lamb - Setting sun.mp3" id="5_265wt"]
+
+[sub_resource type="Animation" id="Animation_klyxp"]
+resource_name = "LOGO Animation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LOGO:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rk6mq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LOGO:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_auxlm"]
+_data = {
+"LOGO Animation": SubResource("Animation_klyxp"),
+"RESET": SubResource("Animation_rk6mq")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6aox"]
+font_color = Color(1, 1, 1, 0.447059)
 
 [node name="RootScene" type="Node2D"]
 process_mode = 3
@@ -54,12 +95,26 @@ popup/item_2/text = "Difícil"
 popup/item_2/id = 2
 
 [node name="LOGO" type="Sprite2D" parent="Menu"]
-position = Vector2(608, 244)
+position = Vector2(608, 235)
 texture = ExtResource("3_8fo1f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/LOGO"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_auxlm")
+}
 
 [node name="BGMenu" type="AudioStreamPlayer" parent="Menu"]
 stream = ExtResource("5_265wt")
 autoplay = true
+
+[node name="Label2" type="Label" parent="Menu"]
+offset_left = 770.0
+offset_top = 266.0
+offset_right = 904.0
+offset_bottom = 289.0
+text = "Antenor Barros"
+label_settings = SubResource("LabelSettings_n6aox")
 
 [connection signal="pressed" from="Menu/BtnKeyboard" to="Menu" method="_on_btn_keyboard_pressed"]
 [connection signal="pressed" from="Menu/BtnMouse" to="Menu" method="_on_btn_mouse_pressed"]

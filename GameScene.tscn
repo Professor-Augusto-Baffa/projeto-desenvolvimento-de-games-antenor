@@ -270,7 +270,7 @@ label_settings = SubResource("LabelSettings_0noc7")
 [node name="AquiredPoints" type="Label" parent="HUD"]
 visible = false
 anchors_preset = -1
-anchor_left = 1.41985
+anchor_left = 1.41464
 anchor_top = 3.98824
 anchor_right = 1.41464
 anchor_bottom = 3.98824
