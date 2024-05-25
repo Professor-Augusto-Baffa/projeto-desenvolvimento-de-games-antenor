@@ -36,8 +36,9 @@ public partial class RootScene : Node2D
 			{
 				if (firstTime) {
 					firstTime = false;
-					GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").Modulate = new Color(0, 125, 0);
+					GetNode<Sprite2D>("/root/RootScene/GameScene/HUD/CenterSquare/Sprite2D").Modulate = new Color(0, 125, 0);
 					GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AudioStreamPlayer").Play();
+					GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/CenterSquare/AnimationPlayer").Play("InstrFadeOut");
 					var timer = new Timer
 					{
 						Autostart = true,
