@@ -18,6 +18,7 @@ public partial class Arrow : Area2D
 	{
 		if (area is Plane) {
 			this.Modulate = new Color(255, 0, 0);
+			GetNode<Game>("/root/Game").Score += 10;
 		}
 	}
 	private void _on_area_exited(Area2D area)

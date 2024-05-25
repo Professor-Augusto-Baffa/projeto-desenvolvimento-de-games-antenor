@@ -36,8 +36,21 @@ public partial class RootScene : Node2D
 			{
 				if (firstTime) {
 					firstTime = false;
-					GetNode<Node>("/root/").GetTree().Paused = false;
-					GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
+					GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").Modulate = new Color(0, 125, 0);
+					GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AudioStreamPlayer").Play();
+					var timer = new Timer
+					{
+						Autostart = true,
+						WaitTime = .5,
+						ProcessMode = ProcessModeEnum.WhenPaused,
+						OneShot = true
+					};
+					AddChild(timer);
+					timer.Timeout += () => {
+						GetNode<Node>("/root/").GetTree().Paused = false;
+						GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
+						GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play();
+					};
 				}
 			}
 		}

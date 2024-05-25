@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://l582445io5ko"]
+[gd_scene load_steps=6 format=3 uid="uid://l582445io5ko"]
 
 [ext_resource type="Script" path="res://RootScene.cs" id="1_0xxxs"]
 [ext_resource type="Script" path="res://Menu.cs" id="1_28tcq"]
 [ext_resource type="Texture2D" uid="uid://cb8o0kbd8tnof" path="res://Assets/logo.png" id="3_8fo1f"]
 [ext_resource type="Texture2D" uid="uid://dwxjev7y8botb" path="res://Assets/MenuBG.png" id="3_l5opc"]
+[ext_resource type="AudioStream" uid="uid://cif50o300nd4g" path="res://Assets/Lamb - Setting sun.mp3" id="5_265wt"]
 
 [node name="RootScene" type="Node2D"]
 process_mode = 3
@@ -55,6 +56,10 @@ popup/item_2/id = 2
 [node name="LOGO" type="Sprite2D" parent="Menu"]
 position = Vector2(608, 244)
 texture = ExtResource("3_8fo1f")
+
+[node name="BGMenu" type="AudioStreamPlayer" parent="Menu"]
+stream = ExtResource("5_265wt")
+autoplay = true
 
 [connection signal="pressed" from="Menu/BtnKeyboard" to="Menu" method="_on_btn_keyboard_pressed"]
 [connection signal="pressed" from="Menu/BtnMouse" to="Menu" method="_on_btn_mouse_pressed"]
