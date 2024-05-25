@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=33 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://ktfa4uoahrl3" path="res://Assets/SFX Fire.mp3" id="16_lanvm"]
 [ext_resource type="AudioStream" uid="uid://xojukdt1t37a" path="res://Assets/tone.mp3" id="18_1eoyq"]
 [ext_resource type="AudioStream" uid="uid://cys8pg2p3mas1" path="res://Assets/AirGatePassSFX.mp3" id="19_2yrdc"]
+[ext_resource type="AudioStream" uid="uid://c86g3fr7fqtsb" path="res://Assets/AirGatePassSFX2.mp3" id="20_oxjnd"]
 
 [sub_resource type="Gradient" id="Gradient_2e5uw"]
 colors = PackedColorArray(0, 0, 0, 0.709804, 0, 0, 0, 0.709804)
@@ -594,10 +595,15 @@ stream = ExtResource("16_lanvm")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("18_1eoyq")
 
-[node name="AirGatePassSFX" type="AudioStreamPlayer" parent="Audio"]
+[node name="AirGateNarrowPassSFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("19_2yrdc")
 volume_db = -0.92
 pitch_scale = 1.83
+
+[node name="AirGatePassSFX" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("20_oxjnd")
+volume_db = 3.682
+pitch_scale = 0.86
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
