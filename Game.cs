@@ -24,7 +24,7 @@ public partial class Game : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Score <= 10 || Health < 0) {
+		if (Score <= 10 || Health < 1) {
 			GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused = true;
 			GetNode<Label>("/root/RootScene/GameScene/HUD/BannerLabel").Text = $"FIM DE JOGO\nScore: {GetNode<Game>("/root/Game").Score }";
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Stop();	

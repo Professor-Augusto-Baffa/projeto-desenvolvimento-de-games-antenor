@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=41 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -19,7 +19,6 @@
 [ext_resource type="AudioStream" uid="uid://b5b2jmshjwmg8" path="res://Assets/BGM LOOP.mp3" id="15_oynnh"]
 [ext_resource type="AudioStream" uid="uid://bvi8negocy1xe" path="res://Assets/BRAKE 2.mp3" id="15_vafty"]
 [ext_resource type="AudioStream" uid="uid://ktfa4uoahrl3" path="res://Assets/SFX Fire.mp3" id="16_lanvm"]
-[ext_resource type="AudioStream" uid="uid://xojukdt1t37a" path="res://Assets/tone.mp3" id="18_1eoyq"]
 [ext_resource type="AudioStream" uid="uid://cys8pg2p3mas1" path="res://Assets/AirGatePassSFX.mp3" id="19_2yrdc"]
 [ext_resource type="AudioStream" uid="uid://c86g3fr7fqtsb" path="res://Assets/AirGatePassSFX2.mp3" id="20_oxjnd"]
 
@@ -873,9 +872,6 @@ stream = ExtResource("15_vafty")
 
 [node name="FireSFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("16_lanvm")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("18_1eoyq")
 
 [node name="AirGateNarrowPassSFX" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("19_2yrdc")

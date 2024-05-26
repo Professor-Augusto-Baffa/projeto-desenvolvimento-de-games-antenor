@@ -97,7 +97,7 @@ public partial class AirGate : Node2D
 				int speed = GetNode<Game>("/root/Game").Speed;
 				int points = ((int)distance + speed);
 				GetNode<Game>("/root/Game").Score += points;
-				GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AirGatePassSFX").Play();
+				// GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AirGatePassSFX").Play();
 				GetNode<Label>("/root/RootScene/GameScene/HUD/AquiredPoints").Text = $"Dist:{distance}+Veloc:{speed} = {points} pontos";
 				GetNode<Label>("/root/RootScene/GameScene/HUD/AquiredPoints").Visible = true;
 				GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/AquiredPoints/AnimationPlayer").Play("AppearAndDisappear");

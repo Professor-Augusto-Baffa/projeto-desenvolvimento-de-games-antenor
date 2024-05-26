@@ -24,6 +24,7 @@ public partial class Plane : Area2D
 		
 	}
 
+	int t = 0;
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
@@ -39,25 +40,34 @@ public partial class Plane : Area2D
 
 		
 		if (distance < 10000) {
-			
+			t = 0;
 		}
 		else if (distance < 50000 / Levels.getLevelInfo(Levels.Info.OutOfPathFactor)) {
-			if (Time.GetTicksMsec() % 400 < 20) {
+			if (t > 20) {
+				t = 0;
 				GetNode<Game>("/root/Game").Health -= 1;
 			}
-			GetNode<Game>("/root/Game").Score -= 1;
+			else {
+				t++;
+			}
 		}
 		else if (distance < 100000 / Levels.getLevelInfo(Levels.Info.OutOfPathFactor)) {
-			if (Time.GetTicksMsec() % 400 < 20) {
+			if (t > 20) {
+				t = 0;
 				GetNode<Game>("/root/Game").Health -= 2;
 			}
-			GetNode<Game>("/root/Game").Score -= 1;
+			else {
+				t++;
+			}
 		}
 		else {
-			if (Time.GetTicksMsec() % 400 < 20) {
-				GetNode<Game>("/root/Game").Health -= 1;
+			if (t > 20) {
+				t = 0;
+				GetNode<Game>("/root/Game").Health -= 3;
 			}
-			GetNode<Game>("/root/Game").Score -= 8;
+			else {
+				t++;
+			}
 		}
 	}
 
