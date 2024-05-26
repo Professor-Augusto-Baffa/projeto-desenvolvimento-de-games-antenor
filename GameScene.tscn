@@ -572,7 +572,6 @@ rotation = -0.797615
 [node name="AirGate56" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(-1019, 1069)
 rotation = -0.680678
-scale = Vector2(1, 1)
 isMovable = true
 
 [node name="AirGate48" parent="Gates" instance=ExtResource("4_x0phn")]
@@ -582,7 +581,6 @@ rotation = -0.797615
 [node name="AirGate57" parent="Gates" instance=ExtResource("4_x0phn")]
 position = Vector2(-1458, 491)
 rotation = -0.675442
-scale = Vector2(1, 1)
 isMovable = true
 
 [node name="AirGate49" parent="Gates" instance=ExtResource("4_x0phn")]
@@ -790,7 +788,6 @@ rotation = 3.93397
 [node name="TimePowerDown14" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(1864, 2594)
 rotation = 3.09796
-scale = Vector2(1, 1)
 
 [node name="TimePowerDown3" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(1497, 732)
@@ -835,7 +832,6 @@ rotation = 2.87981
 [node name="TimePowerDown13" parent="PwrDowns" instance=ExtResource("10_j4i32")]
 position = Vector2(4586.28, 4346.77)
 rotation = -0.34905
-scale = Vector2(1, 1)
 
 [node name="AirPath" type="Path2D" parent="."]
 position = Vector2(-11.0786, 0)

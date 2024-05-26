@@ -42,7 +42,7 @@ public partial class RootScene : Node2D
 					var timer = new Timer
 					{
 						Autostart = true,
-						WaitTime = .5,
+						WaitTime = 1.2,
 						ProcessMode = ProcessModeEnum.WhenPaused,
 						OneShot = true
 					};

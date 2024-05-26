@@ -22,7 +22,7 @@ public partial class Game : Node
 	{
 		if (Score < 0) {
 			GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused = true;
-			GetNode<Label>("/root/RootScene/GameScene/HUD/BannerLabel").Text = "PERDEU, MANÉ";
+			GetNode<Label>("/root/RootScene/GameScene/HUD/BannerLabel").Text = $"FIM DE JOGO\nScore: {GetNode<Game>("/root/Game").Score }";
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Stop();	
 			var randomBreakSound = GD.Randi() % 4 + 1;
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/LOSE").Play();
