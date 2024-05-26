@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=44 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://eycu6miqkgtx" path="res://StartCountdown.tscn" id="9_6hw4q"]
 [ext_resource type="PackedScene" uid="uid://ci3arvatohe4i" path="res://air_gate_narrow.tscn" id="9_7cdqp"]
 [ext_resource type="PackedScene" uid="uid://brxngtoiwapbj" path="res://time_power_down.tscn" id="10_j4i32"]
+[ext_resource type="PackedScene" uid="uid://c1x0hb1i3l180" path="res://extraHealth.tscn" id="12_1slkx"]
 [ext_resource type="Texture2D" uid="uid://cvkxfoqwbq5ck" path="res://Assets/arrowPath.png" id="13_31qsm"]
 [ext_resource type="Script" path="res://AirPath.cs" id="13_e62vy"]
 [ext_resource type="Texture2D" uid="uid://bnfjm3veptarb" path="res://Assets/tile-texture.png" id="15_ldid5"]
@@ -23,10 +24,11 @@
 [ext_resource type="AudioStream" uid="uid://c86g3fr7fqtsb" path="res://Assets/AirGatePassSFX2.mp3" id="20_oxjnd"]
 
 [sub_resource type="Gradient" id="Gradient_sn12s"]
-colors = PackedColorArray(0.176471, 0.4, 0.976471, 0.45098, 0.176471, 0.4, 0.976471, 0.45098)
+colors = PackedColorArray(0, 0, 0.85098, 0.72549, 0, 0, 0.85098, 0.72549)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hly8f"]
 gradient = SubResource("Gradient_sn12s")
+fill_to = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_81eeb"]
 font_size = 21
@@ -258,6 +260,13 @@ _data = {
 "RESET": SubResource("Animation_luwcv")
 }
 
+[sub_resource type="Gradient" id="Gradient_slth1"]
+colors = PackedColorArray(0, 0.278431, 0.529412, 0, 0, 0.709804, 0.501961, 0.0784314)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ri7lo"]
+gradient = SubResource("Gradient_slth1")
+fill_to = Vector2(0, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h53ot"]
 radius = 4.625
 height = 51.25
@@ -295,11 +304,11 @@ texture = ExtResource("2_oqp1s")
 metadata/_edit_group_ = true
 
 [node name="Health" type="Label" parent="HUD"]
-offset_left = 934.0
+offset_left = 707.0
 offset_top = 31.0
-offset_right = 1137.0
+offset_right = 1118.0
 offset_bottom = 67.0
-text = "♥♥♥♥♥♥♥"
+text = "♥♥♥♥♥♥♥♥♥"
 label_settings = SubResource("LabelSettings_81eeb")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -449,6 +458,13 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 "": SubResource("AnimationLibrary_0inm2")
 }
+
+[node name="BG2" type="Sprite2D" parent="HUD"]
+visible = false
+z_index = -1
+position = Vector2(573.5, 49)
+scale = Vector2(18.2031, 1.53125)
+texture = SubResource("GradientTexture2D_ri7lo")
 
 [node name="Plane" type="Area2D" parent="."]
 process_mode = 1
@@ -789,8 +805,17 @@ position = Vector2(1472, 341)
 rotation = -3.11192
 
 [node name="TimePowerUp3" parent="PwrUps" instance=ExtResource("8_uyq1q")]
-position = Vector2(2003, -482)
-rotation = 1.05767
+position = Vector2(2535, 2055)
+rotation = -1.76104
+
+[node name="ExtraHealth" parent="PwrUps" instance=ExtResource("12_1slkx")]
+position = Vector2(1763, 109)
+rotation = -2.40681
+
+[node name="ExtraHealth2" parent="PwrUps" instance=ExtResource("12_1slkx")]
+position = Vector2(895, -354)
+rotation = 3.6425
+scale = Vector2(1, 1)
 
 [node name="StartCountdown" parent="." instance=ExtResource("9_6hw4q")]
 visible = false

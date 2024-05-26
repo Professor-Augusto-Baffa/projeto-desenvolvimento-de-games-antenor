@@ -62,7 +62,7 @@ public partial class AirGateNarrow : Node2D
 			if (lastEnteredFrom == F.Front) 
 			{
 				lastEnteredFrom = F.None;
-				if (plane.HeadingSpeed > 0.3f)
+				if (Math.Abs(plane.HeadingSpeed) > 0.5f)
 				{
 					GetNode<Game>("/root/Game").Score += 100;
 					GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AirGateNarrowPassSFX").Play();
