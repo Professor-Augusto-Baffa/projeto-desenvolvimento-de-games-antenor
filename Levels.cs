@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 public static class Levels {
     public enum Lvl {Easy, Medium, Hard};
-    public enum Info {Speed, MaxSpeed, MinSpeed, OutOfPathFactor, ArrowInterval, MovableRange, ScoreReduction};
+    public enum Info {Speed, MaxSpeed, MinSpeed, OutOfPathFactor, ArrowInterval, MovableRange, InitialHealth};
 
     public static Lvl SelectedLevel = Lvl.Easy;
     public static int getLevelInfo(Info info) {
@@ -15,7 +15,7 @@ public static class Levels {
                 { Info.OutOfPathFactor, 1},
                 { Info.ArrowInterval, 20},
                 { Info.MovableRange, 50 },
-                { Info.ScoreReduction, 3}
+                { Info.InitialHealth, 7}
             };
             return ret[info];
         }
@@ -28,7 +28,7 @@ public static class Levels {
                 { Info.OutOfPathFactor, 5},
                 { Info.ArrowInterval, 40},
                 { Info.MovableRange, 100 },
-                { Info.ScoreReduction, 8}
+                { Info.InitialHealth, 5}
             };
             return ret[info];
         }
@@ -41,7 +41,7 @@ public static class Levels {
                 { Info.OutOfPathFactor, 10},
                 { Info.ArrowInterval, 60},
                 { Info.MovableRange, 150 },
-                { Info.ScoreReduction, 16}
+                { Info.InitialHealth, 3}
             };
             return ret[info];
         }

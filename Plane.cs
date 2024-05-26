@@ -37,19 +37,28 @@ public partial class Plane : Area2D
 
 		var distance = GetNode<Path2D>("/root/RootScene/GameScene/AirPath").Curve.GetClosestPoint(Position).DistanceSquaredTo(Position);
 
+		
 		if (distance < 10000) {
 			
 		}
 		else if (distance < 50000 / Levels.getLevelInfo(Levels.Info.OutOfPathFactor)) {
+			if (Time.GetTicksMsec() % 400 < 20) {
+				GetNode<Game>("/root/Game").Health -= 1;
+			}
 			GetNode<Game>("/root/Game").Score -= 1;
 		}
 		else if (distance < 100000 / Levels.getLevelInfo(Levels.Info.OutOfPathFactor)) {
-			GetNode<Game>("/root/Game").Score -= 10;
+			if (Time.GetTicksMsec() % 400 < 20) {
+				GetNode<Game>("/root/Game").Health -= 2;
+			}
+			GetNode<Game>("/root/Game").Score -= 1;
 		}
 		else {
-			GetNode<Game>("/root/Game").Score -= 50;
+			if (Time.GetTicksMsec() % 400 < 20) {
+				GetNode<Game>("/root/Game").Health -= 1;
+			}
+			GetNode<Game>("/root/Game").Score -= 8;
 		}
-		//GetNode<Node2D>("/root/RootScene/GameScene/").Modulate = new Color(0, 0, 0, 0.9f);
 	}
 
     private float HandleInput()

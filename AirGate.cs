@@ -18,7 +18,6 @@ public partial class AirGate : Node2D
 	 * should not be counted.
 	 */
 	private bool hasExplodedJustBefore = false;
-	public int ScoreReduction = Levels.getLevelInfo(Levels.Info.ScoreReduction);
 
 
 	public override void _Ready()
@@ -70,7 +69,8 @@ public partial class AirGate : Node2D
 			if (lastEnteredFrom == F.Back) 
 			{
 				lastEnteredFrom = F.None;
-				GetNode<Game>("/root/Game").Score /= ScoreReduction * 5;
+				GetNode<Game>("/root/Game").Score -= 500;
+				GetNode<Game>("/root/Game").Health -= Levels.getLevelInfo(Levels.Info.InitialHealth);
 				Modulate = new Color(100, 255, 255);
 			}
 			else 
@@ -113,7 +113,8 @@ public partial class AirGate : Node2D
 		if (area is Plane)
 		{
 			hasExplodedJustBefore = true;
-			GetNode<Game>("/root/Game").Score /= ScoreReduction;
+			GetNode<Game>("/root/Game").Score -= 100;
+			GetNode<Game>("/root/Game").Health -= 1;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Visible = true;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();
 			GetNode<Godot.Timer>("Gate" + leftOrRight + "/ExplosionTimer").Start();

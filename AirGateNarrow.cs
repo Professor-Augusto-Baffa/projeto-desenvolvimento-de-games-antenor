@@ -70,6 +70,7 @@ public partial class AirGateNarrow : Node2D
 				}
 				else
 				{
+					GetNode<Game>("/root/Game").Health -= 1;
 					GetNode<Game>("/root/Game").Score -= 100;
 				}
 			}
