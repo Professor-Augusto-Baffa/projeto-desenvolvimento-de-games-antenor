@@ -18,6 +18,8 @@ public partial class extraHealth : Area2D
 		{
 			GetNode<Game>("/root/Game").Health += 1;
 			QueueFree();
+			var b = GetNode<Banner>("/root/Banner");
+			b.showUpperBanner("Vida extra!");
 		}
 	}
 }

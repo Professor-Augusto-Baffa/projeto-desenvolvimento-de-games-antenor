@@ -12,9 +12,8 @@ public partial class RootScene : Node2D
 	public override void _Process(double delta)
 	{
 		if (Input.IsActionJustPressed("esc")) {
-			GetNode<Label>("/root/RootScene/GameScene/HUD/PausedLabel").Visible = !GetNode<Label>("/root/RootScene/GameScene/HUD/PausedLabel").Visible;
-			GetNode<Label>("/root/RootScene/GameScene/HUD/PausedLabel2").Visible = !GetNode<Label>("/root/RootScene/GameScene/HUD/PausedLabel2").Visible;
-			GetNode<Sprite2D>("/root/RootScene/GameScene/HUD/BG").Visible = !GetNode<Sprite2D>("/root/RootScene/GameScene/HUD/BG").Visible;
+			GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Visible = !GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Visible;
+			GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/Pause/PauseAnimation").Play("PauseAnimation");
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused = !GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused;
 			GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused = !GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused;
 		}

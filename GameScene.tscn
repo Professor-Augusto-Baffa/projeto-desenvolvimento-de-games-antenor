@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=50 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -23,13 +23,6 @@
 [ext_resource type="AudioStream" uid="uid://cys8pg2p3mas1" path="res://Assets/AirGatePassSFX.mp3" id="19_2yrdc"]
 [ext_resource type="AudioStream" uid="uid://c86g3fr7fqtsb" path="res://Assets/AirGatePassSFX2.mp3" id="20_oxjnd"]
 
-[sub_resource type="Gradient" id="Gradient_sn12s"]
-colors = PackedColorArray(0, 0, 0.85098, 0.72549, 0, 0, 0.85098, 0.72549)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hly8f"]
-gradient = SubResource("Gradient_sn12s")
-fill_to = Vector2(0, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_81eeb"]
 font_size = 21
 font_color = Color(1, 0, 0, 1)
@@ -53,6 +46,81 @@ outline_color = Color(0.741176, 0, 0.0901961, 1)
 shadow_size = 15
 shadow_color = Color(0.741176, 0, 0.0901961, 1)
 shadow_offset = Vector2(5, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6w650"]
+font_size = 61
+font_color = Color(0, 1, 0.52549, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_kxnj6"]
+resource_name = "AppearAndDisappear"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.6, 0.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_luwcv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0inm2"]
+_data = {
+"AppearAndDisappear": SubResource("Animation_kxnj6"),
+"RESET": SubResource("Animation_luwcv")
+}
+
+[sub_resource type="Gradient" id="Gradient_sn12s"]
+colors = PackedColorArray(0, 0.156597, 0.999988, 0.72549, 0, 0, 0.85098, 0.72549)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hly8f"]
+gradient = SubResource("Gradient_sn12s")
+fill_from = Vector2(0, 0.0512821)
+fill_to = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr6mt"]
 
@@ -193,79 +261,112 @@ _data = {
 "RESET": SubResource("Animation_l4qll")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_6w650"]
-font_size = 61
-font_color = Color(0, 1, 0.52549, 1)
-outline_size = 6
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_at1ys"]
+font_size = 18
 
-[sub_resource type="Animation" id="Animation_kxnj6"]
-resource_name = "AppearAndDisappear"
-length = 1.2
+[sub_resource type="Animation" id="Animation_304km"]
+resource_name = "PauseAnimation"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath("PausedLabel2:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Aperte <esc> novamente para continuar", "Aperte <esc> novamente para continuar_"]
+}
+
+[sub_resource type="Animation" id="Animation_jdfw8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PausedLabel2:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Aperte <esc> novamente para continuar"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6k88f"]
+_data = {
+"PauseAnimation": SubResource("Animation_304km"),
+"RESET": SubResource("Animation_jdfw8")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_wkdbo"]
+font_size = 41
+font_color = Color(1, 0.313726, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_u8ju3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UBannerLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(0.6, 0.6)]
+"values": [Vector2(-343.99, 77)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("UBannerLabel:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.8, 1.2),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cibqx"]
+resource_name = "UBannerAnimation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UBannerLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-343.99, 77), Vector2(-43.055, 77), Vector2(52.855, 77), Vector2(402.205, 77)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UBannerLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.7, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_luwcv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0inm2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ig6c4"]
 _data = {
-"AppearAndDisappear": SubResource("Animation_kxnj6"),
-"RESET": SubResource("Animation_luwcv")
+"RESET": SubResource("Animation_u8ju3"),
+"UBannerAnimation": SubResource("Animation_cibqx")
 }
-
-[sub_resource type="Gradient" id="Gradient_slth1"]
-colors = PackedColorArray(0, 0.278431, 0.529412, 0, 0, 0.709804, 0.501961, 0.0784314)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ri7lo"]
-gradient = SubResource("Gradient_slth1")
-fill_to = Vector2(0, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h53ot"]
 radius = 4.625
@@ -290,13 +391,6 @@ script = ExtResource("1_wpc8s")
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("1_e3g2t")
 
-[node name="BG" type="Sprite2D" parent="HUD"]
-visible = false
-z_index = 2
-position = Vector2(577, 326.5)
-scale = Vector2(18.0938, 10.2969)
-texture = SubResource("GradientTexture2D_hly8f")
-
 [node name="Compass" type="Sprite2D" parent="HUD"]
 position = Vector2(574, 47)
 scale = Vector2(0.25, 0.240439)
@@ -312,23 +406,6 @@ text = "♥♥♥♥♥♥♥♥♥"
 label_settings = SubResource("LabelSettings_81eeb")
 horizontal_alignment = 2
 vertical_alignment = 1
-
-[node name="PausedLabel" type="Label" parent="HUD"]
-visible = false
-z_index = 3
-anchors_preset = -1
-anchor_left = 0.422
-anchor_top = 0.08
-anchor_right = 0.59
-anchor_bottom = 0.284
-offset_left = -0.144012
-offset_top = 85.16
-offset_right = 0.319946
-offset_bottom = 84.968
-text = "[ Pausado ]"
-label_settings = SubResource("LabelSettings_kwoyk")
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="HUD"]
 offset_left = 48.0
@@ -389,21 +466,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="PausedLabel2" type="Label" parent="HUD"]
-visible = false
-z_index = 3
+[node name="AquiredPoints" type="Label" parent="HUD"]
 anchors_preset = -1
-anchor_left = 0.422
-anchor_top = 0.08
-anchor_right = 0.59
-anchor_bottom = 0.284
-offset_left = -69.42
-offset_top = 128.88
-offset_right = 52.044
-offset_bottom = 128.688
-text = "Aperte <esc> novamente para continuar."
+anchor_left = 1.07436
+anchor_top = 3.98824
+anchor_right = 2.36516
+anchor_bottom = 3.98824
+offset_left = -1828.67
+offset_top = -2004.38
+offset_right = -1049.66
+offset_bottom = -1919.38
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(1200, 0)
+text = "Dist:5+Veloc:23=27 pontos"
+label_settings = SubResource("LabelSettings_6w650")
+horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/AquiredPoints"]
+libraries = {
+"": SubResource("AnimationLibrary_0inm2")
+}
 
 [node name="CenterSquare" type="Area2D" parent="HUD"]
 process_mode = 2
@@ -436,35 +520,69 @@ libraries = {
 "": SubResource("AnimationLibrary_6ttnv")
 }
 
-[node name="AquiredPoints" type="Label" parent="HUD"]
+[node name="Pause" type="Node2D" parent="HUD"]
 visible = false
+
+[node name="BG" type="Sprite2D" parent="HUD/Pause"]
+z_index = 2
+position = Vector2(577, 326.5)
+scale = Vector2(18.0938, 10.2969)
+texture = SubResource("GradientTexture2D_hly8f")
+
+[node name="PausedLabel" type="Label" parent="HUD/Pause"]
+z_index = 3
 anchors_preset = -1
-anchor_left = 1.41464
-anchor_top = 3.98824
-anchor_right = 1.41464
-anchor_bottom = 3.98824
-offset_left = -1441.21
-offset_top = -2032.38
-offset_right = -662.209
-offset_bottom = -1947.38
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(386.33, 40.625)
-text = "Dist:5+Veloc:23=27 pontos"
-label_settings = SubResource("LabelSettings_6w650")
+anchor_left = 0.422
+anchor_top = 0.08
+anchor_right = 0.59
+anchor_bottom = 0.284
+offset_left = 486.0
+offset_top = 137.0
+offset_right = 668.0
+offset_bottom = 184.0
+text = "[ Pausado ]"
+label_settings = SubResource("LabelSettings_kwoyk")
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/AquiredPoints"]
+[node name="PausedLabel2" type="Label" parent="HUD/Pause"]
+z_index = 3
+anchors_preset = -1
+anchor_left = 0.40401
+anchor_top = 0.0804321
+anchor_right = 0.463906
+anchor_bottom = 0.284136
+offset_left = 396.0
+offset_top = 197.0
+offset_right = 746.0
+offset_bottom = 223.0
+text = "Aperte <esc> novamente para continuar"
+label_settings = SubResource("LabelSettings_at1ys")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseAnimation" type="AnimationPlayer" parent="HUD/Pause"]
+process_mode = 2
 libraries = {
-"": SubResource("AnimationLibrary_0inm2")
+"": SubResource("AnimationLibrary_6k88f")
 }
 
-[node name="BG2" type="Sprite2D" parent="HUD"]
-visible = false
-z_index = -1
-position = Vector2(573.5, 49)
-scale = Vector2(18.2031, 1.53125)
-texture = SubResource("GradientTexture2D_ri7lo")
+[node name="UpperBanner" type="Node2D" parent="HUD"]
+
+[node name="UBannerLabel" type="Label" parent="HUD/UpperBanner"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -343.99
+offset_top = 77.0
+offset_right = 791.01
+offset_bottom = 134.0
+text = "asd"
+label_settings = SubResource("LabelSettings_wkdbo")
+horizontal_alignment = 1
+
+[node name="UpperBannerAnimation" type="AnimationPlayer" parent="HUD/UpperBanner"]
+libraries = {
+"": SubResource("AnimationLibrary_ig6c4")
+}
 
 [node name="Plane" type="Area2D" parent="."]
 process_mode = 1
@@ -815,7 +933,6 @@ rotation = -2.40681
 [node name="ExtraHealth2" parent="PwrUps" instance=ExtResource("12_1slkx")]
 position = Vector2(895, -354)
 rotation = 3.6425
-scale = Vector2(1, 1)
 
 [node name="StartCountdown" parent="." instance=ExtResource("9_6hw4q")]
 visible = false

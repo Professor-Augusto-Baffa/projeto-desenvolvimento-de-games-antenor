@@ -52,26 +52,29 @@ public partial class AirGateNarrow : Node2D
 
 	private void _on_back_area_entered(Area2D area)
 	{
-		if (hasExplodedJustBefore) {
-			hasExplodedJustBefore = false;
-			return;
-		}
 		if (area is Plane)
 		{
+			if (hasExplodedJustBefore) {
+				hasExplodedJustBefore = false;
+				return;
+			}
 			Plane plane = (Plane)area;
 			if (lastEnteredFrom == F.Front) 
 			{
 				lastEnteredFrom = F.None;
-				if (Math.Abs(plane.HeadingSpeed) > 0.5f)
+				if (Math.Abs(plane.HeadingSpeed) > 1.0f)
 				{
 					GetNode<Game>("/root/Game").Score += 100;
 					GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AirGateNarrowPassSFX").Play();
-
+					var b = GetNode<Banner>("/root/Banner");
+					b.showUpperBanner("Perfeito!");
 				}
 				else
 				{
 					GetNode<Game>("/root/Game").Health -= 1;
 					GetNode<Game>("/root/Game").Score -= 100;
+					var b = GetNode<Banner>("/root/Banner");
+					b.showUpperBanner("Passe com a asa inclinada!");
 				}
 			}
 			else 
@@ -93,6 +96,7 @@ public partial class AirGateNarrow : Node2D
 	private void Explode(Area2D area, String leftOrRight) {
 		if (area is Plane)
 		{
+			hasExplodedJustBefore = true;
 			GetNode<Game>("/root/Game").Score -= 100;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Visible = true;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();
