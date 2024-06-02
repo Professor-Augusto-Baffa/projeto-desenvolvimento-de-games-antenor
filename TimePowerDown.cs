@@ -18,6 +18,9 @@ public partial class TimePowerDown : Area2D
 		if (area is Plane)
 		{
 			GetNode<Game>("/root/Game").RemainingTime -= 30;
+			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/LessTime").Play();
+			var b = GetNode<Banner>("/root/Banner");
+			b.showUpperBanner("Perdeu 30 segundos!", bad: true);
 			QueueFree();
 		}
 	}

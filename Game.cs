@@ -33,7 +33,7 @@ public partial class Game : Node
             var timer = new Timer
             {
                 Autostart = true,
-                WaitTime = 3,
+                WaitTime = 5,
 				ProcessMode = ProcessModeEnum.WhenPaused,
 				OneShot = true
             };

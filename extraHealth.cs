@@ -20,6 +20,7 @@ public partial class extraHealth : Area2D
 			QueueFree();
 			var b = GetNode<Banner>("/root/Banner");
 			b.showUpperBanner("Vida extra!");
+			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/ExtraHealth").Play();
 		}
 	}
 }

@@ -74,7 +74,7 @@ public partial class AirGateNarrow : Node2D
 					GetNode<Game>("/root/Game").Health -= 1;
 					GetNode<Game>("/root/Game").Score -= 100;
 					var b = GetNode<Banner>("/root/Banner");
-					b.showUpperBanner("Passe com a asa inclinada!");
+					b.showUpperBanner("Passe com a asa inclinada!", bad: true);
 				}
 			}
 			else 
