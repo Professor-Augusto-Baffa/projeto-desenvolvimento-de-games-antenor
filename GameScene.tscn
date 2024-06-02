@@ -1138,6 +1138,7 @@ ArrowTexture = ExtResource("13_31qsm")
 [node name="MainBGM" type="AudioStreamPlayer" parent="Audio"]
 process_mode = 3
 stream = ExtResource("15_oynnh")
+autoplay = true
 
 [node name="LOSE" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("15_vafty")

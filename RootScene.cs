@@ -48,7 +48,7 @@ public partial class RootScene : Node2D
 					timer.Timeout += () => {
 						GetNode<Node>("/root/").GetTree().Paused = false;
 						GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
-						GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play();
+						// GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play();
 					};
 				}
 			}
