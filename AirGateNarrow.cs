@@ -102,6 +102,8 @@ public partial class AirGateNarrow : Node2D
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();
 			GetNode<Godot.Timer>("Gate" + leftOrRight + "/ExplosionTimer").Start();
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/FireSFX").Play();
+			var b = GetNode<Banner>("/root/Banner");
+			b.showUpperBanner("Atingiu o pylon!", bad: true);
 		}
 	}
 	private void _on_right_area_entered(Area2D area)

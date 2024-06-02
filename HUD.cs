@@ -7,6 +7,7 @@ public partial class HUD : CanvasLayer
 	public override void _Ready()
 	{
 		GetNode<Node2D>("/root/RootScene/GameScene/HUD/CenterSquare").Visible = true;
+		GetNode<Sprite2D>("/root/RootScene/GameScene/HUD/UpperBanner/badAnimation/bad").Visible = true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

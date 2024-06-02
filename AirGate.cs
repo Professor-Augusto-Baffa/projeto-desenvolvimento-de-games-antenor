@@ -71,7 +71,8 @@ public partial class AirGate : Node2D
 				lastEnteredFrom = F.None;
 				GetNode<Game>("/root/Game").Score -= 500;
 				GetNode<Game>("/root/Game").Health -= Levels.getLevelInfo(Levels.Info.InitialHealth);
-				Modulate = new Color(100, 255, 255);
+				var b = GetNode<Banner>("/root/Banner");
+				b.showUpperBanner("Sentido errado!", bad: true);
 			}
 			else 
 			{
@@ -119,6 +120,8 @@ public partial class AirGate : Node2D
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();
 			GetNode<Godot.Timer>("Gate" + leftOrRight + "/ExplosionTimer").Start();
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/FireSFX").Play();
+			var b = GetNode<Banner>("/root/Banner");
+			b.showUpperBanner("Atingiu o pylon!", bad: true);
 		}
 	}
 	private void _on_right_area_entered(Area2D area)
