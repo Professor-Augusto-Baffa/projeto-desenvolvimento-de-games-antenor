@@ -1049,12 +1049,20 @@ position = Vector2(2535, 2055)
 rotation = -1.76104
 
 [node name="ExtraHealth" parent="PwrUps" instance=ExtResource("12_1slkx")]
-position = Vector2(1763, 109)
-rotation = -2.40681
+position = Vector2(2979, 1001)
+rotation = -4.11025
+
+[node name="ExtraHealth3" parent="PwrUps" instance=ExtResource("12_1slkx")]
+position = Vector2(438, 2675)
+rotation = -0.99484
+
+[node name="ExtraHealth4" parent="PwrUps" instance=ExtResource("12_1slkx")]
+position = Vector2(270, 1136)
+rotation = 1.00181
 
 [node name="ExtraHealth2" parent="PwrUps" instance=ExtResource("12_1slkx")]
-position = Vector2(895, -354)
-rotation = 3.6425
+position = Vector2(-632, 577)
+rotation = 2.4679
 
 [node name="StartCountdown" parent="." instance=ExtResource("9_6hw4q")]
 visible = false
@@ -1111,7 +1119,7 @@ position = Vector2(637, 2151)
 rotation = 2.87981
 
 [node name="TimePowerDown12" parent="PwrDowns" instance=ExtResource("10_j4i32")]
-position = Vector2(-1115, 1215)
+position = Vector2(-1289, 1094)
 rotation = 2.87981
 
 [node name="TimePowerDown13" parent="PwrDowns" instance=ExtResource("10_j4i32")]
