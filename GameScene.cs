@@ -6,6 +6,8 @@ public partial class GameScene : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GetNode<Node2D>("/root/RootScene/GameScene/HUD/CenterSquare").Visible = true;
+		GetNode<Sprite2D>("/root/RootScene/GameScene/HUD/UpperBanner/badAnimation/bad").Visible = true;
 		GetNode<TextureRect>("/root/RootScene/GameScene/MainBG").Visible = true;
 	}
 
