@@ -14,6 +14,7 @@
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -27,8 +28,8 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="px"
      inkscape:zoom="1.4114583"
-     inkscape:cx="371.24723"
-     inkscape:cy="118.67159"
+     inkscape:cx="182.08119"
+     inkscape:cy="-14.523986"
      inkscape:window-width="2560"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -36,14 +37,70 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
-     id="defs1" />
+     id="defs1">
+    <linearGradient
+       id="linearGradient4"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="0"
+         id="stop4" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop5" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#75823b;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+      <stop
+         style="stop-color:#e27a70;stop-opacity:1;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="linearGradient2"
+       x1="315.21219"
+       y1="84.410835"
+       x2="376.6279"
+       y2="84.911812"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4"
+       id="radialGradient5"
+       cx="379.73984"
+       cy="93.659599"
+       fx="379.73984"
+       fy="93.659599"
+       r="259.90438"
+       gradientTransform="matrix(0.00771014,0,0,0.0863178,376.81199,77.582411)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4"
+       id="radialGradient1"
+       cx="379.73984"
+       cy="93.659599"
+       fx="379.73984"
+       fy="93.659599"
+       r="259.90439"
+       gradientTransform="matrix(0.00771014,0,0,0.0863178,376.81199,77.582411)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-size:64px;line-height:0.9;font-family:Consolas;-inkscape-font-specification:Consolas;letter-spacing:18.91px;fill:#ffffff;fill-opacity:0;stroke:#27acdf;stroke-width:2.9;stroke-linejoin:round;stroke-opacity:0.4"
+       style="font-size:64px;line-height:0.9;font-family:Consolas;-inkscape-font-specification:Consolas;letter-spacing:18.91px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.9;stroke-linejoin:round;stroke-opacity:0.4"
        x="115.74736"
        y="105.33369"
        id="text1"><tspan
@@ -51,6 +108,6 @@
          id="tspan1"
          x="115.74736"
          y="105.33369"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:Consolas;-inkscape-font-specification:'Consolas Bold';stroke-linecap:square;stroke-linejoin:miter">BAFFATTACK</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64px;font-family:Consolas;-inkscape-font-specification:'Consolas Bold';stroke-linecap:square;stroke-linejoin:miter;stroke:none;fill-opacity:1;fill:#ffffff">BAFFATTACK</tspan></text>
   </g>
 </svg>

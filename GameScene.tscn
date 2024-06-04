@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=60 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://c1x0hb1i3l180" path="res://extraHealth.tscn" id="12_1slkx"]
 [ext_resource type="Texture2D" uid="uid://cvkxfoqwbq5ck" path="res://Assets/arrowPath.png" id="13_31qsm"]
 [ext_resource type="Script" path="res://AirPath.cs" id="13_e62vy"]
-[ext_resource type="Texture2D" uid="uid://bnfjm3veptarb" path="res://Assets/tile-texture.png" id="15_ldid5"]
 [ext_resource type="AudioStream" uid="uid://b5b2jmshjwmg8" path="res://Assets/BGM LOOP.mp3" id="15_oynnh"]
 [ext_resource type="AudioStream" uid="uid://bvi8negocy1xe" path="res://Assets/BRAKE 2.mp3" id="15_vafty"]
 [ext_resource type="AudioStream" uid="uid://ktfa4uoahrl3" path="res://Assets/SFX Fire.mp3" id="16_lanvm"]
@@ -26,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://d4akvhy8e74oy" path="res://Assets/newlife.mp3" id="22_355e6"]
 [ext_resource type="AudioStream" uid="uid://cvb5oatsa2vbe" path="res://Assets/ExtraTime.mp3" id="23_anqco"]
 [ext_resource type="AudioStream" uid="uid://djlcdv3auv8dm" path="res://Assets/powerdown.wav" id="24_ecyhg"]
+[ext_resource type="Texture2D" uid="uid://dhrvcde1w5td7" path="res://Assets/AI/BG.png" id="26_nhcc5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_81eeb"]
 font_size = 21
@@ -42,14 +42,6 @@ font_size = 34
 font_color = Color(0, 1, 0.00392157, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_20fxy"]
-font_size = 72
-outline_size = 9
-outline_color = Color(0.741176, 0, 0.0901961, 1)
-shadow_size = 15
-shadow_color = Color(0.741176, 0, 0.0901961, 1)
-shadow_offset = Vector2(5, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6w650"]
 font_size = 61
@@ -305,6 +297,21 @@ _data = {
 "RESET": SubResource("Animation_jdfw8")
 }
 
+[sub_resource type="Animation" id="Animation_2k8ph"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.155, 2.155)]
+}
+
 [sub_resource type="Animation" id="Animation_3q461"]
 resource_name = "bad"
 length = 2.0
@@ -319,21 +326,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(2.11, 2.11), Vector2(1.025, 1.025), Vector2(1.025, 1.025), Vector2(2.1, 2.1)]
-}
-
-[sub_resource type="Animation" id="Animation_2k8ph"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2.155, 2.155)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nn6u8"]
@@ -407,6 +399,123 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_u8ju3"),
 "UBannerAnimation": SubResource("Animation_cibqx")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_20fxy"]
+font_size = 72
+outline_size = 9
+outline_color = Color(0.741176, 0, 0.0901961, 1)
+shadow_size = 15
+shadow_color = Color(0.741176, 0, 0.0901961, 1)
+shadow_offset = Vector2(5, 2)
+
+[sub_resource type="Animation" id="Animation_vx1dg"]
+resource_name = "EndAnimation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(18.0938, 0.09375), Vector2(18.0938, 10.1719)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(580, 1), Vector2(580, 323.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BannerLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BG:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qrdh6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18.0938, 10.2344)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BG:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(580, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BannerLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BG:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rt0iq"]
+_data = {
+"EndAnimation": SubResource("Animation_vx1dg"),
+"RESET": SubResource("Animation_qrdh6")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h53ot"]
@@ -498,15 +607,6 @@ horizontal_alignment = 2
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="BannerLabel" type="Label" parent="HUD"]
-offset_top = 160.0
-offset_right = 1152.0
-offset_bottom = 648.0
-label_settings = SubResource("LabelSettings_20fxy")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="AquiredPoints" type="Label" parent="HUD"]
 anchors_preset = -1
 anchor_left = 1.07436
@@ -519,7 +619,6 @@ offset_right = -1049.66
 offset_bottom = -1919.38
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(1200, 0)
-text = "Dist:5+Veloc:23=27 pontos"
 label_settings = SubResource("LabelSettings_6w650")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -563,6 +662,7 @@ libraries = {
 
 [node name="Pause" type="Node2D" parent="HUD"]
 visible = false
+z_index = 21
 
 [node name="BG" type="Sprite2D" parent="HUD/Pause"]
 z_index = 2
@@ -636,6 +736,31 @@ horizontal_alignment = 1
 [node name="UpperBannerAnimation" type="AnimationPlayer" parent="HUD/UpperBanner"]
 libraries = {
 "": SubResource("AnimationLibrary_ig6c4")
+}
+
+[node name="End" type="Node2D" parent="HUD"]
+z_index = 7
+
+[node name="BannerLabel" type="Label" parent="HUD/End"]
+z_index = 15
+offset_right = 1152.0
+offset_bottom = 488.0
+label_settings = SubResource("LabelSettings_20fxy")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="Sprite2D" parent="HUD/End"]
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+position = Vector2(580, 1)
+scale = Vector2(18.0938, 10.2344)
+texture = SubResource("GradientTexture2D_hly8f")
+
+[node name="EndAnimation" type="AnimationPlayer" parent="HUD/End"]
+process_mode = 2
+libraries = {
+"": SubResource("AnimationLibrary_rt0iq")
 }
 
 [node name="Plane" type="Area2D" parent="."]
@@ -1166,15 +1291,14 @@ stream = ExtResource("23_anqco")
 stream = ExtResource("24_ecyhg")
 
 [node name="MainBG" type="TextureRect" parent="."]
-visible = false
-modulate = Color(0.647059, 0.635294, 0.643137, 1)
+modulate = Color(0.203922, 0.25098, 0.380392, 1)
 show_behind_parent = true
 z_index = -5
 offset_left = -4353.0
 offset_top = -2629.0
 offset_right = 6113.0
 offset_bottom = 4543.0
-texture = ExtResource("15_ldid5")
+texture = ExtResource("26_nhcc5")
 stretch_mode = 1
 
 [connection signal="area_entered" from="HUD/CenterSquare" to="HUD/CenterSquare" method="_on_area_entered"]

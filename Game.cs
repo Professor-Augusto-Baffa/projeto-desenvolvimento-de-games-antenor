@@ -26,7 +26,9 @@ public partial class Game : Node
 	{
 		if (Score <= 10 || Health < 1) {
 			GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused = true;
-			GetNode<Label>("/root/RootScene/GameScene/HUD/BannerLabel").Text = $"FIM DE JOGO\nScore: {GetNode<Game>("/root/Game").Score }";
+			GetNode<Label>("/root/RootScene/GameScene/HUD/End/BannerLabel").Visible = false;
+			GetNode<Label>("/root/RootScene/GameScene/HUD/End/BannerLabel").Text = $"FIM DE JOGO\nScore: {GetNode<Game>("/root/Game").Score }";
+			GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/End/EndAnimation").Play("EndAnimation");
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Stop();	
 			var randomBreakSound = GD.Randi() % 4 + 1;
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/LOSE").Play();

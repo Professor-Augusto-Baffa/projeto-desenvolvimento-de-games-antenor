@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://l582445io5ko"]
+[gd_scene load_steps=16 format=3 uid="uid://l582445io5ko"]
 
 [ext_resource type="Script" path="res://RootScene.cs" id="1_0xxxs"]
 [ext_resource type="Script" path="res://Menu.cs" id="1_28tcq"]
 [ext_resource type="Texture2D" uid="uid://cb8o0kbd8tnof" path="res://Assets/logo.png" id="3_8fo1f"]
-[ext_resource type="Texture2D" uid="uid://dwxjev7y8botb" path="res://Assets/MenuBG.png" id="3_l5opc"]
 [ext_resource type="AudioStream" uid="uid://cif50o300nd4g" path="res://Assets/Lamb - Setting sun.mp3" id="5_265wt"]
+[ext_resource type="Texture2D" uid="uid://ddavor4u1whud" path="res://Assets/BG_gradient.png" id="5_h2sqq"]
+[ext_resource type="Script" path="res://BG.cs" id="5_jw6uf"]
+[ext_resource type="Texture2D" uid="uid://d372bxi647owd" path="res://Assets/BG_rect.png" id="6_lpalr"]
+[ext_resource type="Texture2D" uid="uid://k16yfuyuhmc1" path="res://Assets/BG.png" id="7_u4kdk"]
 
 [sub_resource type="Animation" id="Animation_klyxp"]
 resource_name = "LOGO Animation"
@@ -47,17 +50,170 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_n6aox"]
 font_color = Color(1, 1, 1, 0.447059)
 
+[sub_resource type="Animation" id="Animation_xwc05"]
+resource_name = "MenuAnimation"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu BG3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_h2sqq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu BG3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-927, 379), Vector2(2117, 344)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu BG4:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 8.1, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.2), Color(1, 1, 1, 0.380392), Color(1, 1, 1, 0.462745), Color(1, 1, 1, 0.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu BG5:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0244346, 0.0244346]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menu BG5:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.55334, 5.12778]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Menu BG5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.6, 8.4, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.47451), Color(1, 1, 1, 0.47451), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j87ly"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu BG3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_h2sqq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu BG3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2322, 331)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu BG4:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu BG5:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0244346]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menu BG5:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.1101]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Menu BG5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.47451)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bu15m"]
+_data = {
+"MenuAnimation": SubResource("Animation_xwc05"),
+"RESET": SubResource("Animation_j87ly")
+}
+
 [node name="RootScene" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_0xxxs")
 
 [node name="Menu" type="Node" parent="."]
 script = ExtResource("1_28tcq")
-
-[node name="Menu BG" type="Sprite2D" parent="Menu"]
-position = Vector2(576.25, 323.25)
-scale = Vector2(1.49674, 1.12413)
-texture = ExtResource("3_l5opc")
 
 [node name="BtnKeyboard" type="Button" parent="Menu"]
 offset_left = 435.0
@@ -115,6 +271,50 @@ offset_right = 904.0
 offset_bottom = 289.0
 text = "Antenor Barros"
 label_settings = SubResource("LabelSettings_n6aox")
+
+[node name="BG" type="Node2D" parent="Menu"]
+script = ExtResource("5_jw6uf")
+
+[node name="Menu BG5" type="Sprite2D" parent="Menu/BG"]
+modulate = Color(1, 1, 1, 0.47451)
+z_index = -3
+position = Vector2(1095.64, -695.636)
+rotation = 2.1101
+scale = Vector2(4.70004, 7.55262)
+skew = 0.0244346
+texture = ExtResource("5_h2sqq")
+
+[node name="Menu BG4" type="Sprite2D" parent="Menu/BG"]
+modulate = Color(1, 1, 1, 0.2)
+z_index = -3
+position = Vector2(645, 715)
+rotation = 1.22348
+scale = Vector2(1.71599, 2.25872)
+texture = ExtResource("5_h2sqq")
+
+[node name="Menu BG3" type="Sprite2D" parent="Menu/BG"]
+modulate = Color(1, 1, 1, 0.8)
+z_index = -3
+position = Vector2(2322, 331)
+scale = Vector2(2.06266, 2.22521)
+texture = ExtResource("5_h2sqq")
+
+[node name="Menu BG2" type="Sprite2D" parent="Menu/BG"]
+z_index = -2
+position = Vector2(605, 328)
+scale = Vector2(0.960069, 0.986111)
+texture = ExtResource("6_lpalr")
+
+[node name="Menu BG" type="Sprite2D" parent="Menu/BG"]
+z_index = -4
+position = Vector2(580.939, 324.891)
+scale = Vector2(1.03309, 1.04046)
+texture = ExtResource("7_u4kdk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/BG"]
+libraries = {
+"": SubResource("AnimationLibrary_bu15m")
+}
 
 [connection signal="pressed" from="Menu/BtnKeyboard" to="Menu" method="_on_btn_keyboard_pressed"]
 [connection signal="pressed" from="Menu/BtnMouse" to="Menu" method="_on_btn_mouse_pressed"]
