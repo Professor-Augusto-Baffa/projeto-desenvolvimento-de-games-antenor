@@ -28,4 +28,8 @@ public abstract class Util {
 			
 		return minutes + ":" + seconds;
 	}
+	public static float MapRange(float value, float fromMin, float fromMax, float toMin, float toMax)
+	{
+		return (value - fromMin) / (fromMax - fromMin) * (toMax - toMin) + toMin;
+	}
 }

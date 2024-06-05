@@ -34,6 +34,8 @@ public partial class Plane : Area2D
 
 		HandleHeading(delta: delta, magnitude: magnitude);
 
+		HandleBGMPitch(magnitude: magnitude);
+
 		reduceBoundingBox();
 
 		var distance = GetNode<Path2D>("/root/RootScene/GameScene/AirPath").Curve.GetClosestPoint(Position).DistanceSquaredTo(Position);
@@ -71,6 +73,11 @@ public partial class Plane : Area2D
 		}
 	}
 
+    private void HandleBGMPitch(float magnitude)
+    {
+		var bgm = GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM");
+		bgm.PitchScale = Util.MapRange(magnitude, 60, 900, 0.8f, 2);
+    }
     private float HandleInput()
     {
 		float magnitude;
