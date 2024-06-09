@@ -43,13 +43,16 @@ public partial class Game : Node
             };
             AddChild(timer);
 			timer.Timeout += () => {
-				this.Score = 200;
-				this.Health = Levels.getLevelInfo(Levels.Info.InitialHealth);;
-				this.RemainingTime = 5 * 60;
-				this.Heading = 0;
-				GetNode<Node>("/root/").GetTree().ReloadCurrentScene();
-				GetNode<Node>("/root/").GetTree().Paused = false;
+				EndGame();
 			};
 		}
+	}
+	public void EndGame() {
+		this.Score = 200;
+		this.Health = Levels.getLevelInfo(Levels.Info.InitialHealth);
+		this.RemainingTime = 5 * 60;
+		this.Heading = 0;
+		GetNode<Node>("/root/").GetTree().ReloadCurrentScene();
+		GetNode<Node>("/root/").GetTree().Paused = false;
 	}
 }

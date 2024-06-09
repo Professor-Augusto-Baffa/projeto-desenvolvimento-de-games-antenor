@@ -3,15 +3,12 @@ using System;
 
 public partial class RootScene : Node2D
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
 	private bool firstTime = true;
+	private bool isPauseDisabled = true;
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustPressed("esc")) {
+		if (Input.IsActionJustPressed("esc") && !isPauseDisabled) {
 			GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Visible = !GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Visible;
 			GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/Pause/PauseAnimation").Play("PauseAnimation");
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused = !GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused;
@@ -47,7 +44,9 @@ public partial class RootScene : Node2D
 					AddChild(timer);
 					timer.Timeout += () => {
 						GetNode<Node>("/root/").GetTree().Paused = false;
+						GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/CenterSquare/AnimationPlayer").Stop();
 						GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
+						isPauseDisabled = false;
 						// GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play();
 					};
 				}

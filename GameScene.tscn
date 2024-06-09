@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=67 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://bjds71wk5x27i" path="res://Assets/CenterSquare.png" id="4_onbjb"]
 [ext_resource type="PackedScene" uid="uid://11kddowwvog0" path="res://air_gate.tscn" id="4_x0phn"]
 [ext_resource type="Texture2D" uid="uid://c7xcx08midlcv" path="res://Assets/AircraftConv/56.png" id="5_dcyqr"]
+[ext_resource type="Shader" path="res://Noise.gdshader" id="5_wrnv8"]
 [ext_resource type="Texture2D" uid="uid://bryibl5akox3a" path="res://Assets/bad.png" id="6_5cxu5"]
+[ext_resource type="Script" path="res://BG.cs" id="6_d7uwt"]
 [ext_resource type="Script" path="res://Timer.cs" id="7_vsorg"]
 [ext_resource type="PackedScene" uid="uid://umru6vhq7qm5" path="res://time_power_up.tscn" id="8_uyq1q"]
 [ext_resource type="PackedScene" uid="uid://eycu6miqkgtx" path="res://StartCountdown.tscn" id="9_6hw4q"]
@@ -519,6 +521,25 @@ _data = {
 "RESET": SubResource("Animation_qrdh6")
 }
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w8lm7"]
+frequency = 0.0391
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5ritp"]
+width = 128
+height = 128
+noise = SubResource("FastNoiseLite_w8lm7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6t7o8"]
+shader = ExtResource("5_wrnv8")
+shader_parameter/strength = 0.098
+shader_parameter/noise = SubResource("NoiseTexture2D_5ritp")
+
+[sub_resource type="Gradient" id="Gradient_lymmk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m32us"]
+gradient = SubResource("Gradient_lymmk")
+fill_from = Vector2(0.935897, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h53ot"]
 radius = 4.625
 height = 51.25
@@ -636,6 +657,7 @@ visible = false
 position = Vector2(578, 306)
 
 [node name="BG" type="Sprite2D" parent="HUD/CenterSquare"]
+process_mode = 3
 position = Vector2(-0.5, 18.82)
 scale = Vector2(18.0781, 10.0938)
 texture = SubResource("GradientTexture2D_hly8f")
@@ -709,6 +731,15 @@ libraries = {
 "": SubResource("AnimationLibrary_6k88f")
 }
 
+[node name="BtnEnd" type="Button" parent="HUD/Pause"]
+process_mode = 2
+z_index = 2
+offset_left = 495.0
+offset_top = 357.0
+offset_right = 659.0
+offset_bottom = 414.0
+text = "Encerrar o Jogo"
+
 [node name="UpperBanner" type="Node2D" parent="HUD"]
 
 [node name="badAnimation" type="AnimationPlayer" parent="HUD/UpperBanner"]
@@ -757,6 +788,7 @@ z_index = 10
 position = Vector2(580, 1)
 scale = Vector2(18.0938, 10.2344)
 texture = SubResource("GradientTexture2D_hly8f")
+script = ExtResource("6_d7uwt")
 
 [node name="EndAnimation" type="AnimationPlayer" parent="HUD/End"]
 process_mode = 2
@@ -764,12 +796,20 @@ libraries = {
 "": SubResource("AnimationLibrary_rt0iq")
 }
 
+[node name="NoiseLayer" type="Sprite2D" parent="HUD"]
+process_mode = 3
+visible = false
+z_index = 100
+material = SubResource("ShaderMaterial_6t7o8")
+position = Vector2(571, 322.5)
+scale = Vector2(18.25, 10.3906)
+texture = SubResource("GradientTexture2D_m32us")
+
 [node name="Plane" type="Area2D" parent="."]
 process_mode = 1
 z_index = 10
 position = Vector2(568, 270)
 script = ExtResource("1_jtgnp")
-Debug = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Plane"]
 texture_filter = 4
@@ -1304,6 +1344,7 @@ texture = ExtResource("26_nhcc5")
 stretch_mode = 1
 
 [connection signal="area_entered" from="HUD/CenterSquare" to="HUD/CenterSquare" method="_on_area_entered"]
+[connection signal="pressed" from="HUD/Pause/BtnEnd" to="." method="_on_btn_end_pressed"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
 [connection signal="area_entered" from="PwrUps/TimePowerUp" to="PwrUps/TimePowerUp" method="_on_area_entered"]
 [connection signal="area_entered" from="PwrUps/TimePowerUp2" to="PwrUps/TimePowerUp2" method="_on_area_entered"]
