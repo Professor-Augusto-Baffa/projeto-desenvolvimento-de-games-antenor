@@ -40,38 +40,48 @@ public partial class Plane : Area2D
 
 		var distance = GetNode<Path2D>("/root/RootScene/GameScene/AirPath").Curve.GetClosestPoint(Position).DistanceSquaredTo(Position);
 
-		
-		if (distance < 10000) {
-			t = 0;
-		}
-		else if (distance < 50000 / Levels.getLevelInfo(Levels.Info.OutOfPathFactor)) {
-			if (t > 20) {
-				t = 0;
-				GetNode<Game>("/root/Game").Health -= 1;
-			}
-			else {
-				t++;
-			}
-		}
-		else if (distance < 100000 / Levels.getLevelInfo(Levels.Info.OutOfPathFactor)) {
-			if (t > 20) {
-				t = 0;
-				GetNode<Game>("/root/Game").Health -= 2;
-			}
-			else {
-				t++;
-			}
-		}
-		else {
-			if (t > 20) {
-				t = 0;
-				GetNode<Game>("/root/Game").Health -= 3;
-			}
-			else {
-				t++;
-			}
-		}
-	}
+		int loseHealthSpeed = Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
+		if (distance < 10000)
+        {
+            t = 0;
+        }
+        else if (distance < 50000)
+        {
+            if (t > 20)
+            {
+                t = 0;
+                GetNode<Game>("/root/Game").Health -= loseHealthSpeed;
+            }
+            else
+            {
+                t++;
+            }
+        }
+        else if (distance < 100000)
+        {
+            if (t > 20)
+            {
+                t = 0;
+                GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 2;
+            }
+            else
+            {
+                t++;
+            }
+        }
+        else
+        {
+            if (t > 20)
+            {
+                t = 0;
+                GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 4;
+            }
+            else
+            {
+                t++;
+            }
+        }
+    }
 
     private void HandleBGMPitch(float magnitude)
     {

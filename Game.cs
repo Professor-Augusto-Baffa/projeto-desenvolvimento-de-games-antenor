@@ -25,6 +25,8 @@ public partial class Game : Node
 	public override void _Process(double delta)
 	{
 		if (Score <= 10 || Health < 1) {
+			var Health = GetNode<Label>("/root/RootScene/GameScene/HUD/Health");
+			Health.Text = "";
 			GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused = true;
 			GetNode<Label>("/root/RootScene/GameScene/HUD/End/BannerLabel").Visible = false;
 			GetNode<Label>("/root/RootScene/GameScene/HUD/End/BannerLabel").Text = $"FIM DE JOGO\nScore: {GetNode<Game>("/root/Game").Score }";
