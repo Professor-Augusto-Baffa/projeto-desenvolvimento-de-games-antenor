@@ -701,9 +701,9 @@ anchor_top = 0.08
 anchor_right = 0.59
 anchor_bottom = 0.284
 offset_left = 486.0
-offset_top = 137.0
+offset_top = 202.0
 offset_right = 668.0
-offset_bottom = 184.0
+offset_bottom = 249.0
 text = "[ Pausado ]"
 label_settings = SubResource("LabelSettings_kwoyk")
 vertical_alignment = 1
@@ -716,10 +716,10 @@ anchor_left = 0.40401
 anchor_top = 0.0804321
 anchor_right = 0.463906
 anchor_bottom = 0.284136
-offset_left = 396.0
-offset_top = 197.0
-offset_right = 746.0
-offset_bottom = 223.0
+offset_left = 394.0
+offset_top = 267.0
+offset_right = 744.0
+offset_bottom = 293.0
 text = "Aperte <esc> novamente para continuar"
 label_settings = SubResource("LabelSettings_at1ys")
 vertical_alignment = 1
@@ -734,10 +734,10 @@ libraries = {
 [node name="BtnEnd" type="Button" parent="HUD/Pause"]
 process_mode = 2
 z_index = 2
-offset_left = 495.0
-offset_top = 357.0
-offset_right = 659.0
-offset_bottom = 414.0
+offset_left = 494.0
+offset_top = 487.0
+offset_right = 658.0
+offset_bottom = 544.0
 text = "Encerrar o Jogo"
 
 [node name="UpperBanner" type="Node2D" parent="HUD"]
@@ -798,7 +798,6 @@ libraries = {
 
 [node name="NoiseLayer" type="Sprite2D" parent="HUD"]
 process_mode = 3
-visible = false
 z_index = 100
 material = SubResource("ShaderMaterial_6t7o8")
 position = Vector2(571, 322.5)
@@ -1337,9 +1336,9 @@ modulate = Color(0.203922, 0.25098, 0.380392, 1)
 show_behind_parent = true
 z_index = -5
 offset_left = -4353.0
-offset_top = -2629.0
+offset_top = -2628.0
 offset_right = 6113.0
-offset_bottom = 4543.0
+offset_bottom = 4544.0
 texture = ExtResource("26_nhcc5")
 stretch_mode = 1
 
