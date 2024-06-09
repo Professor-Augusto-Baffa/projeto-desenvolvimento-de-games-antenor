@@ -16,9 +16,34 @@ quando o tempo acabar, ter a maior quantidade de pontos. Como será falado à fr
 
 ## Jogos similares
 
-- Sky Jinx (Atari 2600)
-- Ski Free (Windows 3.1)
-- Swing Copters (iOS e Android)
+<div style="display: flex; align-items: flex-start;">
+<img src="sky-jinx.png" alt="Sky Jinx" style="width: 300px; height: auto; margin-right: 10px; margin-top: 35px;">
+<div>
+<h3>Sky Jinx (Atari 2600)</h3>
+<p>O Sky Jinx é semelhante ao BaffAttack pelo tema de aviação e pela mecânica de desvio de obstáculos. No Sky Jinx, o jogador pilota um avião em um percurso (na imagem à esquerda, o
+avião é o objeto laranja na parte inferior central), desviando de balões e outros obstáculos para chegar ao final no menor tempo possível. A necessidade de reflexos rápidos e 
+controle constante da aeronave, assim como a visão top-down, são elementos que Sky Jinx compartilham com BaffAttack.</p>
+</div>
+</div>
+
+<div style="display: flex; align-items: flex-start; margin-top: 20px;">
+<img src="ski-free.png" alt="Ski Free" style="width: 300px; height: auto; margin-right: 10px; margin-top: 35px;">
+<div>
+<h3>Ski Free (Windows 3.1)</h3>
+<p>Pode parecer um jogo diferente à primeira vista, já que não é na temática de aviões, mas compartilha a mecânica de desvio de obstáculos e percurso pré-estabelecido. No "Ski Free", o jogador controla um esquiador que deve descer uma montanha enquanto evita obstáculos como árvores e outros esquiadores. Igual ao meu jogo, a posição do mouse para esquerda ou direita move o personagem. A necessidade de reflexos rápidos para desviar dos obstáculos tornam Ski Free um jogo similar, apesar da diferença no tema.</p>
+</div>
+</div>
+
+<div style="display: flex; align-items: flex-start; margin-top: 20px;">
+<img src="swing-copters.jpg" alt="Swing Copters" style="width: 300px; height: auto; margin-right: 10px; margin-top: 35px;">
+<div>
+<h3>Swing Copters (iOS e Android)</h3>
+<p>Swing Copters é um jogo bem mais atual que, assim como este jogo, exige precisão e reflexos rápidos. No Swing Copters, o jogador controla um personagem que voa com um helicóptero, desviando de obstáculos que surgem de forma imprevisível. A mecânica de controle do helicóptero, que lembra o controle de um avião, e a necessidade de desviar com precisão de obstáculos em um ambiente de jogo rápido e desafiante. Igual ao
+outro projeto do mesmo desenvolvedor, Flappy Bird, o jogo é extremamente simples visualmente, mas extremamente difícil. O BaffaAttack possui três níveis e considero que o nível fácil não muito complicado
+para terminar, mesmo para alguém que esteja jogando pela primeira vez.</p>
+</div>
+</div>
+
 
 ## Tipo
 
@@ -112,3 +137,97 @@ O jogo termina se uma ou mais destas condições ocorrerem:
 
 1) O tempo chegar em zero;
 2) os pontos do jogador ficarem iguais a zero ou negativos.
+
+## Dificuldades
+
+Há três níveis de dificuldade no BaffaAttack:
+- Easy
+- Medium
+- Hard
+
+Eles são ajustados por diferentes parâmetros definidos na classe Levels (Levels.cs).
+As outras classes buscam na Levels estes parâmetros para se configurarem.
+
+## Parâmetros de Dificuldade
+
+### Speed (Velocidade):
+- Velocidade inicial do avião no início do jogo.
+- Impacto: Velocidades maiores tornam o controle do avião mais difícil e aumentam a necessidade de reflexos rápidos.
+- Valores:
+    - Easy: 150
+    - Medium: 200
+    - Hard: 300
+
+### MaxSpeed (Velocidade Máxima):
+- Descrição: A velocidade máxima que o avião pode atingir.
+- Impacto: Limita o quão rápido o avião pode ir. É igual para todos os níveis. Com o avião mais rápido o jogador consegue pegar mais pontos em menos tempo, mas o controle fica mais difícil. Em velocidade superiores a 400 é praticamente impossível controlar o avião.
+
+- Valores:
+    - Easy: 900
+    - Medium: 900
+    - Hard: 900
+
+### MinSpeed (Velocidade Mínima):
+- A velocidade mínima que o avião pode manter.
+- Impacto: Velocidades mínimas mais altas aumentam a dificuldade, pois o jogador tem menos margem para passar no AirGate. 
+No Airgate Narrow uma velocidade maior significa a necessidade de uma maior destreza para inclinar rapidamente a asa e depois nivela-la novamente.
+
+- Valores:
+    - Easy: 60
+    - Medium: 80
+    - Hard: 300
+
+### OutOfPathFactor (Fator de Saída do Caminho):
+- A velocidade com que o jogador perde pontos ao ficar muito longe do caminho.
+- Impacto: Um fator mais alto penaliza mais severamente a saída do caminho, exigindo que o jogador mantenha-se mais próximo do trajeto.
+- Valores:
+    - Easy: 1
+    - Medium: 5
+    - Hard: 10
+
+### ArrowInterval (Intervalo de Setas):
+- A distância entre dois ícones de setas que ajudam o jogador a ficar no caminho.
+- Impacto: Intervalos maiores dificultam a manutenção do avião no caminho, pois há menos orientação visual.
+- Valores:
+    - Easy: 20
+    - Medium: 40
+    - Hard: 60
+
+
+### InitialHealth (Vida Inicial):
+- O número inicial de vidas do jogador.
+- Impacto: Menos vidas aumentam a dificuldade, pois erros são menos tolerados.
+- Valores:
+    - Easy: 7
+    - Medium: 5
+    - Hard: 3
+
+# Sistema de pontuação
+
+Existem eventos que aumentam ou diminuem a pontuação do jogador.
+
+- Passar por cima da seta que indica o caminho
+Ganha: 10 * LevelFactor
+
+- Passar pelo Airgate no sentido correto
+```
+v := velocidade atual do avião
+d := distância entre o avião e o path no momento da passagem
+Pontos ganhos = v - d
+```
+
+- Passar pelo Airgate Narrow no sentido correto
+```
+v := velocidade atual do avião
+d := distância entre o avião e o path no momento da passagem
+Pontos ganhos = 3 * (v - d)
+```
+
+- Passar pelo Airgate ou Airgate Narrow no sentido errado
+Pontos perdidos: 500 * LevelFactor
+Perde: Uma vida
+
+- Atingir o pylon do AirGate ou Airgate Narrow
+Pontos perdidos: 100 * LevelFactor
+Perde: Uma vida
+
