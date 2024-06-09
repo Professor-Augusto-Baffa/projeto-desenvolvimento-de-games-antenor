@@ -83,6 +83,7 @@ private void _on_front_area_entered(Area2D area)
 		{
 			hasExplodedJustBefore = true;
 			GetNode<Game>("/root/Game").Score -= 100;
+			GetNode<Game>("/root/Game").Health -= Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Visible = true;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();
 			GetNode<Godot.Timer>("Gate" + leftOrRight + "/ExplosionTimer").Start();
