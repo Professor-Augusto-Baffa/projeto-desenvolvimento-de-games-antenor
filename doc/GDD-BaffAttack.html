@@ -353,17 +353,59 @@ Swing Copters é um jogo bem mais atual que, assim como este jogo, exige precis�
 <li>Hard: 300</li>
 </ul></li>
 </ul>
-<h3 id="outofpathfactor-fator-de-saída-do-caminho">OutOfPathFactor (Fator de Saída do Caminho):</h3>
+<h3 id="losehealthspeed-velocidade-de-perda-de-vidas">LoseHealthSpeed (Velocidade de perda de vidas):</h3>
 <ul>
-<li>A velocidade com que o jogador perde pontos ao ficar muito longe do caminho.</li>
-<li>Impacto: Um fator mais alto penaliza mais severamente a saída do caminho, exigindo que o jogador mantenha-se mais próximo do trajeto.</li>
-<li>Valores:
+<li>A velocidade com que o jogador perde vidas ao ficar muito longe do caminho.</li>
+<li>Valores
 <ul>
 <li>Easy: 1</li>
-<li>Medium: 5</li>
-<li>Hard: 10</li>
+<li>Medium: 3</li>
+<li>Hard: 5</li>
 </ul></li>
 </ul>
+<p>Para todos os níveis quando o jogador sai do path o seguinte algorítmo é aplicado:</p>
+<pre><code>int loseHealthSpeed = Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
+        if (distance &lt; 10000)
+        {
+            t = 0;
+        }
+        else if (distance &lt; 50000)
+        {
+            if (t &gt; 20)
+            {
+                t = 0;
+                GetNode&lt;Game&gt;(&quot;/root/Game&quot;).Health -= loseHealthSpeed;
+            }
+            else
+            {
+                t++;
+            }
+        }
+        else if (distance &lt; 100000)
+        {
+            if (t &gt; 20)
+            {
+                t = 0;
+                GetNode&lt;Game&gt;(&quot;/root/Game&quot;).Health -= loseHealthSpeed * 2;
+            }
+            else
+            {
+                t++;
+            }
+        }
+        else
+        {
+            if (t &gt; 20)
+            {
+                t = 0;
+                GetNode&lt;Game&gt;(&quot;/root/Game&quot;).Health -= loseHealthSpeed * 3;
+            }
+            else
+            {
+                t++;
+            }
+        }
+    }</code></pre>
 <h3 id="arrowinterval-intervalo-de-setas">ArrowInterval (Intervalo de Setas):</h3>
 <ul>
 <li>A distância entre dois ícones de setas que ajudam o jogador a ficar no caminho.</li>

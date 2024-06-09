@@ -177,13 +177,60 @@ No Airgate Narrow uma velocidade maior significa a necessidade de uma maior dest
     - Medium: 80
     - Hard: 300
 
-### OutOfPathFactor (Fator de Saída do Caminho):
-- A velocidade com que o jogador perde pontos ao ficar muito longe do caminho.
-- Impacto: Um fator mais alto penaliza mais severamente a saída do caminho, exigindo que o jogador mantenha-se mais próximo do trajeto.
-- Valores:
+
+### LoseHealthSpeed (Velocidade de perda de vidas):
+- A taxa com que o jogador perde vidas ao ficar muito longe do caminho ou atingir um pylon.
+- Valores
     - Easy: 1
-    - Medium: 5
-    - Hard: 10
+    - Medium: 2
+    - Hard: 3
+
+Para todos os níveis quando o jogador sai do path o seguinte algorítmo é aplicado:
+
+```
+int loseHealthSpeed = Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
+		if (distance < 10000)
+        {
+            t = 0;
+        }
+        else if (distance < 50000)
+        {
+            if (t > 20)
+            {
+                t = 0;
+                GetNode<Game>("/root/Game").Health -= loseHealthSpeed;
+            }
+            else
+            {
+                t++;
+            }
+        }
+        else if (distance < 100000)
+        {
+            if (t > 20)
+            {
+                t = 0;
+                GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 2;
+            }
+            else
+            {
+                t++;
+            }
+        }
+        else
+        {
+            if (t > 20)
+            {
+                t = 0;
+                GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 4;
+            }
+            else
+            {
+                t++;
+            }
+        }
+    }
+```
 
 ### ArrowInterval (Intervalo de Setas):
 - A distância entre dois ícones de setas que ajudam o jogador a ficar no caminho.
@@ -198,9 +245,9 @@ No Airgate Narrow uma velocidade maior significa a necessidade de uma maior dest
 - O número inicial de vidas do jogador.
 - Impacto: Menos vidas aumentam a dificuldade, pois erros são menos tolerados.
 - Valores:
-    - Easy: 7
-    - Medium: 5
-    - Hard: 3
+    - Easy: 8
+    - Medium: 6
+    - Hard: 4
 
 # Sistema de pontuação
 
