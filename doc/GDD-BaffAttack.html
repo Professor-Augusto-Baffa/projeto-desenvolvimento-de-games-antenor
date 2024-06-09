@@ -50,12 +50,14 @@ word-wrap: break-word;
 word-break: break-word;
 }
 h1 {
-font-size: 2.4em;
+font-size: 2.6em;
+color: #144f5a;
 text-align: center;
 }
 h2 {
 font-size: 2em;
-border-bottom: rgb(226, 226, 226) solid 3px;
+text-align: right;
+border-bottom: rgb(127, 127, 127) solid 3px;
 text-shadow:
 -3px -3px 0 #f9f9f9,
 0 -3px 0 #f9f9f9,
@@ -219,7 +221,12 @@ display: block;
 margin-bottom: 0.5rem;
 font-weight: 600;
 }
-</style>
+good {
+color: rgb(25, 118, 25);
+}
+bad {
+color: rgb(118, 25, 25);
+}</style>
 </head>
 <body>
 <h1 id="baffattack-gdd">BaffAttack // GDD</h1>
@@ -317,7 +324,12 @@ Swing Copters é um jogo bem mais atual que, assim como este jogo, exige precis�
 <li>os pontos do jogador ficarem iguais a zero ou negativos.</li>
 </ol>
 <h2 id="dificuldades">Dificuldades</h2>
-<p>Há três níveis de dificuldade no BaffaAttack: - Easy - Medium - Hard</p>
+<p>Há três níveis de dificuldade no BaffaAttack:</p>
+<ul>
+<li>Easy</li>
+<li>Medium</li>
+<li>Hard</li>
+</ul>
 <p>Eles são ajustados por diferentes parâmetros definidos na classe Levels (Levels.cs). As outras classes buscam na Levels estes parâmetros para se configurarem.</p>
 <h2 id="parâmetros-de-dificuldade">Parâmetros de Dificuldade</h2>
 <h3 id="speed-velocidade">Speed (Velocidade):</h3>
@@ -355,57 +367,56 @@ Swing Copters é um jogo bem mais atual que, assim como este jogo, exige precis�
 </ul>
 <h3 id="losehealthspeed-velocidade-de-perda-de-vidas">LoseHealthSpeed (Velocidade de perda de vidas):</h3>
 <ul>
-<li>A velocidade com que o jogador perde vidas ao ficar muito longe do caminho.</li>
+<li>A taxa com que o jogador perde vidas ao ficar muito longe do caminho ou atingir um pylon.</li>
 <li>Valores
 <ul>
 <li>Easy: 1</li>
-<li>Medium: 3</li>
-<li>Hard: 5</li>
+<li>Medium: 2</li>
+<li>Hard: 3</li>
 </ul></li>
 </ul>
 <p>Para todos os níveis quando o jogador sai do path o seguinte algorítmo é aplicado:</p>
 <pre><code>int loseHealthSpeed = Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
-        if (distance &lt; 10000)
-        {
-            t = 0;
-        }
-        else if (distance &lt; 50000)
-        {
-            if (t &gt; 20)
-            {
-                t = 0;
-                GetNode&lt;Game&gt;(&quot;/root/Game&quot;).Health -= loseHealthSpeed;
-            }
-            else
-            {
-                t++;
-            }
-        }
-        else if (distance &lt; 100000)
-        {
-            if (t &gt; 20)
-            {
-                t = 0;
-                GetNode&lt;Game&gt;(&quot;/root/Game&quot;).Health -= loseHealthSpeed * 2;
-            }
-            else
-            {
-                t++;
-            }
-        }
-        else
-        {
-            if (t &gt; 20)
-            {
-                t = 0;
-                GetNode&lt;Game&gt;(&quot;/root/Game&quot;).Health -= loseHealthSpeed * 3;
-            }
-            else
-            {
-                t++;
-            }
-        }
-    }</code></pre>
+if (distance &lt; 10000)
+{
+    t = 0;
+}
+else if (distance &lt; 50000)
+{
+    if (t &gt; 20)
+    {
+        t = 0;
+        GetNode&lt;Game&gt;(&quot;/root/Game&quot;).Health -= loseHealthSpeed;
+    }
+    else
+    {
+        t++;
+    }
+}
+else if (distance &lt; 100000)
+{
+    if (t &gt; 20)
+    {
+        t = 0;
+        GetNode&lt;Game&gt;(&quot;/root/Game&quot;).Health -= loseHealthSpeed + 2;
+    }
+    else
+    {
+        t++;
+    }
+}
+else
+{
+    if (t &gt; 20)
+    {
+        t = 0;
+        GetNode&lt;Game&gt;(&quot;/root/Game&quot;).Health -= loseHealthSpeed + 4;
+    }
+    else
+    {
+        t++;
+    }
+}</code></pre>
 <h3 id="arrowinterval-intervalo-de-setas">ArrowInterval (Intervalo de Setas):</h3>
 <ul>
 <li>A distância entre dois ícones de setas que ajudam o jogador a ficar no caminho.</li>
@@ -423,16 +434,33 @@ Swing Copters é um jogo bem mais atual que, assim como este jogo, exige precis�
 <li>Impacto: Menos vidas aumentam a dificuldade, pois erros são menos tolerados.</li>
 <li>Valores:
 <ul>
-<li>Easy: 7</li>
-<li>Medium: 5</li>
-<li>Hard: 3</li>
+<li>Easy: 8</li>
+<li>Medium: 6</li>
+<li>Hard: 4</li>
 </ul></li>
 </ul>
-<h1 id="sistema-de-pontuação">Sistema de pontuação</h1>
-<p>Existem eventos que aumentam ou diminuem a pontuação do jogador.</p>
+<h2 id="sistema-de-pontuação">Sistema de pontuação</h2>
+<p>Existem eventos que aumentam ou diminuem a pontuação e/ou vidas do jogador.</p>
+<table>
+<tr>
+<td>
+<b>Evento</b>
+</td>
+<td>
+<b>Consequência</b>
+</td>
+</tr>
+<tr>
+<td>
+Passar por cima da seta que indica o caminho
+</td>
+<td>
+Ganha <good>10 pontos</good> independemente do nível. Mas quanto mais difícil o nível mais espaçadas ficam as setas
+</td>
+</tr>
+</table>
 <ul>
-<li><p>Passar por cima da seta que indica o caminho Ganha: 10 * LevelFactor</p></li>
-<li><p>Passar pelo Airgate no sentido correto</p></li>
+<li>Passar pelo Airgate no sentido correto</li>
 </ul>
 <pre><code>v := velocidade atual do avião
 d := distância entre o avião e o path no momento da passagem

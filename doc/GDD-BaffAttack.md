@@ -141,6 +141,7 @@ O jogo termina se uma ou mais destas condições ocorrerem:
 ## Dificuldades
 
 Há três níveis de dificuldade no BaffaAttack:
+
 - Easy
 - Medium
 - Hard
@@ -189,47 +190,46 @@ Para todos os níveis quando o jogador sai do path o seguinte algorítmo é apli
 
 ```
 int loseHealthSpeed = Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
-		if (distance < 10000)
-        {
-            t = 0;
-        }
-        else if (distance < 50000)
-        {
-            if (t > 20)
-            {
-                t = 0;
-                GetNode<Game>("/root/Game").Health -= loseHealthSpeed;
-            }
-            else
-            {
-                t++;
-            }
-        }
-        else if (distance < 100000)
-        {
-            if (t > 20)
-            {
-                t = 0;
-                GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 2;
-            }
-            else
-            {
-                t++;
-            }
-        }
-        else
-        {
-            if (t > 20)
-            {
-                t = 0;
-                GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 4;
-            }
-            else
-            {
-                t++;
-            }
-        }
+if (distance < 10000)
+{
+    t = 0;
+}
+else if (distance < 50000)
+{
+    if (t > 20)
+    {
+        t = 0;
+        GetNode<Game>("/root/Game").Health -= loseHealthSpeed;
     }
+    else
+    {
+        t++;
+    }
+}
+else if (distance < 100000)
+{
+    if (t > 20)
+    {
+        t = 0;
+        GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 2;
+    }
+    else
+    {
+        t++;
+    }
+}
+else
+{
+    if (t > 20)
+    {
+        t = 0;
+        GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 4;
+    }
+    else
+    {
+        t++;
+    }
+}
 ```
 
 ### ArrowInterval (Intervalo de Setas):
@@ -249,12 +249,20 @@ int loseHealthSpeed = Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
     - Medium: 6
     - Hard: 4
 
-# Sistema de pontuação
+## Sistema de pontuação
 
-Existem eventos que aumentam ou diminuem a pontuação do jogador.
+Existem eventos que aumentam ou diminuem a pontuação e/ou vidas do jogador.
 
-- Passar por cima da seta que indica o caminho
-Ganha: 10 * LevelFactor
+<table>
+<tr>
+<td><b>Evento</b></td>
+<td><b>Consequência</b></td>
+</tr>
+<tr>
+<td>Passar por cima da seta que indica o caminho</td>
+<td>Ganha <good>10 pontos</good> independemente do nível. Mas quanto mais difícil o nível mais espaçadas ficam as setas</td>
+</tr>
+</table>
 
 - Passar pelo Airgate no sentido correto
 ```
