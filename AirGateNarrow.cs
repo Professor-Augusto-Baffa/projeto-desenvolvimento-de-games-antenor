@@ -21,7 +21,7 @@ public partial class AirGateNarrow : Node2D
 	{
 	}
 
-	private void _on_front_area_entered(Area2D area)
+private void _on_front_area_entered(Area2D area)
 	{
 		if (hasExplodedJustBefore) {
 			hasExplodedJustBefore = false;
@@ -29,18 +29,12 @@ public partial class AirGateNarrow : Node2D
 		}
 		if (area is Plane)
 		{
-			Plane plane = (Plane)area;
 			if (lastEnteredFrom == F.Back) 
 			{
 				lastEnteredFrom = F.None;
-				if (plane.HeadingSpeed > 0.8)
-				{
-					GetNode<Game>("/root/Game").Score -= 100;
-				}
-				else
-				{
-				GetNode<Game>("/root/Game").Score -= 150;
-				}
+				GetNode<Game>("/root/Game").Health -= Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
+				var b = GetNode<Banner>("/root/Banner");
+				b.showUpperBanner("Sentido errado!", bad: true);
 			}
 			else 
 			{

@@ -24,7 +24,7 @@ public static class Levels {
                 { Info.Speed, 200 },
                 { Info.MaxSpeed, 900 },
                 { Info.MinSpeed, 80 },
-                { Info.LoseHealthSpeed, 3},
+                { Info.LoseHealthSpeed, 2},
                 { Info.ArrowInterval, 40},
                 { Info.InitialHealth, 6}
             };
@@ -36,7 +36,7 @@ public static class Levels {
                 { Info.Speed, 300 },
                 { Info.MaxSpeed, 900 },
                 { Info.MinSpeed, 300 },
-                { Info.LoseHealthSpeed, 5},
+                { Info.LoseHealthSpeed, 3},
                 { Info.ArrowInterval, 60},
                 { Info.InitialHealth, 4}
             };

@@ -69,8 +69,7 @@ public partial class AirGate : Node2D
 			if (lastEnteredFrom == F.Back) 
 			{
 				lastEnteredFrom = F.None;
-				GetNode<Game>("/root/Game").Score -= 500;
-				GetNode<Game>("/root/Game").Health -= Levels.getLevelInfo(Levels.Info.InitialHealth);
+				GetNode<Game>("/root/Game").Health -= Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
 				var b = GetNode<Banner>("/root/Banner");
 				b.showUpperBanner("Sentido errado!", bad: true);
 			}
