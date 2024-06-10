@@ -1,13 +1,28 @@
-[gd_scene load_steps=16 format=3 uid="uid://l582445io5ko"]
+[gd_scene load_steps=23 format=3 uid="uid://l582445io5ko"]
 
 [ext_resource type="Script" path="res://RootScene.cs" id="1_0xxxs"]
 [ext_resource type="Script" path="res://Menu.cs" id="1_28tcq"]
 [ext_resource type="Texture2D" uid="uid://cb8o0kbd8tnof" path="res://Assets/logo.png" id="3_8fo1f"]
+[ext_resource type="StyleBox" uid="uid://0n0turpd3to0" path="res://Button Option Style.tres" id="3_ai87t"]
+[ext_resource type="StyleBox" uid="uid://c43jqslpgj0hh" path="res://Button Option Style Focus.tres" id="3_x5g5j"]
+[ext_resource type="StyleBox" uid="uid://dmdkb2fqitalq" path="res://Button Option Hover.tres" id="4_27kqw"]
 [ext_resource type="AudioStream" uid="uid://cif50o300nd4g" path="res://Assets/Lamb - Setting sun.mp3" id="5_265wt"]
 [ext_resource type="Texture2D" uid="uid://ddavor4u1whud" path="res://Assets/BG_gradient.png" id="5_h2sqq"]
 [ext_resource type="Script" path="res://BG.cs" id="5_jw6uf"]
 [ext_resource type="Texture2D" uid="uid://d372bxi647owd" path="res://Assets/BG_rect.png" id="6_lpalr"]
 [ext_resource type="Texture2D" uid="uid://k16yfuyuhmc1" path="res://Assets/BG.png" id="7_u4kdk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdbej"]
+bg_color = Color(0, 0, 0, 0.137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2njyk"]
+bg_color = Color(0.407843, 0, 0.34902, 0.2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chfba"]
+bg_color = Color(0, 0, 0, 0.137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sq5ra"]
+bg_color = Color(0.407843, 0, 0.34902, 0.2)
 
 [sub_resource type="Animation" id="Animation_klyxp"]
 resource_name = "LOGO Animation"
@@ -216,17 +231,21 @@ script = ExtResource("1_0xxxs")
 script = ExtResource("1_28tcq")
 
 [node name="BtnKeyboard" type="Button" parent="Menu"]
-offset_left = 435.0
-offset_top = 319.0
-offset_right = 591.0
-offset_bottom = 377.0
+offset_left = 436.0
+offset_top = 296.0
+offset_right = 592.0
+offset_bottom = 354.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdbej")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2njyk")
 text = "Usar Teclado"
 
 [node name="BtnMouse" type="Button" parent="Menu"]
-offset_left = 622.0
-offset_top = 319.0
-offset_right = 782.0
-offset_bottom = 377.0
+offset_left = 623.0
+offset_top = 296.0
+offset_right = 783.0
+offset_bottom = 354.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_chfba")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sq5ra")
 text = "Usar Mouse"
 
 [node name="Label" type="Label" parent="Menu"]
@@ -237,10 +256,13 @@ offset_bottom = 604.0
 text = "Durante o jogo aperte <ESC> para pausar."
 
 [node name="OptionButton" type="OptionButton" parent="Menu"]
-offset_left = 514.0
-offset_top = 423.0
-offset_right = 691.0
-offset_bottom = 454.0
+offset_left = 355.0
+offset_top = 416.0
+offset_right = 500.0
+offset_bottom = 447.0
+theme_override_styles/focus = ExtResource("3_x5g5j")
+theme_override_styles/normal = ExtResource("3_ai87t")
+theme_override_styles/hover = ExtResource("4_27kqw")
 item_count = 3
 selected = 0
 popup/item_0/text = "Fácil"
@@ -251,7 +273,7 @@ popup/item_2/text = "Difícil"
 popup/item_2/id = 2
 
 [node name="LOGO" type="Sprite2D" parent="Menu"]
-position = Vector2(608, 235)
+position = Vector2(610, 216)
 texture = ExtResource("3_8fo1f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/LOGO"]
@@ -264,13 +286,66 @@ libraries = {
 stream = ExtResource("5_265wt")
 autoplay = true
 
+[node name="OptionSound" type="OptionButton" parent="Menu"]
+offset_left = 546.0
+offset_top = 416.0
+offset_right = 691.0
+offset_bottom = 447.0
+theme_override_styles/focus = ExtResource("3_x5g5j")
+theme_override_styles/normal = ExtResource("3_ai87t")
+theme_override_styles/hover = ExtResource("4_27kqw")
+item_count = 2
+selected = 0
+popup/item_0/text = "Ativada"
+popup/item_0/id = 0
+popup/item_1/text = "Desativada"
+popup/item_1/id = 1
+
+[node name="OptionSFX" type="OptionButton" parent="Menu"]
+offset_left = 731.0
+offset_top = 416.0
+offset_right = 876.0
+offset_bottom = 447.0
+theme_override_styles/focus = ExtResource("3_x5g5j")
+theme_override_styles/normal = ExtResource("3_ai87t")
+theme_override_styles/hover = ExtResource("4_27kqw")
+item_count = 2
+selected = 0
+popup/item_0/text = "Ativado"
+popup/item_0/id = 0
+popup/item_1/text = "Desativado"
+popup/item_1/id = 1
+
 [node name="Label2" type="Label" parent="Menu"]
-offset_left = 770.0
-offset_top = 266.0
-offset_right = 904.0
-offset_bottom = 289.0
-text = "Antenor Barros"
+offset_left = 490.0
+offset_top = 550.0
+offset_right = 672.0
+offset_bottom = 573.0
+text = "© 2024 Antenor Barros"
 label_settings = SubResource("LabelSettings_n6aox")
+
+[node name="Label4" type="Label" parent="Menu"]
+offset_left = 356.0
+offset_top = 390.0
+offset_right = 434.0
+offset_bottom = 413.0
+text = "⊿ Nível"
+
+[node name="Label5" type="Label" parent="Menu"]
+offset_left = 733.0
+offset_top = 390.0
+offset_right = 869.0
+offset_bottom = 413.0
+text = "♪  Efeito sonoro
+"
+
+[node name="Label3" type="Label" parent="Menu"]
+offset_left = 549.0
+offset_top = 390.0
+offset_right = 631.0
+offset_bottom = 413.0
+text = "♪  Música
+"
 
 [node name="BG" type="Node2D" parent="Menu"]
 script = ExtResource("5_jw6uf")
@@ -301,13 +376,13 @@ texture = ExtResource("5_h2sqq")
 
 [node name="Menu BG2" type="Sprite2D" parent="Menu/BG"]
 z_index = -2
-position = Vector2(605, 328)
-scale = Vector2(0.960069, 0.986111)
+position = Vector2(605, 324.25)
+scale = Vector2(0.960069, 0.999228)
 texture = ExtResource("6_lpalr")
 
 [node name="Menu BG" type="Sprite2D" parent="Menu/BG"]
 z_index = -4
-position = Vector2(580.939, 324.891)
+position = Vector2(580, 329)
 scale = Vector2(1.03309, 1.04046)
 texture = ExtResource("7_u4kdk")
 
@@ -318,3 +393,4 @@ libraries = {
 
 [connection signal="pressed" from="Menu/BtnKeyboard" to="Menu" method="_on_btn_keyboard_pressed"]
 [connection signal="pressed" from="Menu/BtnMouse" to="Menu" method="_on_btn_mouse_pressed"]
+[connection signal="item_selected" from="Menu/OptionSound" to="Menu" method="_on_option_sound_item_selected"]

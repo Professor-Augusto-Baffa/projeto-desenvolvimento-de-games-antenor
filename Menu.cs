@@ -36,9 +36,15 @@ public partial class Menu : Node
 		Levels.SelectedLevel = (Levels.Lvl)sel;
 		StartGame(IsControledByMouse: false);
 	}
-
+	
+	private void _on_option_sound_item_selected(long index)
+	{
+		GD.Print("a" + index);
+		if (index == 0) {
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), 0);
+		}
+		else {
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), -80);
+		}
+	}
 }
-
-
-
-

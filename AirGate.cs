@@ -120,7 +120,7 @@ public partial class AirGate : Node2D
 			GetNode<Godot.Timer>("Gate" + leftOrRight + "/ExplosionTimer").Start();
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/FireSFX").Play();
 			var b = GetNode<Banner>("/root/Banner");
-			b.showUpperBanner("Atingiu o pylon!", bad: true);
+			b.showUpperBanner("Atingiu o pylon!", bad: true, "opa você atingiu o pylon", 0.5, 3);
 		}
 	}
 	private void _on_right_area_entered(Area2D area)

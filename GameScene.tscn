@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=69 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -28,6 +28,8 @@
 [ext_resource type="AudioStream" uid="uid://cvb5oatsa2vbe" path="res://Assets/ExtraTime.mp3" id="23_anqco"]
 [ext_resource type="AudioStream" uid="uid://djlcdv3auv8dm" path="res://Assets/powerdown.wav" id="24_ecyhg"]
 [ext_resource type="Texture2D" uid="uid://dhrvcde1w5td7" path="res://Assets/AI/BG.png" id="26_nhcc5"]
+[ext_resource type="AudioStream" uid="uid://b3xl2aouudy6t" path="res://Assets/AI/passe com a asa inclinada.wav" id="28_48my4"]
+[ext_resource type="AudioStream" uid="uid://c61m3rovm1qno" path="res://Assets/AI/opa você antingiu o pylon.wav" id="29_mc2c1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_81eeb"]
 font_size = 21
@@ -1330,6 +1332,12 @@ stream = ExtResource("23_anqco")
 
 [node name="LessTime" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("24_ecyhg")
+
+[node name="passe com a asa inclinada" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("28_48my4")
+
+[node name="opa você atingiu o pylon" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("29_mc2c1")
 
 [node name="MainBG" type="TextureRect" parent="."]
 modulate = Color(0.203922, 0.25098, 0.380392, 1)

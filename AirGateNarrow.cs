@@ -59,7 +59,8 @@ private void _on_front_area_entered(Area2D area)
 					GetNode<Game>("/root/Game").Health -= 1;
 					GetNode<Game>("/root/Game").Score -= 100;
 					var b = GetNode<Banner>("/root/Banner");
-					b.showUpperBanner("Passe com a asa inclinada!", bad: true);
+					b.showUpperBanner("Passe com a asa inclinada!", bad: true, AudioName: "passe com a asa inclinada", audioDelay: 0);
+					
 				}
 			}
 			else 
@@ -89,7 +90,7 @@ private void _on_front_area_entered(Area2D area)
 			GetNode<Godot.Timer>("Gate" + leftOrRight + "/ExplosionTimer").Start();
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/FireSFX").Play();
 			var b = GetNode<Banner>("/root/Banner");
-			b.showUpperBanner("Atingiu o pylon!", bad: true);
+			b.showUpperBanner("Atingiu o pylon!", bad: true, "opa você atingiu o pylon", 0.5);
 		}
 	}
 	private void _on_right_area_entered(Area2D area)
