@@ -334,8 +334,7 @@ Swing Copters é um jogo bem mais atual que, assim como este jogo, exige precis�
 <h2 id="parâmetros-de-dificuldade">Parâmetros de Dificuldade</h2>
 <h3 id="speed-velocidade">Speed (Velocidade):</h3>
 <ul>
-<li>Velocidade inicial do avião no início do jogo.</li>
-<li>Impacto: Velocidades maiores tornam o controle do avião mais difícil e aumentam a necessidade de reflexos rápidos.</li>
+<li>Velocidade inicial do avião no início do jogo. Ela pode ser ajustada para um valor dentro dos limites MinSpeed e MaxSpeed.</li>
 <li>Valores:
 <ul>
 <li>Easy: 150</li>
@@ -346,7 +345,7 @@ Swing Copters é um jogo bem mais atual que, assim como este jogo, exige precis�
 <h3 id="maxspeed-velocidade-máxima">MaxSpeed (Velocidade Máxima):</h3>
 <ul>
 <li><p>Descrição: A velocidade máxima que o avião pode atingir.</p></li>
-<li><p>Impacto: Limita o quão rápido o avião pode ir. É igual para todos os níveis. Com o avião mais rápido o jogador consegue pegar mais pontos em menos tempo, mas o controle fica mais difícil. Em velocidade superiores a 400 é praticamente impossível controlar o avião.</p></li>
+<li><p>Impacto: Limita o quão rápido o avião pode ir. É igual para todos os níveis. Com o avião mais rápido o jogador consegue pegar mais pontos em menos tempo, mas o controle fica mais difícil. Em velocidade superiores a 500 é praticamente impossível controlar o avião.</p></li>
 <li><p>Valores:</p>
 <ul>
 <li>Easy: 900</li>
@@ -458,22 +457,62 @@ Passar por cima da seta que indica o caminho
 Ganha <good>10 pontos</good> independemente do nível. Mas quanto mais difícil o nível mais espaçadas ficam as setas
 </td>
 </tr>
+<tr>
+<td>
+Passar pelo Airgate no sentido correto
+</td>
+<td>
+Ganha <good>v - d</good>. Em que “v” é velocidade atual do avião e “d” a distância entre o avião e o path no momento da passagem.
+</td>
+</tr>
+<tr>
+<td>
+Passar pelo Airgate Narrow no sentido correto e inclinação da asa superior a 1 (abs(HeadingSpeed) &gt; 1)
+</td>
+<td>
+Ganha <good>3 * (v - d)</good>. Em que “v” é velocidade atual do avião e “d” a distância entre o avião e o path no momento da passagem.
+</td>
+</tr>
+<tr>
+<td>
+Passar pelo Airgate Narrow no sentido correto, mas sem inclinação de asa (abs(HeadingSpeed) &lt;= 1)
+</td>
+<td>
+Perde <bad>100 pontos</bad> e uma vida.
+</td>
+</tr>
+<tr>
+<td>
+Atingir um pylon de um AirGate ou AirGate Narrow
+</td>
+<td>
+Perde <bad>100 * LoseHealthSpeed pontos</bad> e <bad>LoseHealthSpeed vidas</bad>. Sendo LoseHealthSpeed um, dois ou três, dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.
+</td>
+</tr>
+<tr>
+<td>
+A aeronave ficar a uma distância do path ao quadrado maior que 10000
+</td>
+<td>
+A cada 20 ticks do “process” perde <bad>uma, duas ou três vidas</bad> dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.
+</td>
+</tr>
+<tr>
+<td>
+A aeronave ficar a uma distância do path ao quadrado maior que 50000
+</td>
+<td>
+A cada 20 ticks do “process” perde <bad>três, quatro ou cinco vidas</bad> dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.
+</td>
+</tr>
+<tr>
+<td>
+A aeronave ficar a uma distância do path ao quadrado maior que 100000
+</td>
+<td>
+A cada 20 ticks do “process” perde <bad>cinco, seis ou sete vidas</bad> dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.
+</td>
+</tr>
 </table>
-<ul>
-<li>Passar pelo Airgate no sentido correto</li>
-</ul>
-<pre><code>v := velocidade atual do avião
-d := distância entre o avião e o path no momento da passagem
-Pontos ganhos = v - d</code></pre>
-<ul>
-<li>Passar pelo Airgate Narrow no sentido correto</li>
-</ul>
-<pre><code>v := velocidade atual do avião
-d := distância entre o avião e o path no momento da passagem
-Pontos ganhos = 3 * (v - d)</code></pre>
-<ul>
-<li><p>Passar pelo Airgate ou Airgate Narrow no sentido errado Pontos perdidos: 500 * LevelFactor Perde: Uma vida</p></li>
-<li><p>Atingir o pylon do AirGate ou Airgate Narrow Pontos perdidos: 100 * LevelFactor Perde: Uma vida</p></li>
-</ul>
 </body>
 </html>

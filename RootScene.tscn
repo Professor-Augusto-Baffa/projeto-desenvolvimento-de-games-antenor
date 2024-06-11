@@ -394,3 +394,4 @@ libraries = {
 [connection signal="pressed" from="Menu/BtnKeyboard" to="Menu" method="_on_btn_keyboard_pressed"]
 [connection signal="pressed" from="Menu/BtnMouse" to="Menu" method="_on_btn_mouse_pressed"]
 [connection signal="item_selected" from="Menu/OptionSound" to="Menu" method="_on_option_sound_item_selected"]
+[connection signal="item_selected" from="Menu/OptionSFX" to="Menu" method="_on_option_sfx_item_selected"]

@@ -49,7 +49,15 @@ private void _on_front_area_entered(Area2D area)
 				lastEnteredFrom = F.None;
 				if (Math.Abs(plane.HeadingSpeed) > 1.0f)
 				{
-					GetNode<Game>("/root/Game").Score += 100;
+					float distanceF = GetNode<Path2D>("/root/RootScene/GameScene/AirPath").Curve.GetClosestPoint(area.Position).DistanceSquaredTo(area.Position);
+					int distance = (int)Math.Round(distanceF) / 10;
+					int speed = GetNode<Game>("/root/Game").Speed;
+					int points = 3 * ((int)speed - distance);
+					GetNode<Game>("/root/Game").Score += points;
+					// GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AirGatePassSFX").Play();
+					GetNode<Label>("/root/RootScene/GameScene/HUD/AquiredPoints").Text = $"(Veloc:{speed} - Dist:{distance}) x 3 = {points} pontos";
+					GetNode<Label>("/root/RootScene/GameScene/HUD/AquiredPoints").Visible = true;
+					GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/AquiredPoints/AnimationPlayer").Play("AppearAndDisappear");
 					GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AirGateNarrowPassSFX").Play();
 					var b = GetNode<Banner>("/root/Banner");
 					b.showUpperBanner("Perfeito!");
@@ -83,7 +91,7 @@ private void _on_front_area_entered(Area2D area)
 		if (area is Plane)
 		{
 			hasExplodedJustBefore = true;
-			GetNode<Game>("/root/Game").Score -= 100;
+			GetNode<Game>("/root/Game").Score -= 100 * Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
 			GetNode<Game>("/root/Game").Health -= Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Visible = true;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();

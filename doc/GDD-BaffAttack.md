@@ -152,8 +152,8 @@ As outras classes buscam na Levels estes parâmetros para se configurarem.
 ## Parâmetros de Dificuldade
 
 ### Speed (Velocidade):
-- Velocidade inicial do avião no início do jogo.
-- Impacto: Velocidades maiores tornam o controle do avião mais difícil e aumentam a necessidade de reflexos rápidos.
+- Velocidade inicial do avião no início do jogo. Ela pode ser ajustada para um
+valor dentro dos limites MinSpeed e MaxSpeed.
 - Valores:
     - Easy: 150
     - Medium: 200
@@ -161,7 +161,7 @@ As outras classes buscam na Levels estes parâmetros para se configurarem.
 
 ### MaxSpeed (Velocidade Máxima):
 - Descrição: A velocidade máxima que o avião pode atingir.
-- Impacto: Limita o quão rápido o avião pode ir. É igual para todos os níveis. Com o avião mais rápido o jogador consegue pegar mais pontos em menos tempo, mas o controle fica mais difícil. Em velocidade superiores a 400 é praticamente impossível controlar o avião.
+- Impacto: Limita o quão rápido o avião pode ir. É igual para todos os níveis. Com o avião mais rápido o jogador consegue pegar mais pontos em menos tempo, mas o controle fica mais difícil. Em velocidade superiores a 500 é praticamente impossível controlar o avião.
 
 - Valores:
     - Easy: 900
@@ -262,27 +262,44 @@ Existem eventos que aumentam ou diminuem a pontuação e/ou vidas do jogador.
 <td>Passar por cima da seta que indica o caminho</td>
 <td>Ganha <good>10 pontos</good> independemente do nível. Mas quanto mais difícil o nível mais espaçadas ficam as setas</td>
 </tr>
+<tr>
+<td>Passar pelo Airgate no sentido correto</td>
+<td>Ganha <good>v - d</good>. Em que "v" é velocidade atual do avião e 
+"d" a distância entre o avião e o path no momento da passagem.
+</td>
+</tr>
+<tr>
+<td>Passar pelo Airgate Narrow no sentido correto e inclinação da asa superior a 1 (abs(HeadingSpeed) > 1)</td>
+<td>Ganha <good>3 * (v - d)</good>. Em que "v" é velocidade atual do avião e 
+"d" a distância entre o avião e o path no momento da passagem.
+</td>
+</tr>
+<tr>
+<td>Passar pelo Airgate Narrow no sentido correto, mas sem inclinação de asa (abs(HeadingSpeed) <= 1)</td>
+<td>Perde <bad>100 pontos</bad> e uma vida.
+</td>
+</tr>
+<tr>
+<td>Atingir um pylon de um AirGate ou AirGate Narrow</td>
+<td>Perde <bad>100 * LoseHealthSpeed pontos</bad> e <bad>LoseHealthSpeed vidas</bad>. Sendo LoseHealthSpeed um, dois ou três, dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.
+</td>
+</tr>
+<tr>
+<td>A aeronave ficar a uma distância do path ao quadrado maior que 10000</td>
+<td>A cada 20 ticks do "process" perde <bad>uma, duas ou três vidas</bad> dependendo se o nível do jogo é fácil, médio ou
+difícil, respectivamente.
+</td>
+</tr>
+<tr>
+<td>A aeronave ficar a uma distância do path ao quadrado maior que 50000</td>
+<td>A cada 20 ticks do "process" perde <bad>três, quatro ou cinco vidas</bad> dependendo se o nível do jogo é fácil, médio ou
+difícil, respectivamente.
+</td>
+</tr>
+<tr>
+<td>A aeronave ficar a uma distância do path ao quadrado maior que 100000</td>
+<td>A cada 20 ticks do "process" perde <bad>cinco, seis ou sete vidas</bad> dependendo se o nível do jogo é fácil, médio ou
+difícil, respectivamente.
+</td>
+</tr>
 </table>
-
-- Passar pelo Airgate no sentido correto
-```
-v := velocidade atual do avião
-d := distância entre o avião e o path no momento da passagem
-Pontos ganhos = v - d
-```
-
-- Passar pelo Airgate Narrow no sentido correto
-```
-v := velocidade atual do avião
-d := distância entre o avião e o path no momento da passagem
-Pontos ganhos = 3 * (v - d)
-```
-
-- Passar pelo Airgate ou Airgate Narrow no sentido errado
-Pontos perdidos: 500 * LevelFactor
-Perde: Uma vida
-
-- Atingir o pylon do AirGate ou Airgate Narrow
-Pontos perdidos: 100 * LevelFactor
-Perde: Uma vida
-

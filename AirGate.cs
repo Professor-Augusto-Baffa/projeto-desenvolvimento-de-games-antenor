@@ -92,13 +92,13 @@ public partial class AirGate : Node2D
 			if (lastEnteredFrom == F.Front) 
 			{
 				lastEnteredFrom = F.None;
-				float distanceF = GetNode<Path2D>("/root/RootScene/GameScene/AirPath").Curve.GetClosestPoint(Position).DistanceSquaredTo(Position);
-				int distance = (int)Math.Round(distanceF) / 100;
+				float distanceF = GetNode<Path2D>("/root/RootScene/GameScene/AirPath").Curve.GetClosestPoint(area.Position).DistanceSquaredTo(area.Position);
+				int distance = (int)Math.Round(distanceF) / 10;
 				int speed = GetNode<Game>("/root/Game").Speed;
-				int points = ((int)distance + speed);
+				int points = ((int)speed - distance);
 				GetNode<Game>("/root/Game").Score += points;
 				// GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/AirGatePassSFX").Play();
-				GetNode<Label>("/root/RootScene/GameScene/HUD/AquiredPoints").Text = $"Dist:{distance}+Veloc:{speed} = {points} pontos";
+				GetNode<Label>("/root/RootScene/GameScene/HUD/AquiredPoints").Text = $"Veloc:{speed} - Dist:{distance} = {points} pontos";
 				GetNode<Label>("/root/RootScene/GameScene/HUD/AquiredPoints").Visible = true;
 				GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/AquiredPoints/AnimationPlayer").Play("AppearAndDisappear");
 			}
@@ -113,7 +113,7 @@ public partial class AirGate : Node2D
 		if (area is Plane)
 		{
 			hasExplodedJustBefore = true;
-			GetNode<Game>("/root/Game").Score -= 100;
+			GetNode<Game>("/root/Game").Score -= 100 * Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
 			GetNode<Game>("/root/Game").Health -= Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Visible = true;
 			GetNode<AnimatedSprite2D>("Gate" + leftOrRight + "/Explosion").Play();

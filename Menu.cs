@@ -39,12 +39,20 @@ public partial class Menu : Node
 	
 	private void _on_option_sound_item_selected(long index)
 	{
-		GD.Print("a" + index);
 		if (index == 0) {
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), 0);
 		}
 		else {
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), -80);
+		}
+	}
+	private void _on_option_sfx_item_selected(long index)
+	{
+		if (index == 0) {
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), 0);
+		}
+		else {
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), -80);
 		}
 	}
 }
