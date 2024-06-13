@@ -30,7 +30,7 @@ controle constante da aeronave, assim como a visão top-down, são elementos que
 <img src="ski-free.png" alt="Ski Free" style="width: 300px; height: auto; margin-right: 10px; margin-top: 35px;">
 <div>
 <h3>Ski Free (Windows 3.1)</h3>
-<p>Pode parecer um jogo diferente à primeira vista, já que não é na temática de aviões, mas compartilha a mecânica de desvio de obstáculos e percurso pré-estabelecido. No "Ski Free", o jogador controla um esquiador que deve descer uma montanha enquanto evita obstáculos como árvores e outros esquiadores. Igual ao meu jogo, a posição do mouse para esquerda ou direita move o personagem. A necessidade de reflexos rápidos para desviar dos obstáculos tornam Ski Free um jogo similar, apesar da diferença no tema.</p>
+<p>Pode parecer um jogo diferente à primeira vista, já que não é na temática de aviões, mas compartilha a mecânica de desvio de obstáculos e percurso pré-estabelecido. No "Ski Free", o jogador controla um esquiador que deve descer uma montanha enquanto evita obstáculos como árvores e outros esquiadores. Igual ao meu jogo, a posição do mouse para esquerda ou direita move o personagem.</p>
 </div>
 </div>
 
@@ -124,6 +124,10 @@ Caso esta regra seja descumprida, são descontados 50 pontos. O desconto é cumu
 
 O jogo dura 5 minutos, mas aparecem em posições aleatórias do mapa "power-ups" de tempos que dão 30 segundos extras caso o avião passe por cima de um. 
 Este possui a cor verde. Caso esteja na cor vermelha é descontado 1 minuto. Ambos os power-ups desaparecem ao serem passados.
+
+## ExtraHealth
+
+Existe também um power up que, caso o avião atravesse-o, é dada uma vida extra.
 
 ## Caminho
 O avião deve seguir a ordem de "airgates" mantendo-se dentro de um caminho pre-estabelecido. A cada delta, a distância do avião
@@ -255,27 +259,46 @@ Existem eventos que aumentam ou diminuem a pontuação e/ou vidas do jogador.
 
 <table>
 <tr>
-<td><b>Evento</b></td>
+<td style="width: 20%;"><b>Evento</b></td>
 <td><b>Consequência</b></td>
 </tr>
 <tr>
 <td>Passar por cima da seta que indica o caminho</td>
-<td>Ganha <good>10 pontos</good> independemente do nível. Mas quanto mais difícil o nível mais espaçadas ficam as setas</td>
+<td>Ganha <good>10 pontos</good> independente do nível. Mas quanto mais difícil o nível mais espaçadas ficam as setas</td>
 </tr>
 <tr>
 <td>Passar pelo Airgate no sentido correto</td>
-<td>Ganha <good>v - d</good>. Em que "v" é velocidade atual do avião e 
+<td>Ganha <good>v - d</good>. Em que "v" é a velocidade atual do avião e 
+"d" a distância entre o avião e o path no momento da passagem. Isto incentiva o jogador
+a passar pelo centro do AirGate.
+</td>
+</tr>
+<tr>
+<td>Passar pelo Airgate ou Airgate Narrow no sentido incorreto.</td>
+<td>Perde <bad>uma vida</bad>.
+</td>
+</tr>
+<tr>
+<td>Passar pelo Airgate Narrow no sentido correto e com inclinação da asa.
+Na seção "Controle" foi falado o significado de "R" e "R_max".
+
+```
+abs(R) >= R_max / 2
+```
+
+</td>
+<td>Ganha <good>3 * (v - d)</good>. Em que "v" é a velocidade atual do avião e 
 "d" a distância entre o avião e o path no momento da passagem.
 </td>
 </tr>
 <tr>
-<td>Passar pelo Airgate Narrow no sentido correto e inclinação da asa superior a 1 (abs(HeadingSpeed) > 1)</td>
-<td>Ganha <good>3 * (v - d)</good>. Em que "v" é velocidade atual do avião e 
-"d" a distância entre o avião e o path no momento da passagem.
+<td>Passar pelo Airgate Narrow no sentido correto, mas sem inclinação de asa 
+
+```
+abs(R) < R_max / 2
+```
+
 </td>
-</tr>
-<tr>
-<td>Passar pelo Airgate Narrow no sentido correto, mas sem inclinação de asa (abs(HeadingSpeed) <= 1)</td>
 <td>Perde <bad>100 pontos</bad> e uma vida.
 </td>
 </tr>
@@ -285,19 +308,21 @@ Existem eventos que aumentam ou diminuem a pontuação e/ou vidas do jogador.
 </td>
 </tr>
 <tr>
-<td>A aeronave ficar a uma distância do path ao quadrado maior que 10000</td>
+<td>A aeronave ficar a uma distância ao quadrado do path maior que 10000.
+É usada a d^2, porque a raiz quadrada é
+custosa computacionalmente.</td>
 <td>A cada 20 ticks do "process" perde <bad>uma, duas ou três vidas</bad> dependendo se o nível do jogo é fácil, médio ou
 difícil, respectivamente.
 </td>
 </tr>
 <tr>
-<td>A aeronave ficar a uma distância do path ao quadrado maior que 50000</td>
+<td>A aeronave ficar a uma distância ao quadrado do path maior que 50000</td>
 <td>A cada 20 ticks do "process" perde <bad>três, quatro ou cinco vidas</bad> dependendo se o nível do jogo é fácil, médio ou
 difícil, respectivamente.
 </td>
 </tr>
 <tr>
-<td>A aeronave ficar a uma distância do path ao quadrado maior que 100000</td>
+<td>A aeronave ficar a uma distância ao quadrado do path maior que 100000</td>
 <td>A cada 20 ticks do "process" perde <bad>cinco, seis ou sete vidas</bad> dependendo se o nível do jogo é fácil, médio ou
 difícil, respectivamente.
 </td>
