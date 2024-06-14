@@ -45,22 +45,22 @@ public partial class RootScene : Node2D
 					firstTime = false;
 					GetNode<Sprite2D>("/root/RootScene/GameScene/HUD/CenterSquare/Sprite2D").Modulate = new Color(0, 125, 0);
 					GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/CenterSquare/AnimationPlayer").Play("InstrFadeOut");
+					GetNode<Node>("/root/").GetTree().Paused = false;
+					var playPosition = GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGMBass").GetPlaybackPosition();
+					GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGMBass").Stop();
+					GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play(playPosition);
 					var timer = new Timer
 					{
 						Autostart = true,
-						WaitTime = 1.2,
-						ProcessMode = ProcessModeEnum.WhenPaused,
+						WaitTime = 1,
+						ProcessMode = ProcessModeEnum.Pausable,
 						OneShot = true
 					};
 					AddChild(timer);
 					timer.Timeout += () => {
-						GetNode<Node>("/root/").GetTree().Paused = false;
 						GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/CenterSquare/AnimationPlayer").Stop();
 						GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
 						isPauseDisabled = false;
-						var playPosition = GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGMBass").GetPlaybackPosition();
-						GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGMBass").Stop();
-						GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play(playPosition);
 					};
 				}
 			}
