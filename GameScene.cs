@@ -22,4 +22,8 @@ public partial class GameScene : Node2D
 	{
 		GetNode<Game>("/root/Game/").EndGame();
 	}
+	private void _on_main_bgm_finished()
+	{
+		GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play();
+	}
 }

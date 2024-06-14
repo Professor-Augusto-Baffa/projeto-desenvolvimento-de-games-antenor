@@ -1433,3 +1433,4 @@ stretch_mode = 1
 [connection signal="area_entered" from="PwrUps/TimePowerUp" to="PwrUps/TimePowerUp" method="_on_area_entered"]
 [connection signal="area_entered" from="PwrUps/TimePowerUp2" to="PwrUps/TimePowerUp2" method="_on_area_entered"]
 [connection signal="area_entered" from="PwrUps/TimePowerUp3" to="PwrUps/TimePowerUp3" method="_on_area_entered"]
+[connection signal="finished" from="Audio/MainBGM" to="." method="_on_main_bgm_finished"]
