@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=70 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://djlcdv3auv8dm" path="res://Assets/powerdown.wav" id="24_ecyhg"]
 [ext_resource type="Texture2D" uid="uid://dhrvcde1w5td7" path="res://Assets/AI/BG.png" id="26_nhcc5"]
 [ext_resource type="AudioStream" uid="uid://b3xl2aouudy6t" path="res://Assets/AI/passe com a asa inclinada.wav" id="28_48my4"]
+[ext_resource type="AudioStream" uid="uid://dtdxyxpup2yay" path="res://Assets/AI/ganhou vida extra.wav" id="29_iscng"]
 [ext_resource type="AudioStream" uid="uid://c61m3rovm1qno" path="res://Assets/AI/opa você antingiu o pylon.wav" id="29_mc2c1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_81eeb"]
@@ -116,7 +117,7 @@ _data = {
 
 [sub_resource type="Gradient" id="Gradient_sn12s"]
 offsets = PackedFloat32Array(0.161039, 0.883117)
-colors = PackedColorArray(0.0265699, 0.247526, 1, 0.556863, 0, 0, 0.85098, 0.929412)
+colors = PackedColorArray(0.027451, 0.247059, 1, 0.65098, 0, 0, 0.85098, 0.356863)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hly8f"]
 gradient = SubResource("Gradient_sn12s")
@@ -1340,8 +1341,21 @@ bus = &"SFX"
 stream = ExtResource("24_ecyhg")
 bus = &"SFX"
 
+[node name="passe com a asa inclinada3" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("28_48my4")
+bus = &"SFX"
+
+[node name="passe com a asa inclinada2" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("28_48my4")
+bus = &"SFX"
+
 [node name="passe com a asa inclinada" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("28_48my4")
+bus = &"SFX"
+
+[node name="ganhou vida extra" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("29_iscng")
+pitch_scale = 1.03
 bus = &"SFX"
 
 [node name="opa você atingiu o pylon" type="AudioStreamPlayer" parent="Audio"]
