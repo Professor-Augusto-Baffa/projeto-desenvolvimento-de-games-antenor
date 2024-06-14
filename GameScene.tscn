@@ -825,8 +825,9 @@ z_index = 7
 
 [node name="BannerLabel" type="Label" parent="HUD/End"]
 z_index = 15
+offset_top = 80.0
 offset_right = 1152.0
-offset_bottom = 488.0
+offset_bottom = 568.0
 label_settings = SubResource("LabelSettings_20fxy")
 horizontal_alignment = 1
 vertical_alignment = 1
