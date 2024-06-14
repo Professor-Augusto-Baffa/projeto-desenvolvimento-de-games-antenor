@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://damkuxvco8j2r"]
+[gd_scene load_steps=75 format=3 uid="uid://damkuxvco8j2r"]
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_e3g2t"]
 [ext_resource type="Script" path="res://Plane.cs" id="1_jtgnp"]
@@ -28,9 +28,12 @@
 [ext_resource type="AudioStream" uid="uid://cvb5oatsa2vbe" path="res://Assets/ExtraTime.mp3" id="23_anqco"]
 [ext_resource type="AudioStream" uid="uid://djlcdv3auv8dm" path="res://Assets/powerdown.wav" id="24_ecyhg"]
 [ext_resource type="Texture2D" uid="uid://dhrvcde1w5td7" path="res://Assets/AI/BG.png" id="26_nhcc5"]
+[ext_resource type="AudioStream" uid="uid://dmfjhd8cq5rgw" path="res://Assets/AI/trinta segundos a mais.wav" id="28_0aq6j"]
 [ext_resource type="AudioStream" uid="uid://b3xl2aouudy6t" path="res://Assets/AI/passe com a asa inclinada.wav" id="28_48my4"]
+[ext_resource type="AudioStream" uid="uid://bwmylrw3tl3vg" path="res://Assets/AI/perdeu trinta segundos.wav" id="29_il8mk"]
 [ext_resource type="AudioStream" uid="uid://dtdxyxpup2yay" path="res://Assets/AI/ganhou vida extra.wav" id="29_iscng"]
 [ext_resource type="AudioStream" uid="uid://c61m3rovm1qno" path="res://Assets/AI/opa você antingiu o pylon.wav" id="29_mc2c1"]
+[ext_resource type="AudioStream" uid="uid://cocb2vif4pvac" path="res://Assets/BGM LOOP_BASS.mp3" id="33_l2vgu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_81eeb"]
 font_size = 21
@@ -296,10 +299,54 @@ tracks/0/keys = {
 "update": 1,
 "values": ["Aperte <esc> novamente para continuar"]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BG:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_adbyq"]
+resource_name = "PauseFadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0823529), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1xjus"]
+resource_name = "PauseFadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.105882)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6k88f"]
 _data = {
 "PauseAnimation": SubResource("Animation_304km"),
+"PauseFadeIn": SubResource("Animation_adbyq"),
+"PauseFadeOut": SubResource("Animation_1xjus"),
 "RESET": SubResource("Animation_jdfw8")
 }
 
@@ -1307,7 +1354,6 @@ ArrowTexture = ExtResource("13_31qsm")
 [node name="MainBGM" type="AudioStreamPlayer" parent="Audio"]
 process_mode = 3
 stream = ExtResource("15_oynnh")
-autoplay = true
 
 [node name="LOSE" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("15_vafty")
@@ -1341,12 +1387,14 @@ bus = &"SFX"
 stream = ExtResource("24_ecyhg")
 bus = &"SFX"
 
-[node name="passe com a asa inclinada3" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("28_48my4")
+[node name="ganhou 30 segundos" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("28_0aq6j")
+pitch_scale = 1.04
 bus = &"SFX"
 
-[node name="passe com a asa inclinada2" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("28_48my4")
+[node name="perdeu 30 segundos" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("29_il8mk")
+pitch_scale = 0.96
 bus = &"SFX"
 
 [node name="passe com a asa inclinada" type="AudioStreamPlayer" parent="Audio"]
@@ -1361,6 +1409,11 @@ bus = &"SFX"
 [node name="opa você atingiu o pylon" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("29_mc2c1")
 bus = &"SFX"
+
+[node name="MainBGMBass" type="AudioStreamPlayer" parent="Audio"]
+process_mode = 3
+stream = ExtResource("33_l2vgu")
+autoplay = true
 
 [node name="MainBG" type="TextureRect" parent="."]
 modulate = Color(0.203922, 0.25098, 0.380392, 1)

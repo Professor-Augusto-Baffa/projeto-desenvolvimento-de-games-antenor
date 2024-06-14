@@ -10,7 +10,7 @@ public partial class TimePowerDown : TimePowerUp
 			GetNode<Game>("/root/Game").RemainingTime -= 30;
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/LessTime").Play();
 			var b = GetNode<Banner>("/root/Banner");
-			b.showUpperBanner("Perdeu 30 segundos!", bad: true);
+			b.showUpperBanner("Perdeu 30 segundos!", bad: true, AudioName: "perdeu 30 segundos");
 			QueueFree();
 		}
 	}

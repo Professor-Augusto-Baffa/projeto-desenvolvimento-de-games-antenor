@@ -10,7 +10,7 @@ public partial class TimePowerUp : Area2D
 			GetNode<Game>("/root/Game").RemainingTime += 30;
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/ExtraTime").Play();
 			var b = GetNode<Banner>("/root/Banner");
-			b.showUpperBanner("Ganhou 30 segundos!");
+			b.showUpperBanner("Ganhou 30 segundos!", AudioName: "ganhou 30 segundos");
 			QueueFree();
 		}
 	}

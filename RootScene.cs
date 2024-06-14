@@ -5,12 +5,23 @@ public partial class RootScene : Node2D
 {
 	private bool firstTime = true;
 	private bool isPauseDisabled = true;
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Ready()
+	{
+		// GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Visible = true;
+		// GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Modulate = new Color(0,0,0,0);
+	}
 	public override void _Process(double delta)
 	{
 		if (Input.IsActionJustPressed("esc") && !isPauseDisabled) {
-			GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Visible = !GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Visible;
 			GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/Pause/PauseAnimation").Play("PauseAnimation");
+			if (!GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused) {
+				GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/Pause/PauseAnimation").Play("PauseFadeIn");
+			}
+			else {
+				GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/Pause/PauseAnimation").Play("PauseFadeOut");
+			}
+			
+			GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Visible = !GetNode<Node2D>("/root/RootScene/GameScene/HUD/Pause").Visible;
 			GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused = !GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").StreamPaused;
 			GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused = !GetNode<Node>("/root/RootScene/GameScene").GetTree().Paused;
 		}
@@ -47,7 +58,9 @@ public partial class RootScene : Node2D
 						GetNode<AnimationPlayer>("/root/RootScene/GameScene/HUD/CenterSquare/AnimationPlayer").Stop();
 						GetNode<Area2D>("/root/RootScene/GameScene/HUD/CenterSquare").QueueFree();
 						isPauseDisabled = false;
-						// GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play();
+						var playPosition = GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGMBass").GetPlaybackPosition();
+						GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGMBass").Stop();
+						GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM").Play(playPosition);
 					};
 				}
 			}

@@ -86,7 +86,7 @@ public partial class Plane : Area2D
     private void HandleBGMPitch(float magnitude)
     {
 		var bgm = GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/MainBGM");
-		bgm.PitchScale = Util.MapRange(magnitude, 60, 900, 0.8f, 2);
+		bgm.PitchScale = Util.MapRange(magnitude, 40, 500, 0.8f, 1.5f);
     }
     private float HandleInput()
     {
