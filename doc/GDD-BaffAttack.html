@@ -154,14 +154,14 @@ font-size: 1em;
 }
 
 table {
-text-align: justify;
+text-align: left;
 width: 100%;
 border-collapse: collapse;
 margin-bottom: 2rem;
 }
 td, th {
 padding: 0.5em;
-border-bottom: 1px solid #f1f1f1;
+border: 1px solid #b0b0b0;
 }
 
 input, textarea {
@@ -259,7 +259,7 @@ O Sky Jinx é semelhante ao BaffAttack pelo tema de aviação e pela mecânica d
 Ski Free (Windows 3.1)
 </h3>
 <p>
-Pode parecer um jogo diferente à primeira vista, já que não é na temática de aviões, mas compartilha a mecânica de desvio de obstáculos e percurso pré-estabelecido. No “Ski Free”, o jogador controla um esquiador que deve descer uma montanha enquanto evita obstáculos como árvores e outros esquiadores. Igual ao meu jogo, a posição do mouse para esquerda ou direita move o personagem. A necessidade de reflexos rápidos para desviar dos obstáculos tornam Ski Free um jogo similar, apesar da diferença no tema.
+Pode parecer um jogo diferente à primeira vista, já que não é na temática de aviões, mas compartilha a mecânica de desvio de obstáculos e percurso pré-estabelecido. No “Ski Free”, o jogador controla um esquiador que deve descer uma montanha enquanto evita obstáculos como árvores e outros esquiadores. Igual ao meu jogo, a posição do mouse para esquerda ou direita move o personagem.
 </p>
 </div>
 </div>
@@ -315,6 +315,8 @@ Swing Copters é um jogo bem mais atual que, assim como este jogo, exige precis�
 <p>No Air gate estreito, as regras anteriores também valem, mas uma dificuldade extra é adicionada. Quando estiver passando, o avião deve estar com as asas inclinadas, mais precisamente com <code>abs(R) &gt;= R_max / 2</code>. O significado de R e R_max foi explicado anteriormente. Caso esta regra seja descumprida, são descontados 50 pontos. O desconto é cumulativo, então, caso o avião passe em voo nivelado e atinja um dos cones, são perdidos 150 pontos.</p>
 <h2 id="power-updown">Power up/down</h2>
 <p>O jogo dura 5 minutos, mas aparecem em posições aleatórias do mapa “power-ups” de tempos que dão 30 segundos extras caso o avião passe por cima de um. Este possui a cor verde. Caso esteja na cor vermelha é descontado 1 minuto. Ambos os power-ups desaparecem ao serem passados.</p>
+<h2 id="extrahealth">ExtraHealth</h2>
+<p>Existe também um power up que, caso o avião atravesse-o, é dada uma vida extra.</p>
 <h2 id="caminho">Caminho</h2>
 <p>O avião deve seguir a ordem de “airgates” mantendo-se dentro de um caminho pre-estabelecido. A cada delta, a distância do avião ao caminho é calculada. A partir de um limiar, o jogador começa a perder ponto em uma razão proporcional à distância do caminho. Caso ele fique muito longe, em poucos segundos seu escore chega a zero e ele perde.</p>
 <h2 id="término-do-jogo">Término do jogo</h2>
@@ -442,7 +444,7 @@ else
 <p>Existem eventos que aumentam ou diminuem a pontuação e/ou vidas do jogador.</p>
 <table>
 <tr>
-<td>
+<td style="width: 20%;">
 <b>Evento</b>
 </td>
 <td>
@@ -454,7 +456,7 @@ else
 Passar por cima da seta que indica o caminho
 </td>
 <td>
-Ganha <good>10 pontos</good> independemente do nível. Mas quanto mais difícil o nível mais espaçadas ficam as setas
+Ganha <good>10 pontos</good> independente do nível. Mas quanto mais difícil o nível mais espaçadas ficam as setas
 </td>
 </tr>
 <tr>
@@ -462,20 +464,30 @@ Ganha <good>10 pontos</good> independemente do nível. Mas quanto mais difícil 
 Passar pelo Airgate no sentido correto
 </td>
 <td>
-Ganha <good>v - d</good>. Em que “v” é velocidade atual do avião e “d” a distância entre o avião e o path no momento da passagem.
+Ganha <good>v - d</good>. Em que “v” é a velocidade atual do avião e “d” a distância entre o avião e o path no momento da passagem. Isto incentiva o jogador a passar pelo centro do AirGate.
 </td>
 </tr>
 <tr>
 <td>
-Passar pelo Airgate Narrow no sentido correto e inclinação da asa superior a 1 (abs(HeadingSpeed) &gt; 1)
+Passar pelo Airgate ou Airgate Narrow no sentido incorreto.
 </td>
 <td>
-Ganha <good>3 * (v - d)</good>. Em que “v” é velocidade atual do avião e “d” a distância entre o avião e o path no momento da passagem.
+Perde <bad>uma vida</bad>.
 </td>
 </tr>
 <tr>
 <td>
-Passar pelo Airgate Narrow no sentido correto, mas sem inclinação de asa (abs(HeadingSpeed) &lt;= 1)
+<p>Passar pelo Airgate Narrow no sentido correto e com inclinação da asa. Na seção “Controle” foi falado o significado de “R” e “R_max”.</p>
+<pre><code>abs(R) &gt;= R_max / 2</code></pre>
+</td>
+<td>
+Ganha <good>3 * (v - d)</good>. Em que “v” é a velocidade atual do avião e “d” a distância entre o avião e o path no momento da passagem.
+</td>
+</tr>
+<tr>
+<td>
+<p>Passar pelo Airgate Narrow no sentido correto, mas sem inclinação de asa</p>
+<pre><code>abs(R) &lt; R_max / 2</code></pre>
 </td>
 <td>
 Perde <bad>100 pontos</bad> e uma vida.
@@ -491,7 +503,7 @@ Perde <bad>100 * LoseHealthSpeed pontos</bad> e <bad>LoseHealthSpeed vidas</bad>
 </tr>
 <tr>
 <td>
-A aeronave ficar a uma distância do path ao quadrado maior que 10000
+A aeronave ficar a uma distância ao quadrado do path maior que 10000. É usada a d^2, porque a raiz quadrada é custosa computacionalmente.
 </td>
 <td>
 A cada 20 ticks do “process” perde <bad>uma, duas ou três vidas</bad> dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.
@@ -499,7 +511,7 @@ A cada 20 ticks do “process” perde <bad>uma, duas ou três vidas</bad> depen
 </tr>
 <tr>
 <td>
-A aeronave ficar a uma distância do path ao quadrado maior que 50000
+A aeronave ficar a uma distância ao quadrado do path maior que 50000
 </td>
 <td>
 A cada 20 ticks do “process” perde <bad>três, quatro ou cinco vidas</bad> dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.
@@ -507,7 +519,7 @@ A cada 20 ticks do “process” perde <bad>três, quatro ou cinco vidas</bad> d
 </tr>
 <tr>
 <td>
-A aeronave ficar a uma distância do path ao quadrado maior que 100000
+A aeronave ficar a uma distância ao quadrado do path maior que 100000
 </td>
 <td>
 A cada 20 ticks do “process” perde <bad>cinco, seis ou sete vidas</bad> dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.

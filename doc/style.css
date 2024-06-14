@@ -164,7 +164,7 @@ html {
   
   /* Tables */
   table {
-    text-align: justify;
+    text-align: left;
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 2rem;
@@ -172,7 +172,7 @@ html {
   
   td, th {
     padding: 0.5em;
-    border-bottom: 1px solid #f1f1f1;
+    border: 1px solid #b0b0b0;
   }
   
   /* Buttons, forms and input */
