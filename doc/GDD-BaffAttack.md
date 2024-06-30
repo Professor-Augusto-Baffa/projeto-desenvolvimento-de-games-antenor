@@ -249,7 +249,7 @@ else
 - O número inicial de vidas do jogador.
 - Impacto: Menos vidas aumentam a dificuldade, pois erros são menos tolerados.
 - Valores:
-    - Easy: 8
+    - Easy: 10
     - Medium: 6
     - Hard: 4
 
