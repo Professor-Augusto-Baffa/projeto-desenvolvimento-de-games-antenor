@@ -1,0 +1,29 @@
+\section*{Sistema de pontuação}
+Existem eventos que aumentam ou diminuem a pontuação e/ou vidas do jogador.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{0.25\textwidth}|p{0.75\textwidth}|}
+\hline
+\textbf{Evento} & \textbf{Consequência} \\
+\hline
+\hspace{0.1cm}\vspace{0.1cm}Passar por cima da seta que indica o caminho & Ganha \textcolor{green}{10 pontos} independente do nível. Mas quanto mais difícil o nível mais espaçadas ficam as setas.\hspace{0.1cm}\vspace{0.1cm} \\
+\hline
+\hspace{0.1cm}\vspace{0.1cm}Passar pelo Airgate no sentido correto & Ganha \textcolor{green}{v - d}. Em que "v" é a velocidade atual do avião e "d" a distância entre o avião e o path no momento da passagem. Isto incentiva o jogador a passar pelo centro do AirGate.\hspace{0.1cm}\vspace{0.1cm} \\
+\hline
+\hspace{0.1cm}\vspace{0.1cm}Passar pelo Airgate ou Airgate Narrow no sentido incorreto & Perde \textcolor{red}{uma vida}.\hspace{0.1cm}\vspace{0.1cm} \\
+\hline
+\hspace{0.1cm}\vspace{0.1cm}Passar pelo Airgate Narrow no sentido correto e com inclinação da asa. & Ganha \textcolor{green}{3 * (v - d)}. Em que "v" é a velocidade atual do avião e "d" a distância entre o avião e o path no momento da passagem.\hspace{0.1cm}\vspace{0.1cm} \\
+\hline
+\hspace{0.1cm}\vspace{0.1cm}Passar pelo Airgate Narrow no sentido correto, mas sem inclinação de asa & Perde \textcolor{red}{100 pontos} e uma vida.\hspace{0.1cm}\vspace{0.1cm} \\
+\hline
+\hspace{0.1cm}\vspace{0.1cm}Atingir um pylon de um AirGate ou AirGate Narrow & Perde \textcolor{red}{100 * LoseHealthSpeed pontos} e \textcolor{red}{LoseHealthSpeed vidas}. Sendo LoseHealthSpeed um, dois ou três, dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.\hspace{0.1cm}\vspace{0.1cm} \\
+\hline
+\hspace{0.1cm}\vspace{0.1cm}A aeronave ficar a uma distância ao quadrado do path maior que 10000. & A cada 20 ticks do "process" perde \textcolor{red}{uma, duas ou três vidas} dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.\hspace{0.1cm}\vspace{0.1cm} \\
+\hline
+\hspace{0.1cm}\vspace{0.1cm}A aeronave ficar a uma distância ao quadrado do path maior que 50000 & A cada 20 ticks do "process" perde \textcolor{red}{três, quatro ou cinco vidas} dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.\hspace{0.1cm}\vspace{0.1cm} \\
+\hline
+\hspace{0.1cm}\vspace{0.1cm}A aeronave ficar a uma distância ao quadrado do path maior que 100000 & A cada 20 ticks do "process" perde \textcolor{red}{cinco, seis ou sete vidas} dependendo se o nível do jogo é fácil, médio ou difícil, respectivamente.\hspace{0.1cm}\vspace{0.1cm} \\
+\hline
+\end{tabular}
+\end{table}

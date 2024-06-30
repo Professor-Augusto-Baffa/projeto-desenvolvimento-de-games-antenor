@@ -1,0 +1,110 @@
+\chapter{Dificuldades}
+Há três níveis de dificuldade no BaffaAttack:
+\begin{itemize}
+    \item Easy
+    \item Medium
+    \item Hard
+\end{itemize}
+
+Eles são ajustados por diferentes parâmetros definidos na classe \texttt{Levels} (\texttt{Levels.cs}). As outras classes buscam na \texttt{Levels} estes parâmetros para se configurarem.
+
+\section*{Parâmetros de Dificuldade}
+\subsection*{Speed (Velocidade)}
+Velocidade inicial do avião no início do jogo. Ela pode ser ajustada para um valor dentro dos limites MinSpeed e MaxSpeed.
+\begin{itemize}
+    \item Easy: 150
+    \item Medium: 200
+    \item Hard: 300
+\end{itemize}
+
+\subsection*{MaxSpeed (Velocidade Máxima)}
+Descrição: A velocidade máxima que o avião pode atingir.
+Impacto: Limita o quão rápido o avião pode ir. É igual para todos os níveis. Com o avião mais rápido o jogador consegue pegar mais pontos em menos tempo, mas o controle fica mais difícil. Em velocidade superiores a 500 é praticamente impossível controlar o avião.
+\begin{itemize}
+    \item Easy: 900
+    \item Medium: 900
+    \item Hard: 900
+\end{itemize}
+
+\subsection*{MinSpeed (Velocidade Mínima)}
+A velocidade mínima que o avião pode manter.
+Impacto: Velocidades mínimas mais altas aumentam a dificuldade, pois o jogador tem menos margem para passar no AirGate. 
+No Airgate Narrow uma velocidade maior significa a necessidade de uma maior destreza para inclinar rapidamente a asa e depois nivela-la novamente.
+\begin{itemize}
+    \item Easy: 60
+    \item Medium: 80
+    \item Hard: 300
+\end{itemize}
+
+\subsection*{LoseHealthSpeed (Velocidade de perda de vidas)}
+A taxa com que o jogador perde vidas ao ficar muito longe do caminho ou atingir um pylon.
+\begin{itemize}
+    \item Easy: 1
+    \item Medium: 2
+    \item Hard: 3
+\end{itemize}
+
+Para todos os níveis quando o jogador sai do path o seguinte algoritmo é aplicado:
+
+\begin{verbatim}
+int loseHealthSpeed = Levels.getLevelInfo(Levels.Info.LoseHealthSpeed);
+if (distance < 10000)
+{
+    t = 0;
+}
+else if (distance < 50000)
+{
+    if (t > 20)
+    {
+        t = 0;
+        GetNode<Game>("/root/Game").Health -= loseHealthSpeed;
+    }
+    else
+    {
+        t++;
+    }
+}
+else if (distance < 100000)
+{
+    if (t > 20)
+    {
+        t = 0;
+        GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 2;
+    }
+    else
+    {
+        t++;
+    }
+}
+else
+{
+    if (t > 20)
+    {
+        t = 0;
+        GetNode<Game>("/root/Game").Health -= loseHealthSpeed + 4;
+    }
+    else
+    {
+        t++;
+    }
+}
+\end{verbatim}
+
+\subsection*{ArrowInterval (Intervalo de Setas)}
+A distância entre dois ícones de setas que ajudam o jogador a ficar no caminho.
+Impacto: Intervalos maiores dificultam a manutenção do avião no caminho, pois há menos orientação visual.
+\begin{itemize}
+    \item Easy: 20
+    \item Medium: 40
+    \item Hard: 60
+\end{itemize}
+
+\subsection*{InitialHealth (Vida Inicial)}
+O número inicial de vidas do jogador.
+Impacto: Menos vidas aumentam a dificuldade, pois erros são menos tolerados.
+\begin{itemize}
+    \item Easy: 10
+    \item Medium: 6
+    \item Hard: 4
+\end{itemize}
+
