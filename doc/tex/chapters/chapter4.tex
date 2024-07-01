@@ -66,7 +66,7 @@ private void Explode(Area2D area, String leftOrRight) {
         GetNode<Godot.Timer>("Gate" + leftOrRight + "/ExplosionTimer").Start();
         GetNode<AudioStreamPlayer>("/root/RootScene/GameScene/Audio/FireSFX").Play();
         var b = GetNode<Banner>("/root/Banner");
-        b.showUpperBanner("Atingiu o pylon!", bad: true, "opa você atingiu o pylon", 0.5, 3);
+        b.showUpperBanner("Atingiu o pylon!", bad: true, "opa voce atingiu o pylon", 0.5, 3);
     }
 }
 \end{lstlisting}
